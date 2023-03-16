@@ -253,7 +253,7 @@ div.csl-indent {
 <section id="definition" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="definition"><span class="header-section-number">3.1</span> Definition</h2>
 <p>Consider an infinite 1 D chain, with nodes marked by <span class="math inline">\(\mathbb{Z}\)</span>.</p>
-<div class="cell" data-execution_count="2">
+<div class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display" data-execution_count="3">
 <div id="fig-onedchain" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
@@ -280,10 +280,10 @@ div.csl-indent {
 <h2 data-number="3.2" class="anchored" data-anchor-id="multiple-walkers"><span class="header-section-number">3.2</span> Multiple Walkers</h2>
 <p>The SSRW is clearly a stochastic process, and each run of this process will lead to different paths being chosen by the walker, and we are my interested in what the walker does on an average rather than what happens in a particular instance. Thus, we can observe multiple walks, and plot their paths to visualize how they would spread.</p>
 <p>In order to simulate a walk, we sample <span class="math inline">\(X_i \in \{-1, 1\}\)</span> with equal probability, and add it to the previous position <span class="math inline">\(S_{i-1}\)</span> to get <span class="math inline">\(S_i\)</span>. Note <span class="math inline">\(S_0 = 0\)</span>. Thus, this is equivalent to sampling from <code>[1, -1]</code> uniformly <code>t</code> times and performing a cumulative sum. For <code>n</code> walkers, we can sample <code>(t, n)</code> such random numbers, and do a cumulative sum along the first dimension.</p>
-<div class="cell" data-execution_count="3">
+<div class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>bm <span class="op">=</span> <span class="fu">cumsum</span>(<span class="fu">rand</span>([<span class="fl">1</span>, <span class="op">-</span><span class="fl">1</span>], (<span class="fl">200</span>, <span class="fl">15</span>)), dims<span class="op">=</span><span class="fl">1</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="4">
+<div class="cell" data-execution_count="5">
 <div id="fig-cwm" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <!--?xml version="1.0" encoding="utf-8"?-->
@@ -368,7 +368,7 @@ div.csl-indent {
 <section id="probability-mass-function" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="probability-mass-function"><span class="header-section-number">3.3</span> Probability mass function</h2>
 <p>Another common way to visualize the walk is to plot the probability that the walker is on node <span class="math inline">\(i\)</span> at time <span class="math inline">\(t\)</span>. For this, we simply define the transition matrix and <span class="math inline">\(\lambda\)</span> appropriately and find <span class="math inline">\(\lambda P^t\)</span>. Note however that the transition matrix for the SSRW is Tridiagonal with the Upper and Lower diagonals as 0.5 and the diagonal as 0, and there exist efficient storage and multiplication routines. Also, since we can only store a finite matrix, we limit the walk to some size. At the boundaries, we simply allow open conditions, because this is the easiest to implement.</p>
-<div class="cell" data-execution_count="5">
+<div class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>cps, cps_t <span class="op">=</span> <span class="kw">let</span> </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    t <span class="op">=</span> <span class="fl">21</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    U <span class="op">=</span> <span class="fu">SymTridiagonal</span>(<span class="fu">fill</span>(<span class="fl">0</span>., <span class="fl">31</span>), <span class="fu">fill</span>(<span class="fl">0.5</span>, <span class="fl">30</span>))</span>
@@ -379,7 +379,7 @@ div.csl-indent {
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span>[t<span class="op">÷</span><span class="fl">3</span><span class="op">:</span>t<span class="op">÷</span><span class="fl">3</span><span class="op">:</span>t], t<span class="op">÷</span><span class="fl">3</span></span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="6">
+<div class="cell" data-execution_count="7">
 <div id="fig-cwp" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <!--?xml version="1.0" encoding="utf-8"?-->

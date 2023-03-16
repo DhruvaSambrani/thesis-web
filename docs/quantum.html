@@ -310,33 +310,33 @@ Other Boundary Conditions
 <h3 data-number="4.3.1" class="anchored" data-anchor-id="matrix-formalism"><span class="header-section-number">4.3.1</span> Matrix formalism</h3>
 <p>The first and more immediate method is to simply write down the matrix equivalent of the above operations. For the visualization of the implementations, we will assume that the walk occurs in a 1 D chain of size 4.</p>
 <p>The coin is prefered to be in the <span class="math inline">\(\frac{1}{\sqrt2}(|0\rangle + i |1\rangle)\)</span> when we start so that the walk proceeds symmetrically<span class="citation" data-cites="portugal_quantum_2018"><sup><a href="references.html#ref-portugal_quantum_2018" role="doc-biblioref">1</a></sup></span>.</p>
-<div class="cell" data-execution_count="2">
+<div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>init_coin <span class="op">=</span> <span class="fl">1</span><span class="op">/</span>√<span class="fl">2</span> <span class="op">*</span> (<span class="fu">ket</span>(<span class="fl">1</span>,<span class="fl">2</span>) <span class="op">-</span> <span class="fl">1im</span> <span class="op">*</span> <span class="fu">ket</span>(<span class="fl">2</span>,<span class="fl">2</span>));</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The coin operator is trivial to write,</p>
-<div class="cell" data-execution_count="3">
+<div class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>H <span class="op">=</span> <span class="fu">KrausOperators</span>([<span class="fu">sparse</span>(<span class="fu">hadamard</span>(<span class="fl">2</span>)<span class="fu">⊗I</span>(<span class="fl">4</span>))]);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The left and right shift operators can be defined in the following manner.</p>
-<div class="cell" data-execution_count="4">
+<div class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>R <span class="op">=</span> <span class="fu">collect</span>(<span class="fu">Tridiagonal</span>(<span class="fu">fill</span>(<span class="fl">1</span>., <span class="fl">3</span>), <span class="fu">zeros</span>(<span class="fl">4</span>), <span class="fu">zeros</span>(<span class="fl">3</span>)))</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>R[<span class="fl">1</span>, <span class="kw">end</span>] <span class="op">=</span> <span class="fl">1</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>L <span class="op">=</span> <span class="fu">collect</span>(<span class="fu">Tridiagonal</span>(<span class="fu">zeros</span>(<span class="fl">3</span>), <span class="fu">zeros</span>(<span class="fl">4</span>), <span class="fu">fill</span>(<span class="fl">1</span>., <span class="fl">3</span>)))</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>L[<span class="kw">end</span>, <span class="fl">1</span>] <span class="op">=</span> <span class="fl">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Thus the shift operator is defined as</p>
-<div class="cell" data-execution_count="5">
+<div class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>S <span class="op">=</span> <span class="fu">KrausOperators</span>([<span class="fu">sparse</span>(<span class="fu">proj</span>(<span class="fu">ket</span>(<span class="fl">1</span>, <span class="fl">2</span>)) <span class="op">⊗</span> L <span class="op">+</span> <span class="fu">proj</span>(<span class="fu">ket</span>(<span class="fl">2</span>, <span class="fl">2</span>)) <span class="op">⊗</span> R)]);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Thus, we can repeatedly apply <span class="math inline">\(S\circ H\)</span> to the initial state and accumulate the results.</p>
-<div class="cell" data-execution_count="6">
+<div class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>init_state <span class="op">=</span> <span class="fu">proj</span>(init_coin <span class="op">⊗</span> <span class="fu">ket</span>(<span class="fl">2</span>,<span class="fl">4</span>))</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>ψ <span class="op">=</span> [[init_state]; <span class="fu">accumulate</span>(<span class="fl">1</span><span class="op">:</span><span class="fl">40</span>, init<span class="op">=</span>init_state) do old, _</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">H</span>(<span class="fu">S</span>(old))</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span>];</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now we can plot the readout statistics by partially tracing out the coin, and plotting the diagonal. The following is a walk on 61 nodes.</p>
-<div class="cell" data-execution_count="7">
+<div class="cell" data-execution_count="8">
 <div id="fig-quant" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <!--?xml version="1.0" encoding="utf-8"?-->
@@ -537,7 +537,7 @@ Quantum Walks are not random
 <li>From the Quantum adder circuit, we can set one input to be <span class="math inline">\((0)_{n-1}1\)</span> and reduce the circuit to get the Quantum AddOne circuit. Shown below is the circuit for $n=4 $ <span class="math inline">\((N=16)\)</span></li>
 <li>We can similarly construct the SubOne circuit, but that is simplified by noting that the subone circuit is simply the inverse of the addone circuit, and this corresponds to just inverting the circuit (all gates are unitary).”“”</li>
 </ul>
-<div class="cell" data-execution_count="8">
+<div class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rightshift</span>(n) <span class="op">=</span> <span class="fu">chain</span>(</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    n, </span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">map</span>(n<span class="op">:-</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span>) <span class="cf">do</span> i</span>
@@ -546,7 +546,7 @@ Quantum Walks are not random
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">leftshift</span>(n) <span class="op">=</span> <span class="fu">rightshift</span>(n)<span class="ch">';</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="9">
+<div class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>YaoPlots.<span class="fu">plot</span>(<span class="fu">rightshift</span>(<span class="fl">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
 <div id="fig-rightshift" class="quarto-figure quarto-figure-center anchored">
@@ -557,7 +557,7 @@ Quantum Walks are not random
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="10">
+<div class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>YaoPlots.<span class="fu">plot</span>(<span class="fu">leftshift</span>(<span class="fl">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="11">
 <div id="fig-leftshift" class="quarto-figure quarto-figure-center anchored">
@@ -569,7 +569,7 @@ Quantum Walks are not random
 </div>
 </div>
 <p>The controlled shift operation is encoded as</p>
-<div class="cell" data-execution_count="11">
+<div class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shift</span>(n) <span class="op">=</span> <span class="fu">chain</span>(n<span class="op">+</span><span class="fl">1</span>,</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">control</span>(<span class="fl">1</span>, <span class="fl">2</span><span class="op">:</span>n<span class="op">+</span><span class="fl">1</span> <span class="op">=&gt;</span> <span class="fu">rightshift</span>(n)),</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">put</span>(<span class="fl">1</span> <span class="op">=&gt;</span> X),</span>
@@ -591,7 +591,7 @@ Quantum Walks are not random
 <section id="coin-operator" class="level4" data-number="4.3.2.4">
 <h4 data-number="4.3.2.4" class="anchored" data-anchor-id="coin-operator"><span class="header-section-number">4.3.2.4</span> Coin operator</h4>
 <p>We can add the coin operator as usual on the first rail.</p>
-<div class="cell" data-execution_count="12">
+<div class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coin</span>(n, c<span class="op">=</span>Yao.H) <span class="op">=</span> <span class="fu">chain</span>(n<span class="op">+</span><span class="fl">1</span>, <span class="fu">put</span>(<span class="fl">1</span> <span class="op">=&gt;</span> c))</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>YaoPlots.<span class="fu">plot</span>(<span class="fu">coin</span>(<span class="fl">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
@@ -608,7 +608,7 @@ Quantum Walks are not random
 <h4 data-number="4.3.2.5" class="anchored" data-anchor-id="evolve-circuit"><span class="header-section-number">4.3.2.5</span> Evolve Circuit</h4>
 <p>Putting these together, we get the operation for a single step of the evolution as below. Note that the top qubit rail is that of the coin, and the rest are those of the simulation of the system.</p>
 <p>This circuit can be repeated to acheive any number of steps.</p>
-<div class="cell" data-execution_count="13">
+<div class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">evolve</span>(n) <span class="op">=</span> <span class="fu">shift</span>(n) <span class="op">*</span> <span class="fu">coin</span>(n)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>YaoPlots.<span class="fu">plot</span>(<span class="fu">evolve</span>(<span class="fl">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="14">
@@ -626,7 +626,7 @@ Quantum Walks are not random
 <p>While we can already simulate the walk, an very useful helper function that we can define is the prepare circuit.</p>
 <p>Quantum registers are often initialized to the 0 state, and it is also easy to restart the walk from the 0 state. However, we often like to start the walk in the center of the chain instead of at node 0. Also, the coin is prefered to be in the <span class="math inline">\(\frac{1}{\sqrt2}(|0\rangle + i |1\rangle)\)</span> when we start so that the walk proceeds symmetrically<span class="citation" data-cites="portugal_quantum_2018"><sup><a href="references.html#ref-portugal_quantum_2018" role="doc-biblioref">1</a></sup></span>.</p>
 <p>Hence, to perform these steps, we define the following <code>prepare</code> subroutine.</p>
-<div class="cell" data-execution_count="14">
+<div class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prepare</span>(n) <span class="op">=</span> <span class="fu">chain</span>(</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    n<span class="op">+</span><span class="fl">1</span>, </span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">put</span>(<span class="fl">1</span><span class="op">=&gt;</span>Yao.H), </span>
@@ -645,7 +645,7 @@ Quantum Walks are not random
 </div>
 </div>
 <p>Similarly plotting as before,</p>
-<div class="cell" data-execution_count="15">
+<div class="cell" data-execution_count="16">
 <div id="fig-qwcirc" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <!--?xml version="1.0" encoding="utf-8"?-->

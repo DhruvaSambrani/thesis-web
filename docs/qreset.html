@@ -273,7 +273,7 @@ div.csl-indent {
 <section id="computational-implementation" class="level2" data-number="7.2">
 <h2 data-number="7.2" class="anchored" data-anchor-id="computational-implementation"><span class="header-section-number">7.2</span> Computational Implementation</h2>
 <p>Implementations of <span class="math inline">\(\mathcal{U}, U, H\)</span> follow as before. The <span class="math inline">\(\mathcal{E}\)</span> operation is implemented as</p>
-<div class="cell" data-execution_count="2">
+<div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">€</span>(n, r₀)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    ks <span class="op">=</span> <span class="fu">map</span>(<span class="fl">1</span><span class="op">:</span>n) <span class="cf">do</span> i</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        (<span class="fl">1</span><span class="op">/</span>√n <span class="op">*</span> [<span class="fl">1</span> <span class="fl">0</span>; <span class="fl">0</span> <span class="fl">0</span>] <span class="op">⊗</span> (<span class="fu">S</span>(n)<span class="fu">*H</span>(n))) <span class="op">+</span></span>
@@ -283,14 +283,14 @@ div.csl-indent {
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The gammamard operation <span class="math inline">\(\Gamma\)</span> is defined as</p>
-<div class="cell" data-execution_count="3">
+<div class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Γ</span>(γ) <span class="op">=</span> [</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">√</span>(<span class="fl">1</span><span class="op">-</span>γ)  √γ;</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    √γ      <span class="fu">-√</span>(<span class="fl">1</span><span class="op">-</span>γ)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>];</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We take the initial reset coin to be <span class="math inline">\((S(-\pi/2)\circ\Gamma(\gamma))|0\rangle\)</span> for the same reason as in the quantum walk</p>
-<div class="cell" data-execution_count="4">
+<div class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">reset_init</span>(γ) <span class="op">=</span> [<span class="fl">1</span> <span class="fl">0</span>; <span class="fl">0</span> <span class="op">-</span><span class="fl">1im</span>]<span class="fu">*gammamard</span>(γ)<span class="fu">*ket</span>(<span class="fl">1</span>, <span class="fl">2</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -299,7 +299,7 @@ div.csl-indent {
 <section id="what-the-walk-looks-like" class="level3" data-number="7.3.1">
 <h3 data-number="7.3.1" class="anchored" data-anchor-id="what-the-walk-looks-like"><span class="header-section-number">7.3.1</span> What the walk looks like</h3>
 <p>For the specific choice of initial reset coin as <span class="math inline">\(1/\sqrt{2}\left(|0\rangle - i|1\rangle\right)\)</span> and <span class="math inline">\(\gamma=0.2\)</span>, the quantum reset walk looks like <a href="#fig-qrwalk">Figure&nbsp;<span>7.1</span></a>.</p>
-<div class="cell" data-execution_count="5">
+<div class="cell" data-execution_count="6">
 <div id="fig-qrwalk" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <!--?xml version="1.0" encoding="utf-8"?-->

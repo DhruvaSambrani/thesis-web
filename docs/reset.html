@@ -276,7 +276,7 @@ div.csl-indent {
     0 &amp; \text{otherwise}
 \end{cases}\]</span></p>
 <p>Thus, the new transition matrix is modelled as</p>
-<div class="cell" data-execution_count="2">
+<div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>γ <span class="op">=</span> <span class="fl">0.2</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>U1 <span class="op">=</span> <span class="fu">sparse</span>(<span class="fu">SymTridiagonal</span>(<span class="fu">fill</span>(<span class="fl">0</span>., <span class="fl">31</span>), <span class="fu">fill</span>(<span class="fl">0.5</span>, <span class="fl">30</span>)))</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>R <span class="op">=</span> <span class="fu">fill</span>(<span class="fl">0</span>., (<span class="fl">31</span>, <span class="fl">31</span>))</span>
@@ -284,7 +284,7 @@ div.csl-indent {
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>U <span class="op">=</span> <span class="fu">sparse</span>((<span class="fl">1</span><span class="op">-</span>γ) <span class="op">*</span> U1 <span class="op">+</span> γ <span class="op">*</span> R);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>where <code>U1</code> is the unchanged walk matrix and <code>R</code> is the reset matrix.</p>
-<div class="cell" data-execution_count="3">
+<div class="cell" data-execution_count="4">
 <div id="fig-cwsr" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <!--?xml version="1.0" encoding="utf-8"?-->
@@ -451,7 +451,7 @@ div.csl-indent {
 <p>In the quantum case, the evolution changes from unitary dynamics to a nonunitary CPTP map of the following form.</p>
 <p><span class="math display">\[O_{SR}(\rho) = (1-\gamma)\left(U\rho U^\dagger\right) + \gamma |r_0\rangle\langle r_0|\]</span></p>
 <p>where <span class="math inline">\(U\)</span> is the walk unitary.</p>
-<div class="cell" data-execution_count="4">
+<div class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">swqw</span>(n, γ)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    R <span class="op">=</span> <span class="fu">collect</span>(<span class="fu">Tridiagonal</span>(<span class="fu">fill</span>(<span class="fl">1</span>., n), <span class="fu">zeros</span>(n<span class="op">+</span><span class="fl">1</span>), <span class="fu">zeros</span>(n)))</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    R[<span class="fl">1</span>, <span class="kw">end</span>] <span class="op">=</span> <span class="fl">1</span></span>
@@ -479,7 +479,7 @@ div.csl-indent {
 <span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
 <span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="5">
+<div class="cell" data-execution_count="6">
 <div id="fig-qwsr" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <!--?xml version="1.0" encoding="utf-8"?-->
