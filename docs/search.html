@@ -636,10 +636,10 @@ Reduction to classical random walk with <span class="math inline">\(\tau=1\)</sp
 <h2 data-number="3.3" class="anchored" data-anchor-id="survival-probability"><span class="header-section-number">3.3</span> Survival probability</h2>
 <p>We can thus measure and plot the <span class="math inline">\(S_n - n\)</span> curve for the quantum and classical walks to compare the efficiency of these walks in the first hit problem.</p>
 <p>In previous work<span class="citation" data-cites="yin_restart_2022"><sup><a href="references.html#ref-yin_restart_2022" role="doc-biblioref">4</a></sup></span>, the analytical solution of the success rate as a function of time is found. An analytical result for discrete time walks is harder due to the nature of the walk. However we reproduce the results for the discrete time case computationally. <a href="#fig-barkai">Figure&nbsp;<span>3.2 (a)</span></a><span class="citation" data-cites="yin_restart_2022"><sup><a href="references.html#ref-yin_restart_2022" role="doc-biblioref">4</a></sup></span> shows the success rate for the continuous time quantum and classical walks, and <a href="#fig-discrete-4">Figure&nbsp;<span>3.2 (b)</span></a> and <a href="#fig-discrete-8">Figure&nbsp;<span>3.2 (c)</span></a> shows our results for the discrete time case.</p>
-<div id="fig-succ_prob" class="quarto-layout-panel">
+<div id="fig-succ_prob" class="quarto-layout-panel" width="50%">
 <figure class="figure">
 <div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 100.0%;justify-content: center;">
 <div id="fig-barkai" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="./images/11-26-00-48.png" class="quarto-discovered-preview-image img-fluid figure-img" data-ref-parent="fig-succ_prob"></p>
@@ -647,7 +647,9 @@ Reduction to classical random walk with <span class="math inline">\(\tau=1\)</sp
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 33.3%;justify-content: center;">
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
 <div id="fig-discrete-4" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="./images/bar_curves_qc-4.png" class="img-fluid figure-img" data-ref-parent="fig-succ_prob"></p>
@@ -655,7 +657,7 @@ Reduction to classical random walk with <span class="math inline">\(\tau=1\)</sp
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
 <div id="fig-discrete-8" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="./images/bar_curves_qc-4.png" class="img-fluid figure-img" data-ref-parent="fig-succ_prob"></p>
@@ -1318,7 +1320,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a>In previous work @yin_restart_2022, the analytical solution of the success rate as a function of time is found. An analytical result for discrete time walks is harder due to the nature of the walk. However we reproduce the results for the discrete time case computationally. @Fig-barkai @yin_restart_2022 shows the success rate for the continuous time quantum and classical walks, and @fig-discrete-4 and @fig-discrete-8 shows our results for the discrete time case.</span>
 <span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a>::: {#fig-succ_prob layout-ncol=3}</span>
+<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a>::: {#fig-succ_prob layout="[<span class="co">[</span><span class="ot">1</span><span class="co">]</span>, <span class="co">[</span><span class="ot">1,1</span><span class="co">]</span>]" width=50%}</span>
 <span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a><span class="al">![Success probability vs Time for both walks @yin_restart_2022](./images/11-26-00-48.png)</span>{#fig-barkai}</span>
 <span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a></span>
