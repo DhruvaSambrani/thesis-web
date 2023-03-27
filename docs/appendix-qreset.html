@@ -8,7 +8,7 @@
 
 <meta name="description" content="A dissertation submitted for the partial fulfilment of BS-MS dual degree in Science">
 
-<title>Quantum Walks and Resetting - 8&nbsp; Summary</title>
+<title>Quantum Walks and Resetting - Appendix C — Quantum Reset is a CPTP map</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,8 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
-<link href="./uqreset.html" rel="prev">
+<link href="./appendix-meas-is-markov.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -99,6 +98,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -111,7 +112,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./summary.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Summary</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./appendix-markov.html">Appendices</a></li><li class="breadcrumb-item"><a href="./appendix-qreset.html"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Quantum Reset is a CPTP map</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -212,7 +213,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./summary.html" class="sidebar-item-text sidebar-link active">
+  <a href="./summary.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
   </div>
 </li>
@@ -245,7 +246,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./appendix-qreset.html" class="sidebar-item-text sidebar-link">
+  <a href="./appendix-qreset.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Quantum Reset is a CPTP map</span></span></a>
   </div>
 </li>
@@ -264,7 +265,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span id="sec-summary" class="quarto-section-identifier"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Summary</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title"><span id="sec-appqreset" class="quarto-section-identifier">Appendix C — Quantum Reset is a CPTP map</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -279,7 +280,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>TODO: SUmmary, conclusion and future work</p>
+<p>We prove that the set of Kraus operators defined in <a href="qreset.html"><span>Chapter&nbsp;5</span></a> form a CPTP map.</p>
+<p>We are required to show that</p>
+<p><span class="math display">\[\sum_{i}\mathcal{E}_i^\dagger \mathcal{E}_i = \mathbf{1}\]</span></p>
+<p>We start by evaluating <span class="math display">\[\mathcal{E}_i^\dagger \mathcal{E}_i = |0\rangle\langle 0|\otimes I_2 \otimes \mathcal{R_i}^\dagger \mathcal{R_i} + \frac{1}{N}|1\rangle\langle 1| \otimes I_n = |0\rangle\langle 0|\otimes I_2 \otimes |i\rangle\langle i| + \frac{1}{N}|1\rangle\langle 1| \otimes I_n \]</span></p>
+<p>Summing over <span class="math inline">\(i\)</span></p>
+<p><span class="math display">\[\sum_{i} \mathcal{E}_i^\dagger \mathcal{E}_i = |0\rangle\langle 0 | \otimes I_2 \otimes I_n + |1\rangle\langle 1| \otimes I_2 \otimes I_n = I_{4n}\]</span></p>
+<p>We are done.</p>
 
 
 <!-- -->
@@ -701,19 +708,28 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./uqreset.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Unitary Quantum Reset Quantum Walk</span></span>
+      <a href="./appendix-meas-is-markov.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Measured Quantum Walk is Markov</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Summary {#sec-summary}</span></span>
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Quantum Reset is a CPTP map {#sec-appqreset}</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>TODO: SUmmary, conclusion and future work</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>We prove that the set of Kraus operators defined in @sec-qreset form a CPTP map.</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>We are required to show that </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>$$\sum_{i}\mathcal{E}_i^\dagger \mathcal{E}_i = \mathbf{1}$$</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>We start by evaluating $$\mathcal{E}_i^\dagger \mathcal{E}_i = |0\rangle\langle 0|\otimes I_2 \otimes \mathcal{R_i}^\dagger \mathcal{R_i} + \frac{1}{N}|1\rangle\langle 1| \otimes I_n = |0\rangle\langle 0|\otimes I_2 \otimes |i\rangle\langle i| + \frac{1}{N}|1\rangle\langle 1| \otimes I_n $$</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>Summing over $i$</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>$$\sum_{i} \mathcal{E}_i^\dagger \mathcal{E}_i = |0\rangle\langle 0 | \otimes I_2 \otimes I_n + |1\rangle\langle 1| \otimes I_2 \otimes I_n = I_{4n}$$</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>We are done.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

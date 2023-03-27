@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.276">
+<meta name="generator" content="quarto-1.3.290">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -91,10 +91,12 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -167,6 +169,7 @@ div.csl-indent {
           </li>
       </ul>
     </div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
     </div>
       </div>
@@ -243,6 +246,35 @@ div.csl-indent {
  <span class="menu-text">References</span></a>
   </div>
 </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-markov.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Markov Chains</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-meas-is-markov.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Measured Quantum Walk is Markov</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-qreset.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Quantum Reset is a CPTP map</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -295,7 +327,7 @@ div.csl-indent {
 \end{cases}\]</span></p>
 <p>where <span class="math inline">\(G \cup G^C = S\)</span> which is the search space. We are interested in developing an algorithm to output some <span class="math inline">\(x \in G\)</span> by querying <span class="math inline">\(f\)</span>.</p>
 <p>Naively, one can run a stochastic process over the domain <span class="math inline">\(G\cup G^C\)</span> and observe the system until we see an element in <span class="math inline">\(G\)</span>. The average time to succeed in this protocol is called the hitting time of <span class="math inline">\(G\)</span>, and denoted as <span class="math inline">\(T^G\)</span>. Naturally, we not only want high success rates, but we also want low mean hit times.</p>
-<p>In the particular case of Markov chains, hitting times are a kind of stopping time [TODO: cite appendix], and are well studied in their own regard.</p>
+<p>In the particular case of Markov chains, hitting times are a kind of stopping time (<a href="appendix-markov.html"><span>Appendix&nbsp;A</span></a>), and are well studied in their own regard.</p>
 <section id="formalism" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="formalism"><span class="header-section-number">3.1</span> Formalism</h2>
 <p>Define the following</p>
@@ -593,21 +625,21 @@ Reduction to classical random walk with <span class="math inline">\(\tau=1\)</sp
 </section>
 <section id="markov-chains-and-walks" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="markov-chains-and-walks"><span class="header-section-number">3.2</span> Markov Chains and Walks</h2>
-<p>In the classical case, it is clear that the 1D SSRW is a Markov process. In [TODO: Cite Appendix 3], we show that the quantum walk with measurement is also a Markov process. Consequently, we can use certain results from the theory of Markov processes to compare the two walks.</p>
+<p>In the classical case, it is clear that the 1D SSRW is a Markov process. In <a href="appendix-meas-is-markov.html"><span>Appendix&nbsp;B</span></a>, we show that the quantum walk with measurement is also a Markov process. Consequently, we can use certain results from the theory of Markov processes to compare the two walks.</p>
 <section id="sec-recurrence" class="level3" data-number="3.2.1">
 <h3 data-number="3.2.1" class="anchored" data-anchor-id="sec-recurrence"><span class="header-section-number">3.2.1</span> Irreducibilty and Recurrence</h3>
-<p>Under the usual definition of irreducibility [TODO: appendix], it is trivial that in the 1D chain, <span class="math inline">\(n = m = |i-j|\tau\)</span> satisfies the condition. It is a well known fact that the 1D SSRW is recurrent. It is just as well known a fact that the 3D SSRW is transient<span class="citation" data-cites="norris_markov_1998"><sup><a href="references.html#ref-norris_markov_1998" role="doc-biblioref">1</a></sup></span>.</p>
+<p>Under the usual definition of irreducibility (<a href="appendix-markov.html"><span>Appendix&nbsp;A</span></a>), it is trivial that in the 1D chain, <span class="math inline">\(n = m = |i-j|\tau\)</span> satisfies the condition. It is a well known fact that the 1D SSRW is recurrent. It is just as well known a fact that the 3D SSRW is transient<span class="citation" data-cites="norris_markov_1998"><sup><a href="references.html#ref-norris_markov_1998" role="doc-biblioref">1</a></sup></span>.</p>
 <p>In the quantum case, it is not as clear whether any of the available definitions of the quantum Markov process is more or less better than the others. Thus, the transience of quantum walks depends on the exact definition we are working under<span class="citation" data-cites="stefanak_recurrence_2008"><sup><a href="references.html#ref-stefanak_recurrence_2008" role="doc-biblioref">2</a></sup></span>. In our definition however, it can be shown using symbolic computation<span class="citation" data-cites="friedman_quantum_2017"><sup><a href="references.html#ref-friedman_quantum_2017" role="doc-biblioref">3</a></sup></span> that the walk is indeed transient. This poses an interesting problem.</p>
 </section>
 </section>
 <section id="survival-probability" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="survival-probability"><span class="header-section-number">3.3</span> Survival probability</h2>
 <p>We can thus measure and plot the <span class="math inline">\(S_n - n\)</span> curve for the quantum and classical walks to compare the efficiency of these walks in the first hit problem.</p>
-<p>In previous work<span class="citation" data-cites="yin_restart_2022"><sup><a href="references.html#ref-yin_restart_2022" role="doc-biblioref">4</a></sup></span>, the analytical solution of the success rate as a function of time is found. An analytical result for discrete time walks is harder due to the nature of the walk. However we reproduce the results for the discrete time case computationally. <a href="#fig-barkai">Figure&nbsp;<span>3.2 (a)</span></a><span class="citation" data-cites="yin_restart_2022"><sup><a href="references.html#ref-yin_restart_2022" role="doc-biblioref">4</a></sup></span> shows the success rate for the continuous time quantum and classical walks, and <a href="#fig-discrete">Figure&nbsp;<span>3.2 (b)</span></a> shows our results for the discrete time case.</p>
+<p>In previous work<span class="citation" data-cites="yin_restart_2022"><sup><a href="references.html#ref-yin_restart_2022" role="doc-biblioref">4</a></sup></span>, the analytical solution of the success rate as a function of time is found. An analytical result for discrete time walks is harder due to the nature of the walk. However we reproduce the results for the discrete time case computationally. <a href="#fig-barkai">Figure&nbsp;<span>3.2 (a)</span></a><span class="citation" data-cites="yin_restart_2022"><sup><a href="references.html#ref-yin_restart_2022" role="doc-biblioref">4</a></sup></span> shows the success rate for the continuous time quantum and classical walks, and <a href="#fig-discrete-4">Figure&nbsp;<span>3.2 (b)</span></a> and <a href="#fig-discrete-8">Figure&nbsp;<span>3.2 (c)</span></a> shows our results for the discrete time case.</p>
 <div id="fig-succ_prob" class="quarto-layout-panel">
 <figure class="figure">
 <div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 33.3%;justify-content: center;">
 <div id="fig-barkai" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="./images/11-26-00-48.png" class="quarto-discovered-preview-image img-fluid figure-img" data-ref-parent="fig-succ_prob"></p>
@@ -615,11 +647,19 @@ Reduction to classical random walk with <span class="math inline">\(\tau=1\)</sp
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
-<div id="fig-discrete" class="quarto-figure quarto-figure-center anchored">
+<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 33.3%;justify-content: center;">
+<div id="fig-discrete-4" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="./images/placeholder.jpg" class="img-fluid figure-img" data-ref-parent="fig-succ_prob"></p>
-<p></p><figcaption class="figure-caption">(b) TODO</figcaption><p></p>
+<p><img src="./images/bar_curves_qc-4.png" class="img-fluid figure-img" data-ref-parent="fig-succ_prob"></p>
+<p></p><figcaption class="figure-caption">(b) Success probability vs Time for both walks <span class="math inline">\(\tau=4\)</span></figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 33.3%;justify-content: center;">
+<div id="fig-discrete-8" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./images/bar_curves_qc-4.png" class="img-fluid figure-img" data-ref-parent="fig-succ_prob"></p>
+<p></p><figcaption class="figure-caption">(c) Success probability vs Time for both walks <span class="math inline">\(\tau=8\)</span></figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -687,6 +727,121 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -1000,7 +1155,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>Naively, one can run a stochastic process over the domain $G\cup G^C$ and observe the system until we see an element in $G$. The average time to succeed in this protocol is called the hitting time of $G$, and denoted as $T^G$. Naturally, we not only want high success rates, but we also want low mean hit times.</span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>In the particular case of Markov chains, hitting times are a kind of stopping time <span class="co">[</span><span class="ot">TODO: cite appendix</span><span class="co">]</span>, and are well studied in their own regard.</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>In the particular case of Markov chains, hitting times are a kind of stopping time (@sec-markov), and are well studied in their own regard.</span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="fu">## Formalism</span></span>
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
@@ -1149,11 +1304,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a><span class="fu">## Markov Chains and Walks</span></span>
 <span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a>In the classical case, it is clear that the 1D SSRW is a Markov process. In <span class="co">[</span><span class="ot">TODO: Cite Appendix 3</span><span class="co">]</span>, we show that the quantum walk with measurement is also a Markov process. Consequently, we can use certain results from the theory of Markov processes to compare the two walks.</span>
+<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a>In the classical case, it is clear that the 1D SSRW is a Markov process. In @sec-meas-markov, we show that the quantum walk with measurement is also a Markov process. Consequently, we can use certain results from the theory of Markov processes to compare the two walks.</span>
 <span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a><span class="fu">### Irreducibilty and Recurrence {#sec-recurrence}</span></span>
 <span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a>Under the usual definition of irreducibility <span class="co">[</span><span class="ot">TODO: appendix</span><span class="co">]</span>, it is trivial that in the 1D chain, $n = m = |i-j|\tau$ satisfies the condition. It is a well known fact that the 1D SSRW is recurrent. It is just as well known a fact that the 3D SSRW is transient @norris_markov_1998. </span>
+<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a>Under the usual definition of irreducibility (@sec-markov), it is trivial that in the 1D chain, $n = m = |i-j|\tau$ satisfies the condition. It is a well known fact that the 1D SSRW is recurrent. It is just as well known a fact that the 3D SSRW is transient @norris_markov_1998. </span>
 <span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a>In the quantum case, it is not as clear whether any of the available definitions of the quantum Markov process is more or less better than the others. Thus, the transience of quantum walks depends on the exact definition we are working under @stefanak_recurrence_2008. In our definition however, it can be shown using symbolic computation @friedman_quantum_2017 that the walk is indeed transient. This poses an interesting problem.</span>
 <span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a></span>
@@ -1161,33 +1316,35 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a>We can thus measure and plot the $S_n - n$ curve for the quantum and classical walks to compare the efficiency of these walks in the first hit problem.</span>
 <span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a>In previous work @yin_restart_2022, the analytical solution of the success rate as a function of time is found. An analytical result for discrete time walks is harder due to the nature of the walk. However we reproduce the results for the discrete time case computationally. @Fig-barkai @yin_restart_2022 shows the success rate for the continuous time quantum and classical walks, and @fig-discrete shows our results for the discrete time case.</span>
+<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a>In previous work @yin_restart_2022, the analytical solution of the success rate as a function of time is found. An analytical result for discrete time walks is harder due to the nature of the walk. However we reproduce the results for the discrete time case computationally. @Fig-barkai @yin_restart_2022 shows the success rate for the continuous time quantum and classical walks, and @fig-discrete-4 and @fig-discrete-8 shows our results for the discrete time case.</span>
 <span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a>::: {#fig-succ_prob layout-ncol=2}</span>
+<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a>::: {#fig-succ_prob layout-ncol=3}</span>
 <span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a><span class="al">![Success probability vs Time for both walks @yin_restart_2022](./images/11-26-00-48.png)</span>{#fig-barkai}</span>
 <span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a><span class="al">![TODO](./images/placeholder.jpg)</span>{#fig-discrete}</span>
+<span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a><span class="al">![Success probability vs Time for both walks $\tau=4$](./images/bar_curves_qc-4.png)</span>{#fig-discrete-4}</span>
 <span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a>Success Probability</span>
-<span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a><span class="fu">### Observations</span></span>
+<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a><span class="al">![Success probability vs Time for both walks $\tau=8$](./images/bar_curves_qc-4.png)</span>{#fig-discrete-8}</span>
+<span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a>Success Probability</span>
+<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a>In the _continuous time_ case: </span>
+<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a><span class="fu">### Observations</span></span>
 <span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The quantum walk has a fast rise in the initial phase but saturates at ~0.1</span>
-<span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The classical walk has a slow rise, but eventually reaches 1</span>
-<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a>In the _discrete time_ case, solved computationally:</span>
+<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a>In the _continuous time_ case: </span>
+<span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The quantum walk has a fast rise in the initial phase but saturates at ~0.1</span>
+<span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The classical walk has a slow rise, but eventually reaches 1</span>
 <span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Both walks do eventually reach 1</span>
-<span id="cb1-210"><a href="#cb1-210" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The quantum walk shows a saturation for a while before suddenly rising again</span>
-<span id="cb1-211"><a href="#cb1-211" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The classical walk shows a slow rise in the beginning phases, in contrast to the sharper rise of the quantum walk.</span>
-<span id="cb1-212"><a href="#cb1-212" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a>The observations in the continuous time case can be explained by the recurrence of the walk. While the quantum walker is faster (See @sec-quantum), the transient nature (See @sec-recurrence) of the walk leads to a non zero asymptomatic failure rate. Clearly this is a problem. What this means practically, is that for the first hit problem, if the quantum walk hits the target node, it does so faster than the classical walk, but a majority of the times, it doesn't hit the target node at all.</span>
+<span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a>In the _discrete time_ case, solved computationally:</span>
+<span id="cb1-210"><a href="#cb1-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-211"><a href="#cb1-211" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Both walks do eventually reach 1</span>
+<span id="cb1-212"><a href="#cb1-212" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The quantum walk shows a saturation for a while before suddenly rising again</span>
+<span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The classical walk shows a slow rise in the beginning phases, in contrast to the sharper rise of the quantum walk.</span>
 <span id="cb1-214"><a href="#cb1-214" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-215"><a href="#cb1-215" aria-hidden="true" tabindex="-1"></a>There seems to be an apparent difference between the discrete and the continuous time walks, but this is only an artifact of the finite size of the walk space. It is well known that any irreducible finite chain is recurrent @SO_297334. This claim can be verified by simply increasing the size of the state space, and noting that the saturation phase in the quantum walk lasts longer.</span>
+<span id="cb1-215"><a href="#cb1-215" aria-hidden="true" tabindex="-1"></a>The observations in the continuous time case can be explained by the recurrence of the walk. While the quantum walker is faster (See @sec-quantum), the transient nature (See @sec-recurrence) of the walk leads to a non zero asymptomatic failure rate. Clearly this is a problem. What this means practically, is that for the first hit problem, if the quantum walk hits the target node, it does so faster than the classical walk, but a majority of the times, it doesn't hit the target node at all.</span>
+<span id="cb1-216"><a href="#cb1-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-217"><a href="#cb1-217" aria-hidden="true" tabindex="-1"></a>There seems to be an apparent difference between the discrete and the continuous time walks, but this is only an artifact of the finite size of the walk space. It is well known that any irreducible finite chain is recurrent @SO_297334. This claim can be verified by simply increasing the size of the state space, and noting that the saturation phase in the quantum walk lasts longer.</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
