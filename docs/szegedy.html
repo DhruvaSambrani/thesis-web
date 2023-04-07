@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.290">
+<meta name="generator" content="quarto-1.3.313">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -236,12 +236,6 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
@@ -372,7 +366,7 @@ Edge Chromaticity
 <p>For a state <span class="math inline">\(|\psi\rangle \in \mathcal{H}\)</span>, let <span class="math inline">\(\Pi_\psi = |\psi\rangle\langle \psi |\)</span>. For a subspace <span class="math inline">\(\mathcal{K}\)</span> of <span class="math inline">\(\mathcal{H}\)</span> spanned by a set of mutually orthogonal states <span class="math inline">\(\{|\psi_i\rangle : i \in I\}\)</span>, let <span class="math inline">\(\Pi_{\mathcal{K}} = \sum_{i\in I}\Pi_{\psi_i}\)</span> be the projector onto <span class="math inline">\(\mathcal{K}\)</span> and <span class="math inline">\(\mathcal{R}_{\mathcal{K}} = 2\Pi_{\mathcal{K}} - \text{Id}\)</span> be a reflection through <span class="math inline">\(\mathcal{K}\)</span>.</p>
 <p>Let <span class="math inline">\(\mathcal{A} = \text{Span}(|x\rangle|p_x\rangle: x\in X)\)</span> and <span class="math inline">\(\mathcal{B} = \text{Span}(|p_y^*\rangle|y\rangle: y\in Y)\)</span> be subspaces of <span class="math inline">\(\mathcal{H} = \mathbb{C}^{|X|\times |X|}\)</span>, where</p>
 <p><span class="math display">\[|p_x\rangle = \sum_{y\in X}\sqrt{p_{xy}} |y\rangle;  |p_y^*\rangle = \sum_{x\in X}\sqrt{p_{yx}^*} |x\rangle\]</span></p>
-<p>where <span class="math inline">\(p_{ij}, p_{ij}^* \text{ are elements of }P, P^*\text{ respectively}\)</span>, and <span class="math inline">\(X\)</span> is the set of nodes, <span class="math inline">\(Y\)</span> is the set of nodes after duplication</p>
+<p>where <span class="math inline">\(p_{ij}, p_{ij}^* \text{ are elements of }P, P^*\text{ respectively}\)</span>, and <span class="math inline">\(X\)</span> is the set of nodes, <span class="math inline">\(Y\)</span> is the set of nodes after duplication.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -388,7 +382,7 @@ Quantum Markov Chain
 </div>
 <div id="fig-dup" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="./images/03-19-22-24.png" class="quarto-discovered-preview-image img-fluid figure-img"></p>
+<p><img src="./images/03-19-22-24.png" class="img-fluid figure-img"></p>
 <p></p><figcaption class="figure-caption">Figure&nbsp;6.2: Duplication Process on a graph<span class="citation" data-cites="portugal_quantum_2018"><sup><a href="references.html#ref-portugal_quantum_2018" role="doc-biblioref">2</a></sup></span></figcaption><p></p>
 </figure>
 </div>
@@ -452,7 +446,7 @@ p_{xy}, &amp;x \notin G\\
 <li>Observe the first register, by a projective measurement in the computational basis. Denote by <span class="math inline">\(\bar{x}\)</span></li>
 <li>With high probability, output <span class="math inline">\(\bar{x}\)</span> lies in <span class="math inline">\(G\)</span></li>
 </ol>
-<p>If the eigenvalue gap of the Markov chain is <span class="math inline">\(\delta\)</span>, and <span class="math inline">\(\frac{|G|}{N} \ge \epsilon \ge\)</span>, the cost to perform this circuit is of order <span class="math inline">\(\left(\frac{1}{\sqrt{\epsilon\delta}} \log \frac{1}{\sqrt \epsilon}\right)\)</span> calls to the walk operation<span class="citation" data-cites="magniez_search_2011"><sup><a href="references.html#ref-magniez_search_2011" role="doc-biblioref">4</a></sup></span>. Contrast this with the classical search which requires <span class="math inline">\(\frac{1}{\delta\epsilon}\)</span> steps of the Markov walk, we see the quadratic speedup <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<p>If the eigenvalue gap of the Markov chain is <span class="math inline">\(\delta\)</span>, and <span class="math inline">\(\frac{|G|}{N} \ge \epsilon \ge 0\)</span>, the cost to perform this circuit is of order <span class="math inline">\(\left(\frac{1}{\sqrt{\epsilon\delta}} \log \frac{1}{\sqrt \epsilon}\right)\)</span> calls to the walk operation<span class="citation" data-cites="magniez_search_2011"><sup><a href="references.html#ref-magniez_search_2011" role="doc-biblioref">4</a></sup></span>. Contrast this with the classical search which requires <span class="math inline">\(\frac{1}{\delta\epsilon}\)</span> steps of the Markov walk, we see the quadratic speedup <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
 <p>Therefore, one can find the spectral gap <span class="math inline">\(\delta\)</span> of <span class="math inline">\(P\)</span> and compare the search speed of two chains. This Szegedy formalism beautifully sets up the stage for a truly unitary quantum reset quantum walk protocol which can be analysed for any graph structure without having to resort to simulation techniques.</p>
 
 
@@ -967,7 +961,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>$$|p_x\rangle = \sum_{y\in X}\sqrt{p_{xy}} |y\rangle;  |p_y^*\rangle = \sum_{x\in X}\sqrt{p_{yx}^*} |x\rangle$$</span>
 <span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>where $p_{ij}, p_{ij}^* \text{ are elements of }P, P^*\text{ respectively}$, and $X$ is the set of nodes, $Y$ is the set of nodes after duplication</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>where $p_{ij}, p_{ij}^* \text{ are elements of }P, P^*\text{ respectively}$, and $X$ is the set of nodes, $Y$ is the set of nodes after duplication.</span>
 <span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
 <span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="fu">## Quantum Markov Chain</span></span>
@@ -1024,7 +1018,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Observe the first register, by a projective measurement in the computational basis. Denote by $\bar{x}$</span>
 <span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>With high probability, output $\bar{x}$ lies in $G$</span>
 <span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a>If the eigenvalue gap of the Markov chain is $\delta$, and $\frac{|G|}{N} \ge \epsilon \ge$, the cost to perform this circuit is of order $\left(\frac{1}{\sqrt{\epsilon\delta}} \log \frac{1}{\sqrt \epsilon}\right)$ calls to the walk operation @magniez_search_2011. Contrast this with the classical search which requires $\frac{1}{\delta\epsilon}$ steps of the Markov walk, we see the quadratic speedup ^<span class="co">[</span><span class="ot">Technically, this is not a quadratic speedup due to the extra $\log\frac{1}{\epsilon}$ term, and it was only later shown @krovi_quantum_2016 using a protocol of eigenvalue estimation.</span><span class="co">]</span>.</span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a>If the eigenvalue gap of the Markov chain is $\delta$, and $\frac{|G|}{N} \ge \epsilon \ge 0$, the cost to perform this circuit is of order $\left(\frac{1}{\sqrt{\epsilon\delta}} \log \frac{1}{\sqrt \epsilon}\right)$ calls to the walk operation @magniez_search_2011. Contrast this with the classical search which requires $\frac{1}{\delta\epsilon}$ steps of the Markov walk, we see the quadratic speedup ^<span class="co">[</span><span class="ot">Technically, this is not a quadratic speedup due to the extra $\log\frac{1}{\epsilon}$ term, and it was only later shown @krovi_quantum_2016 using a protocol of eigenvalue estimation.</span><span class="co">]</span>.</span>
 <span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a>Therefore, one can find the spectral gap $\delta$ of $P$ and compare the search speed of two chains. This Szegedy formalism beautifully sets up the stage for a truly unitary quantum reset quantum walk protocol which can be  analysed for any graph structure without having to resort to simulation techniques.</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

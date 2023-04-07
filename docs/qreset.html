@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.290">
+<meta name="generator" content="quarto-1.3.313">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -232,12 +232,6 @@ div.csl-indent {
   <div class="sidebar-item-container"> 
   <a href="./uqreset.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Unitary Quantum Reset Quantum Walk</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -540,7 +534,7 @@ div.csl-indent {
 <div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
 <div id="fig-qra" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="./images/qreset_1.png" class="quarto-discovered-preview-image img-fluid figure-img" data-ref-parent="fig-qreset"></p>
+<p><img src="./images/qreset_1.png" class="img-fluid figure-img" data-ref-parent="fig-qreset"></p>
 <p></p><figcaption class="figure-caption">(a) Parameter set 1</figcaption><p></p>
 </figure>
 </div>
@@ -615,22 +609,25 @@ div.csl-indent {
 <p>As we can see, the mean time of hit even for the best set of parameters(within the ranges explored) is not better than the optimal time for the stochastic reset protocol.</p>
 <section id="optimal-parameter-values" class="level3" data-number="5.4.1">
 <h3 data-number="5.4.1" class="anchored" data-anchor-id="optimal-parameter-values"><span class="header-section-number">5.4.1</span> Optimal Parameter Values</h3>
+<div id="tbl-qresetresults" class="anchored">
 <table class="table">
+<caption>Table&nbsp;5.1: Optimal Parameter Values</caption>
 <thead>
 <tr class="header">
-<th><span class="math inline">\(\alpha\)</span></th>
-<th><span class="math inline">\(\phi\)</span></th>
-<th><span class="math inline">\(\gamma\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\alpha\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\phi\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\gamma\)</span></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><span class="math inline">\(0.0\)</span></td>
-<td><span class="math inline">\(0.0\)</span></td>
-<td><span class="math inline">\(10^{-5}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0.0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0.0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(10^{-5}\)</span></td>
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="drawbacks-of-the-formalism" class="level3" data-number="5.4.2">
 <h3 data-number="5.4.2" class="anchored" data-anchor-id="drawbacks-of-the-formalism"><span class="header-section-number">5.4.2</span> Drawbacks of the Formalism</h3>
@@ -1271,12 +1268,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb4-206"><a href="#cb4-206" aria-hidden="true" tabindex="-1"></a><span class="fu">### Optimal Parameter Values</span></span>
 <span id="cb4-207"><a href="#cb4-207" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-208"><a href="#cb4-208" aria-hidden="true" tabindex="-1"></a>| $\alpha$ | $\phi$ | $\gamma$  |</span>
-<span id="cb4-209"><a href="#cb4-209" aria-hidden="true" tabindex="-1"></a>| -------- | ------ | --------- |</span>
+<span id="cb4-209"><a href="#cb4-209" aria-hidden="true" tabindex="-1"></a>|:--------:|:------:|:---------:|</span>
 <span id="cb4-210"><a href="#cb4-210" aria-hidden="true" tabindex="-1"></a>| $0.0$    | $0.0$  | $10^{-5}$ |</span>
 <span id="cb4-211"><a href="#cb4-211" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-212"><a href="#cb4-212" aria-hidden="true" tabindex="-1"></a><span class="fu">### Drawbacks of the Formalism</span></span>
+<span id="cb4-212"><a href="#cb4-212" aria-hidden="true" tabindex="-1"></a>: Optimal Parameter Values {#tbl-qresetresults}</span>
 <span id="cb4-213"><a href="#cb4-213" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-214"><a href="#cb4-214" aria-hidden="true" tabindex="-1"></a>The drawback of this formalism is its complexity. Whereas when we defined a quantum walk with a unitary evolution, we now have a complicated CPTP map to analyse. The difficulty doesn't only lie in analytical complexity, but also in simulations, where simulating the quantum reset quantum walk takes much longer. Due to this, we look for a simpler, more elegant model for quantum resetting, preferably one which is unitary supported by a formal protocol to analyse its efficacy.</span>
+<span id="cb4-214"><a href="#cb4-214" aria-hidden="true" tabindex="-1"></a><span class="fu">### Drawbacks of the Formalism</span></span>
+<span id="cb4-215"><a href="#cb4-215" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-216"><a href="#cb4-216" aria-hidden="true" tabindex="-1"></a>The drawback of this formalism is its complexity. Whereas when we defined a quantum walk with a unitary evolution, we now have a complicated CPTP map to analyse. The difficulty doesn't only lie in analytical complexity, but also in simulations, where simulating the quantum reset quantum walk takes much longer. Due to this, we look for a simpler, more elegant model for quantum resetting, preferably one which is unitary supported by a formal protocol to analyse its efficacy.</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
