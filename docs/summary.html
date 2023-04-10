@@ -8,7 +8,7 @@
 
 <meta name="description" content="A dissertation submitted for the partial fulfilment of BS-MS dual degree in Science">
 
-<title>Quantum Walks and Quantum Resetting - References</title>
+<title>Quantum Walks and Quantum Resetting - 8&nbsp; Summary and Future directions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -55,26 +55,7 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -84,8 +65,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./appendix-markov.html" rel="next">
-<link href="./summary.html" rel="prev">
+<link href="./references.html" rel="next">
+<link href="./uqreset.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -115,6 +96,9 @@ div.csl-indent {
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 </head>
@@ -128,7 +112,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./references.html">References</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./summary.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Summary and Future directions</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -228,13 +212,13 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./summary.html" class="sidebar-item-text sidebar-link">
+  <a href="./summary.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Summary and Future directions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link active">
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
 </li>
@@ -279,14 +263,24 @@ div.csl-indent {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#future-directions" id="toc-future-directions" class="nav-link active" data-scroll-target="#future-directions"><span class="header-section-number">8.1</span> Future directions</a>
+  <ul class="collapse">
+  <li><a href="#quantum-reset" id="toc-quantum-reset" class="nav-link" data-scroll-target="#quantum-reset"><span class="header-section-number">8.1.1</span> Quantum Reset</a></li>
+  <li><a href="#unitary-reset" id="toc-unitary-reset" class="nav-link" data-scroll-target="#unitary-reset"><span class="header-section-number">8.1.2</span> Unitary Reset</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">References</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title"><span id="sec-summary" class="quarto-section-identifier"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Summary and Future directions</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -301,174 +295,48 @@ div.csl-indent {
 
 </header>
 
-<div id="refs" class="references csl-bib-body" role="list">
-<div id="ref-ortega_discrete-time_2023" class="csl-entry" role="listitem">
-<a href="http://arxiv.org/abs/2303.18202"><sup>1</sup> S.A. Ortega and
-M.A. Martin-Delgado, (2023)</a>.
+<p>See the following schematic as a summary of our work, with the highlighted sections as new work.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-work" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-work">%%{ init: { 'flowchart': { 'curve': 'linear' } } }%%
+flowchart TD
+    A(Classical Walks)-- Quantize by coin --&gt;B(Quantum Walk);
+    A-- Stochastic Reset --&gt;C(Stochastic Reset Classical Walk);
+    B-- Stochastic Reset --&gt;D(Stochastic Reset Quantum Walk);
+    C-.-D;
+    D-- Quantize by coin --&gt;E(Quantum Reset Quantum walk):::newwork;
+    C-- Quantize by Szegedy formalism --&gt;F(Unitary quantum reset):::newwork;
+    E-.-F;
+    classDef newwork fill:#fcb888,color:#000;
+</pre>
 </div>
-<div id="ref-boito_quantum_2023" class="csl-entry" role="listitem">
-<a href="http://arxiv.org/abs/2302.08871"><sup>2</sup> P. Boito and G.M.
-Del Corso, (2023)</a>.
-</div>
-<div id="ref-jutho_juthokrylovkitjl_nodate" class="csl-entry" role="listitem">
-<a href="https://github.com/Jutho/KrylovKit.jl"><sup>3</sup> Jutho and
-Contributors, (n.d.)</a>.
-</div>
-<div id="ref-wong_exceptional_2017" class="csl-entry" role="listitem">
-<a href="https://doi.org/10.1007/s11128-017-1606-y"><sup>4</sup> T.G.
-Wong and R.A.M. Santos, Quantum Information Processing
-<strong>16</strong>, 154 (2017)</a>.
-</div>
-<div id="ref-glos_iitisquantumwalkjl_2018" class="csl-entry" role="listitem">
-<a href="https://github.com/iitis/QuantumWalk.jl"><sup>5</sup> A. Glos
-and J. Adam Miszczak, (2018)</a>.
-</div>
-<div id="ref-krovi_quantum_2016" class="csl-entry" role="listitem">
-<a href="https://doi.org/10.1007/s00453-015-9979-8"><sup>6</sup> H.
-Krovi, F. Magniez, M. Ozols, and J. Roland, Algorithmica
-<strong>74</strong>, 851 (2016)</a>.
-</div>
-<div id="ref-noauthor_vizings_2023" class="csl-entry" role="listitem">
-<a href="
-           https://en.wikipedia.org/w/index.php?title=Vizing%27s_theorem&amp;oldid=1136394595
-           "><sup>7</sup> Wikipedia contributors, (2023)</a>.
-</div>
-<div id="ref-stefanak_recurrence_2008" class="csl-entry" role="listitem">
-<a href="https://doi.org/10.1103/PhysRevLett.100.020501"><sup>8</sup> M.
-Štefaňák, I. Jex, and T. Kiss, Physical Review Letters
-<strong>100</strong>, 020501 (2008)</a>.
-</div>
-<div id="ref-yin_restart_2022" class="csl-entry" role="listitem">
-<a href="http://arxiv.org/abs/2205.01974"><sup>9</sup> R. Yin and E.
-Barkai, (2022)</a>.
-</div>
-<div id="ref-SO_297334" class="csl-entry" role="listitem">
-<a href="https://math.stackexchange.com/q/297334"><sup>10</sup> user940,
-(n.d.)</a>.
-</div>
-<div id="ref-griffin_investigation_2019" class="csl-entry" role="listitem">
-<a href="https://doi.org/10.13140/RG.2.2.22657.81762"><sup>11</sup> K.P.
-Griffin, S.J. Suresh, T.J. Flint, and W.H.R. Chan, (2019)</a>.
-</div>
-<div id="ref-goldsmith_link_2022" class="csl-entry" role="listitem">
-<a href="http://arxiv.org/abs/2208.11030"><sup>12</sup> M. Goldsmith, G.
-García-Pérez, J. Malmi, M.A.C. Rossi, H. Saarinen, and S. Maniscalco,
-(2022)</a>.
-</div>
-<div id="ref-bonnetain_finding_2022" class="csl-entry" role="listitem">
-<a href="http://arxiv.org/abs/2205.14023"><sup>13</sup> X. Bonnetain, A.
-Chailloux, A. Schrottenloher, and Y. Shen, (2022)</a>.
-</div>
-<div id="ref-szegedy_quantum_2004" class="csl-entry" role="listitem">
-<a href="https://doi.org/10.1109/FOCS.2004.53"><sup>14</sup> M. Szegedy,
-in <em>45th <span>Annual</span> <span>IEEE</span> <span>Symposium</span>
-on <span>Foundations</span> of <span>Computer</span>
-<span>Science</span></em> (IEEE, Rome, Italy, 2004), pp. 32–41</a>.
-</div>
-<div id="ref-ortega_generalized_2022" class="csl-entry" role="listitem">
-<a href="http://arxiv.org/abs/2209.13451"><sup>15</sup> S.A. Ortega and
-M.A. Martin-Delgado, (2022)</a>.
-</div>
-<div id="ref-friedman_quantum_2017" class="csl-entry" role="listitem">
-<a href="https://doi.org/10.1103/PhysRevE.95.032141"><sup>16</sup> H.
-Friedman, D.A. Kessler, and E. Barkai, Phys. Rev. E <strong>95</strong>,
-032141 (2017)</a>.
-</div>
-<div id="ref-magniez_search_2011" class="csl-entry" role="listitem">
-<a href="https://doi.org/10.1137/090745854"><sup>17</sup> F. Magniez, A.
-Nayak, J. Roland, and M. Santha, SIAM Journal on Computing
-<strong>40</strong>, 142 (2011)</a>.
-</div>
-<div id="ref-psaltis_markov_2022" class="csl-entry" role="listitem">
-<a href="https://doi.org/10.3847/1538-4357/ac2c69"><sup>18</sup> D.
-Psaltis, F. Özel, L. Medeiros, P. Christian, J. Kim, C. Chan, L.J.
-Conway, C.A. Raithel, D. Marrone, and T.R. Lauer, ApJ
-<strong>928</strong>, 55 (2022)</a>.
-</div>
-<div id="ref-qiskit_quantum" class="csl-entry" role="listitem">
-<a href="
-           https://qiskit.org/textbook/ch-algorithms/quantum-walk-search-algorithm.html#4.-Quantum-walk-search-algorithm-
-           "><sup>19</sup> Qiskit, Quantum Walk Search Algorithm
-(n.d.)</a>.
-</div>
-<div id="ref-norris_markov_1998" class="csl-entry" role="listitem">
-<sup>20</sup> J.R. Norris, <em><a href="https://www.cambridge.org/in/academic/subjects/statistics-probability/applied-probability-and-stochastic-networks/markov-chains?format=PB&amp;isbn=9780521633963">Markov
-Chains</a></em>, 1st pbk. ed (Cambridge University Press, Cambridge, UK
-; New York, 1998).
-</div>
-<div id="ref-glasserman_monte_2004" class="csl-entry" role="listitem">
-<sup>21</sup> P. Glasserman, <em><a href="https://doi.org/10.1007/978-0-387-21617-1">Monte
-<span>Carlo</span> <span>Methods</span> in <span>Financial</span>
-<span>Engineering</span></a></em> (Springer New York, New York, NY,
-2003).
-</div>
-<div id="ref-metropolis_beginning_1987" class="csl-entry" role="listitem">
-<a href="https://sgp.fas.org/othergov/doe/lanl/pubs/00326866.pdf"><sup>22</sup>
-N. Metropolis, Los Alamos Science Spl. Issue (1987)</a>.
-</div>
-<div id="ref-srivastava_resetting_2021" class="csl-entry" role="listitem">
-<sup>23</sup> A. Srivastava, <a href="https://library.iisermohali.ac.in">Resetting <span>Quantum</span>
-<span>Systems</span> Through <span>Superposition</span> of
-<span>Evolution </span></a>, PhD thesis, IISER Mohali, 2021.
-</div>
-<div id="ref-de_souza_quantum_2019" class="csl-entry" role="listitem">
-<a href="https://doi.org/10.1109/BRACIS.2019.00149"><sup>24</sup> L.S.
-de Souza, J.H.A. de Carvalho, and T.A.E. Ferreira, in <em>2019 8th
-<span>Brazilian</span> <span>Conference</span> on
-<span>Intelligent</span> <span>Systems</span> (<span>
-BRACIS</span>)</em> (IEEE, Salvador, Brazil, 2019), pp. 836–841</a>.
-</div>
-<div id="ref-bae_source_2021" class="csl-entry" role="listitem">
-<a href="https://doi.org/10.48550/ARXIV.2102.02252"><sup>25</sup> M. Bae
-and W.O. Krawec, (2021)</a>.
-</div>
-<div id="ref-mukherjee_grover_2022" class="csl-entry" role="listitem">
-<a href="https://doi.org/10.1109/TQE.2022.3151137"><sup>26</sup> S.
-Mukherjee, IEEE Trans. Quantum Eng. <strong>3</strong>, 1 (2022)</a>.
-</div>
-<div id="ref-luo_yaojl_2020" class="csl-entry" role="listitem">
-<a href="https://doi.org/10.22331/q-2020-10-11-341"><sup>27</sup> X.-Z.
-Luo, J.-G. Liu, P. Zhang, and L. Wang, Quantum <strong>4</strong>, 341
-(2020)</a>.
-</div>
-<div id="ref-breloff_plotsjl_2022" class="csl-entry" role="listitem">
-<a href="https://doi.org/10.5281/ZENODO.4725317"><sup>28</sup> T.
-Breloff, (2022)</a>.
-</div>
-<div id="ref-bezanson_julia_2017" class="csl-entry" role="listitem">
-<a href="https://doi.org/10.1137/141000671"><sup>29</sup> J. Bezanson,
-A. Edelman, S. Karpinski, and V.B. Shah, SIAM Rev. <strong>59</strong>,
-65 (2017)</a>.
-</div>
-<div id="ref-gawron_quantuminformationjljulia_2018" class="csl-entry" role="listitem">
-<a href="https://doi.org/10.1371/journal.pone.0209358"><sup>30</sup> P.
-Gawron, D. Kurzyk, and Ł. Pawela, PLoS ONE <strong>13</strong>, e0209358
-(2018)</a>.
-</div>
-<div id="ref-juliagraphics_luxorjl" class="csl-entry" role="listitem">
-<a href="https://github.com/JuliaGraphics/Luxor.jl"><sup>31</sup>
-JuliaGraphics, (n.d.)</a>.
-</div>
-<div id="ref-bromberger_juliagraphslightgraphsjl_2017" class="csl-entry" role="listitem">
-<a href="https://doi.org/10.5281/ZENODO.1412141"><sup>32</sup> S.
-Bromberger and O. Contributors, (2017)</a>.
-</div>
-<div id="ref-wong_equivalence_2017" class="csl-entry" role="listitem">
-<a href="https://doi.org/10.1007/s11128-017-1667-y"><sup>33</sup> T.G.
-Wong, Quantum Information Processing <strong>16</strong>, 215
-(2017)</a>.
-</div>
-<div id="ref-portugal_quantum_2018" class="csl-entry" role="listitem">
-<sup>34</sup> R. Portugal, <em><a href="https://doi.org/10.1007/978-3-319-97813-0">Quantum
-<span>Walks</span> and <span>Search</span>
-<span>Algorithms</span></a></em>, 2nd ed. 2018 (Springer International
-Publishing : Imprint: Springer, Cham, 2018).
+<p></p><figcaption class="figure-caption">Figure&nbsp;8.1: A summary of the thesis</figcaption><p></p>
+</figure>
 </div>
 </div>
+</div>
+<p>We have reviewed the definitions of classical and quantum walks, and a measurement based node hitting protocol. We further reviewed past work which fixed the transient nature of the semi-quantum walk by a classical (possibly stochastic) resetting protocol, leading to 0 asymptotic failure rates. Furthermore, we motivated the need for a true quantum resetting protocol.</p>
+<p>We first proposed a quantum resetting protocol motivated by the superposition of the shift operations in the coined quantum walk, and produced a preliminary computational analysis. While we were not able to show conclusively an advantage over the classical reset, there is still a possibility that a speedup can be achieved for other ranges of parameters. This protocol however became unwieldy to handle due to its complexity, and suggested a need for a unitary quantum reset.</p>
+<p>We then proposed a unitary quantum reset by directly quantizing the classical reset classical walk via the Szegedy walk formalism, which was also introduced. By running a Grover-like search protocol, we were able to show that the unitary reset quantum walk on the 1D chain does show a small decrease in the mean hitting time compared to the quantum walk for certain ranges of the reset parameter. Furthermore, we show that there is a definite speedup and a reduction in the computational space required in the search protocol via eigenvalue analysis, and propose that the reduction in the mean hitting time may be due to a corresponding reduction in the success of the protocol.</p>
+<section id="future-directions" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="future-directions"><span class="header-section-number">8.1</span> Future directions</h2>
+<p>We propose following questions for future work.</p>
+<section id="quantum-reset" class="level3" data-number="8.1.1">
+<h3 data-number="8.1.1" class="anchored" data-anchor-id="quantum-reset"><span class="header-section-number">8.1.1</span> Quantum Reset</h3>
+<p>Does the quantum reset protocol show speedup even for other parameter ranges? Is there a framework to analyse the convergence time of the quantum resetting protocol and the probability of success? Can we propose a Grover-like search algorithm? What effect does the quantum resetting have on such a protocol?</p>
+</section>
+<section id="unitary-reset" class="level3" data-number="8.1.2">
+<h3 data-number="8.1.2" class="anchored" data-anchor-id="unitary-reset"><span class="header-section-number">8.1.2</span> Unitary Reset</h3>
+<p>We have left the analysis of the probability of success for the unitary quantum reset Grover-like search protocol for future work. Since the unitary quantum reset is a quantum walk, how does the semi-quantum version of this walk behave like? The unitary quantum reset protocol is not limited to the 1D chain, or even lattice like structures. Do we still see speedups for other graph structures? Finally, can we apply the classical reset to the unitary quantum reset walk to gain a speedup from both kinds of resetting?</p>
 
 
 <!-- -->
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -771,20 +639,53 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./summary.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Summary and Future directions</span></span>
+      <a href="./uqreset.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Unitary Quantum Reset Quantum Walk</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./appendix-markov.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Markov Chains</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./references.html" class="pagination-link">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># References  {.unnumbered}</span></span>
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Summary and Future directions {#sec-summary}</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>::: {#refs}</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>See the following schematic as a summary of our work, with the highlighted sections as new work.</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="in">```{mermaid}</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>%%| label: fig<span class="ot">-w</span>ork</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>%%| fig<span class="ot">-c</span>ap: A summary of the thesis</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>%<span class="dt">%</span>{ init: { <span class="ot">'</span><span class="ss">flowchart</span><span class="ot">'</span>: { <span class="ot">'</span><span class="ss">curve</span><span class="ot">'</span>: <span class="ot">'</span><span class="ss">linear</span><span class="ot">'</span> } } }%%</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>flowchart TD</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    A(Classical Walks)-- Quantize by coin --&gt;B(Quantum Walk);</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    A-- Stochastic Reset --&gt;C(Stochastic Reset Classical Walk);</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    B-- Stochastic Reset --&gt;D(Stochastic Reset Quantum Walk);</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    C-.-D;</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    D-- Quantize by coin --&gt;E(Quantum Reset Quantum walk):::newwork;</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    C-- Quantize by Szegedy formalism --&gt;F(Unitary quantum <span class="fu">reset</span>):::newwork;</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    E-.-F;</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    classDef newwork fill:<span class="co">#fcb888,color:#000;</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>We have reviewed the definitions of classical and quantum walks, and a measurement based node hitting protocol. We further reviewed past work which fixed the transient nature of the semi-quantum walk by a classical (possibly stochastic) resetting protocol, leading to 0 asymptotic failure rates. Furthermore, we motivated the need for a true quantum resetting protocol.</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>We first proposed a quantum resetting protocol motivated by the superposition of the shift operations in the coined quantum walk, and produced a preliminary computational analysis. While we were not able to show conclusively an advantage over the classical reset, there is still a possibility that a speedup can be achieved for other ranges of parameters. This protocol however became unwieldy to handle due to its complexity, and suggested a need for a unitary quantum reset.</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>We then proposed a unitary quantum reset by directly quantizing the classical reset classical walk via the Szegedy walk formalism, which was also introduced. By running a Grover-like search protocol, we were able to show that the unitary reset quantum walk on the 1D chain does show a small decrease in the mean hitting time compared to the quantum walk for certain ranges of the reset parameter. Furthermore, we show that there is a definite speedup and a reduction in the computational space required in the search protocol via eigenvalue analysis, and propose that the reduction in the mean hitting time may be due to a corresponding reduction in the success of the protocol.</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="fu">## Future directions</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>We propose following questions for future work.</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="fu">### Quantum Reset</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>Does the quantum reset protocol show speedup even for other parameter ranges? Is there a framework to analyse the convergence time of the quantum resetting protocol and the probability of success? Can we propose a Grover-like search algorithm? What effect does the quantum resetting have on such a protocol?</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="fu">### Unitary Reset</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>We have left the analysis of the probability of success for the unitary quantum reset Grover-like search protocol for future work. Since the unitary quantum reset is a quantum walk, how does the semi-quantum version of this walk behave like? The unitary quantum reset protocol is not limited to the 1D chain, or even lattice like structures. Do we still see speedups for other graph structures? Finally, can we apply the classical reset to the unitary quantum reset walk to gain a speedup from both kinds of resetting?</span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

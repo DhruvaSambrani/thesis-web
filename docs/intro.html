@@ -8,7 +8,7 @@
 
 <meta name="description" content="A dissertation submitted for the partial fulfilment of BS-MS dual degree in Science">
 
-<title>Quantum Walks and Resetting - Introduction</title>
+<title>Quantum Walks and Quantum Resetting - Introduction</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -145,19 +145,19 @@ div.csl-indent {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Quantum Walks and Resetting</a> 
+      <a href="./">Quantum Walks and Quantum Resetting</a> 
         <div class="sidebar-tools-main">
     <div class="dropdown">
       <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download"><i class="bi bi-download"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="./Quantum-Walks-and-Resetting.pdf">
+            <a class="dropdown-item sidebar-tools-main-item" href="./Quantum-Walks-and-Quantum-Resetting.pdf">
               <i class="bi bi-bi-file-pdf pe-1"></i>
             Download PDF
             </a>
           </li>
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="./Quantum-Walks-and-Resetting.epub">
+            <a class="dropdown-item sidebar-tools-main-item" href="./Quantum-Walks-and-Quantum-Resetting.epub">
               <i class="bi bi-bi-journal pe-1"></i>
             Download ePub
             </a>
@@ -230,6 +230,12 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Summary and Future directions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
@@ -259,6 +265,12 @@ div.csl-indent {
   <div class="sidebar-item-container"> 
   <a href="./appendix-qreset.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Quantum Reset is a CPTP map</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-reset-period.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Proof of Reset Markov Chains Being Aperiodic</span></span></a>
   </div>
 </li>
       </ul>
@@ -291,15 +303,14 @@ div.csl-indent {
 
 </header>
 
-<p>Random walks are a commonly used tool in the arsenal of algorithms on Classical Computers to solve a variety of problems which do not have a known easy solution. The power of such methods can be attributed to the fact that while the space of possible solutions is vast, we only need to sample few solutions to come to a close solution. This power has been routinely exploited in the past to sample from Markov Chains using the MCMC algorithm which can be found in any introductory textbook<span class="citation" data-cites="norris_markov_1998"><sup><a href="references.html#ref-norris_markov_1998" role="doc-biblioref">1</a></sup></span> of Markov processes, and they have recently been used in the fields of Financial engineering<span class="citation" data-cites="glasserman_monte_2004"><sup><a href="references.html#ref-glasserman_monte_2004" role="doc-biblioref">2</a></sup></span>, fluid mechanics<span class="citation" data-cites="griffin_investigation_2019"><sup><a href="references.html#ref-griffin_investigation_2019" role="doc-biblioref">3</a></sup></span>, fitting black hole images<span class="citation" data-cites="psaltis_markov_2022"><sup><a href="references.html#ref-psaltis_markov_2022" role="doc-biblioref">4</a></sup></span> and most famously in the Los Alamos project<span class="citation" data-cites="metropolis_beginning"><sup><a href="references.html#ref-metropolis_beginning" role="doc-biblioref">5</a></sup></span>.</p>
+<p>Random walks are a commonly used tool in the arsenal of algorithms on Classical Computers to solve a variety of problems which do not have a known easy solution. The power of such methods can be attributed to the fact that while the space of possible solutions is vast, we only need to sample few solutions to come to a close solution. This power has been routinely exploited in the past to sample from Markov Chains using the MCMC algorithm which can be found in any introductory textbook<span class="citation" data-cites="norris_markov_1998"><sup><a href="references.html#ref-norris_markov_1998" role="doc-biblioref">1</a></sup></span> of Markov processes, and they have recently been used in the fields of Financial engineering<span class="citation" data-cites="glasserman_monte_2004"><sup><a href="references.html#ref-glasserman_monte_2004" role="doc-biblioref">2</a></sup></span>, fluid mechanics<span class="citation" data-cites="griffin_investigation_2019"><sup><a href="references.html#ref-griffin_investigation_2019" role="doc-biblioref">3</a></sup></span>, fitting black hole images<span class="citation" data-cites="psaltis_markov_2022"><sup><a href="references.html#ref-psaltis_markov_2022" role="doc-biblioref">4</a></sup></span> and most famously in the Los Alamos project<span class="citation" data-cites="metropolis_beginning_1987"><sup><a href="references.html#ref-metropolis_beginning_1987" role="doc-biblioref">5</a></sup></span>.</p>
 <p>With the advent of quantum algorithms, quantum walks have arisen as an obvious extension of classical walks in the quantum domain. The applications of quantum walks are just as many: ANN training<span class="citation" data-cites="de_souza_quantum_2019"><sup><a href="references.html#ref-de_souza_quantum_2019" role="doc-biblioref">6</a></sup></span>, Random Number Generation<span class="citation" data-cites="bae_source_2021"><sup><a href="references.html#ref-bae_source_2021" role="doc-biblioref">7</a></sup></span>, List coloring (Grover)<span class="citation" data-cites="mukherjee_grover_2022"><sup><a href="references.html#ref-mukherjee_grover_2022" role="doc-biblioref">8</a></sup></span>, collision finding<span class="citation" data-cites="bonnetain_finding_2022"><sup><a href="references.html#ref-bonnetain_finding_2022" role="doc-biblioref">9</a></sup></span>, link prediction<span class="citation" data-cites="goldsmith_link_2022"><sup><a href="references.html#ref-goldsmith_link_2022" role="doc-biblioref">10</a></sup></span>. There has even been a recent foray into classifying and using a quantum-classical walk to speed up certain classical algorithms, namely the Google PageRank Algorithm<span class="citation" data-cites="ortega_generalized_2022"><sup><a href="references.html#ref-ortega_generalized_2022" role="doc-biblioref">11</a></sup></span>. The increased interest in quantum walks can be attributed to the quadratic speed up which it grants the solution a-la the Grover algorithm, which itself can be considered as a Quantum Walk<span class="citation" data-cites="qiskit_quantum"><sup><a href="references.html#ref-qiskit_quantum" role="doc-biblioref">12</a></sup></span>.</p>
 <p>In this master thesis, we will first define the classical (<a href="classical.html"><span>Chapter&nbsp;1</span></a>) walk, and specifically, the 1D walk. The classical 1D walk has a standard deviation which goes as <span class="math inline">\(\mathcal{O}(T^{1/2})\)</span>, and is recurrent.</p>
 <p>Then we define quantum (<a href="quantum.html"><span>Chapter&nbsp;2</span></a>) walk, particularly the coined walk on a 1D grid. The quantum 1D walk has a standard deviation which goes as <span class="math inline">\(\mathcal{O}(T)\)</span>, and is transient.</p>
-<p>We define these walks with a view of using these walks in search algorithms. We formalise the search problem and show how the quantum walk is faster but its transient nature leads to a non zero asymptotic failure rate in <a href="search.html"><span>Chapter&nbsp;3</span></a>.</p>
+<p>We define these walks with a view of using these walks in search algorithms. We formalise the search problem and show how the quantum walk is faster, but its transient nature leads to a non-zero asymptotic failure rate in <a href="search.html"><span>Chapter&nbsp;3</span></a>.</p>
 <p>Then, we look at previous attempts at solving them by resetting (<a href="reset.html"><span>Chapter&nbsp;4</span></a>). By resetting a markov chain, we can convert a transient chain to a recurrent one. We explore the effect of resetting in the quantum case, attempting to recreate past work in continuous time quantum walks in the discrete time quantum walks. We also look at possible shortcomings of the solution.</p>
 <p>In <a href="qreset.html"><span>Chapter&nbsp;5</span></a>, we introduce a new mechanism for quantum resetting based on superposition of the evolution and reset operations and show numerically that it does not have advantage in the search problem (<a href="qreset.html"><span>Chapter&nbsp;5</span></a>). However, we propose possible methods to analyze this setup and leave it for a future project.</p>
-<p>Finally, we introduce a second protocol for reset quantum walks by quantizing the Markov process via Szegedy walks (<a href="szegedy.html"><span>Chapter&nbsp;6</span></a>). We also present a Grover like search algorithm, which is easily analyzable by eigenvalue analysis. The results and discussions of this protocol are presented in <a href="uqreset.html"><span>Chapter&nbsp;7</span></a>.</p>
-<p>We then conclude and provide future directions of this work in the summary</p>
+<p>Finally, we introduce a second protocol for reset quantum walks by quantizing the Markov process via Szegedy walks (<a href="szegedy.html"><span>Chapter&nbsp;6</span></a>). We also present a Grover like search algorithm, which is easily analyzable by eigenvalue analysis. The results and discussions of this protocol are presented in <a href="uqreset.html"><span>Chapter&nbsp;7</span></a>. We then conclude and provide future directions of this work in <a href="summary.html"><span>Chapter&nbsp;8</span></a>.</p>
 <p>Along with the theory, certain aspects of the implementation of the walks computationally are also added as necessary. This is done inline instead of in an appendix, which is the norm, since the author believes that such a presentation solidifies the readers’ understanding of both, the model and the implementation. We use Julia<span class="citation" data-cites="bezanson_julia_2017"><sup><a href="references.html#ref-bezanson_julia_2017" role="doc-biblioref">13</a></sup></span> and its standard libraries, Plots.jl<span class="citation" data-cites="breloff_plotsjl_2022"><sup><a href="references.html#ref-breloff_plotsjl_2022" role="doc-biblioref">14</a></sup></span>, QuantumInformation.jl<span class="citation" data-cites="gawron_quantuminformationjljulia_2018"><sup><a href="references.html#ref-gawron_quantuminformationjljulia_2018" role="doc-biblioref">15</a></sup></span>, Luxor.jl<span class="citation" data-cites="juliagraphics_luxorjl"><sup><a href="references.html#ref-juliagraphics_luxorjl" role="doc-biblioref">16</a></sup></span>, Yao.jl and YaoPlots.jl<span class="citation" data-cites="luo_yaojl_2020"><sup><a href="references.html#ref-luo_yaojl_2020" role="doc-biblioref">17</a></sup></span>.</p>
 
 
@@ -307,10 +318,10 @@ div.csl-indent {
 
 <div id="refs" class="references csl-bib-body" role="list" style="display: none">
 <div id="ref-norris_markov_1998" class="csl-entry" role="listitem">
-<sup>1</sup> J.R. Norris, <em>Markov Chains</em>, 1st pbk. ed (Cambridge University Press, Cambridge, UK ; New York, 1998).
+<sup>1</sup> J.R. Norris, <em><a href="https://www.cambridge.org/in/academic/subjects/statistics-probability/applied-probability-and-stochastic-networks/markov-chains?format=PB&amp;isbn=9780521633963">Markov Chains</a></em>, 1st pbk. ed (Cambridge University Press, Cambridge, UK ; New York, 1998).
 </div>
 <div id="ref-glasserman_monte_2004" class="csl-entry" role="listitem">
-<sup>2</sup> P. Glasserman, <em>Monte <span>Carlo</span> Methods in Financial Engineering</em> (Springer, New York, 2004).
+<sup>2</sup> P. Glasserman, <em><a href="https://doi.org/10.1007/978-0-387-21617-1">Monte <span>Carlo</span> <span>Methods</span> in <span>Financial</span> <span>Engineering</span></a></em> (Springer New York, New York, NY, 2003).
 </div>
 <div id="ref-griffin_investigation_2019" class="csl-entry" role="listitem">
 <a href="https://doi.org/10.13140/RG.2.2.22657.81762"><sup>3</sup> K.P. Griffin, S.J. Suresh, T.J. Flint, and W.H.R. Chan, (2019)</a>.
@@ -318,8 +329,8 @@ div.csl-indent {
 <div id="ref-psaltis_markov_2022" class="csl-entry" role="listitem">
 <a href="https://doi.org/10.3847/1538-4357/ac2c69"><sup>4</sup> D. Psaltis, F. Özel, L. Medeiros, P. Christian, J. Kim, C. Chan, L.J. Conway, C.A. Raithel, D. Marrone, and T.R. Lauer, ApJ <strong>928</strong>, 55 (2022)</a>.
 </div>
-<div id="ref-metropolis_beginning" class="csl-entry" role="listitem">
-<sup>5</sup> N. Metropolis, (n.d.).
+<div id="ref-metropolis_beginning_1987" class="csl-entry" role="listitem">
+<a href="https://sgp.fas.org/othergov/doe/lanl/pubs/00326866.pdf"><sup>5</sup> N. Metropolis, Los Alamos Science Spl. Issue (1987)</a>.
 </div>
 <div id="ref-de_souza_quantum_2019" class="csl-entry" role="listitem">
 <a href="https://doi.org/10.1109/BRACIS.2019.00149"><sup>6</sup> L.S. de Souza, J.H.A. de Carvalho, and T.A.E. Ferreira, in <em>2019 8th <span>Brazilian</span> <span>Conference</span> on <span>Intelligent</span> <span>Systems</span> (<span> BRACIS</span>)</em> (IEEE, Salvador, Brazil, 2019), pp. 836–841</a>.
@@ -674,7 +685,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Introduction {.unnumbered}</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>Random walks are a commonly used tool in the arsenal of algorithms on Classical Computers to solve a variety of problems which do not have a known easy solution. The power of such methods can be attributed to the fact that while the space of possible solutions is vast, we only need to sample few solutions to come to a close solution. This power has been routinely exploited in the past to sample from Markov Chains using the MCMC algorithm which can be found in any  introductory textbook @norris_markov_1998 of Markov processes, and they have recently been used in the fields of Financial engineering @glasserman_monte_2004, fluid mechanics @griffin_investigation_2019, fitting black hole images @psaltis_markov_2022 and most famously in the Los Alamos project @metropolis_beginning.</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>Random walks are a commonly used tool in the arsenal of algorithms on Classical Computers to solve a variety of problems which do not have a known easy solution. The power of such methods can be attributed to the fact that while the space of possible solutions is vast, we only need to sample few solutions to come to a close solution. This power has been routinely exploited in the past to sample from Markov Chains using the MCMC algorithm which can be found in any introductory textbook @norris_markov_1998 of Markov processes, and they have recently been used in the fields of Financial engineering @glasserman_monte_2004, fluid mechanics @griffin_investigation_2019, fitting black hole images @psaltis_markov_2022 and most famously in the Los Alamos project @metropolis_beginning_1987.</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>With the advent of quantum algorithms, quantum walks have arisen as an obvious extension of classical walks in the quantum domain. The applications of quantum walks are just as many: ANN training @de_souza_quantum_2019, Random Number Generation @bae_source_2021, List coloring (Grover) @mukherjee_grover_2022, collision finding @bonnetain_finding_2022, link prediction @goldsmith_link_2022. There has even been a recent foray into classifying and using a quantum-classical walk to speed up certain classical algorithms, namely the Google PageRank Algorithm @ortega_generalized_2022. The increased interest in quantum walks can be attributed to the quadratic speed up which it grants the solution a-la the Grover algorithm, which itself can be considered as a Quantum Walk @qiskit_quantum.</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
@@ -682,17 +693,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>Then we define quantum (@sec-quantum) walk, particularly the coined walk on a 1D grid. The quantum 1D walk has a standard deviation which goes as $\mathcal{O}(T)$, and is transient.</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>We define these walks with a view of using these walks in search algorithms. We formalise the search problem and show how the quantum walk is faster but its transient nature leads to a non zero asymptotic failure rate in @sec-search. </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>We define these walks with a view of using these walks in search algorithms. We formalise the search problem and show how the quantum walk is faster, but its transient nature leads to a non-zero asymptotic failure rate in @sec-search. </span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>Then, we look at previous attempts at solving them by resetting (@sec-reset). By resetting a markov chain, we can convert a transient chain to a recurrent one. We explore the effect of resetting in the quantum case, attempting to recreate past work in continuous time quantum walks in the discrete time quantum walks. We also look at possible shortcomings of the solution.</span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>In @sec-qreset, we introduce a new mechanism for quantum resetting based on superposition of the evolution and reset operations and show numerically that it does not have advantage in the search problem (@sec-qreset). However, we propose possible methods to analyze this setup and leave it for a future project.</span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>Finally, we introduce a second protocol for reset quantum walks by quantizing the Markov process via Szegedy walks (@sec-szegedy). We also present a Grover like search algorithm, which is easily analyzable by eigenvalue analysis. The results and discussions of this protocol are presented in @sec-uqreset. </span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>Finally, we introduce a second protocol for reset quantum walks by quantizing the Markov process via Szegedy walks (@sec-szegedy). We also present a Grover like search algorithm, which is easily analyzable by eigenvalue analysis. The results and discussions of this protocol are presented in @sec-uqreset. We then conclude and provide future directions of this work in @sec-summary.</span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>We then conclude and provide future directions of this work in the summary</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>Along with the theory, certain aspects of the implementation of the walks computationally are also added as necessary. This is done inline instead of in an appendix, which is the norm, since the author believes that such a presentation solidifies the readers' understanding of both, the model and the implementation. We use Julia @bezanson_julia_2017 and its standard libraries, Plots.jl @breloff_plotsjl_2022, QuantumInformation.jl @gawron_quantuminformationjljulia_2018, Luxor.jl @juliagraphics_luxorjl, Yao.jl and YaoPlots.jl @luo_yaojl_2020.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>Along with the theory, certain aspects of the implementation of the walks computationally are also added as necessary. This is done inline instead of in an appendix, which is the norm, since the author believes that such a presentation solidifies the readers' understanding of both, the model and the implementation. We use Julia @bezanson_julia_2017 and its standard libraries, Plots.jl @breloff_plotsjl_2022, QuantumInformation.jl @gawron_quantuminformationjljulia_2018, Luxor.jl @juliagraphics_luxorjl, Yao.jl and YaoPlots.jl @luo_yaojl_2020.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

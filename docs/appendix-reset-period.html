@@ -8,7 +8,7 @@
 
 <meta name="description" content="A dissertation submitted for the partial fulfilment of BS-MS dual degree in Science">
 
-<title>Quantum Walks and Quantum Resetting - References</title>
+<title>Quantum Walks and Quantum Resetting - Appendix D — Proof of Reset Markov Chains Being Aperiodic</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -55,26 +55,7 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -84,8 +65,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./appendix-markov.html" rel="next">
-<link href="./summary.html" rel="prev">
+<link href="./appendix-qreset.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -116,6 +96,8 @@ div.csl-indent {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -128,7 +110,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./references.html">References</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./appendix-markov.html">Appendices</a></li><li class="breadcrumb-item"><a href="./appendix-reset-period.html"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Proof of Reset Markov Chains Being Aperiodic</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -234,7 +216,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link active">
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
 </li>
@@ -267,7 +249,7 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./appendix-reset-period.html" class="sidebar-item-text sidebar-link">
+  <a href="./appendix-reset-period.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Proof of Reset Markov Chains Being Aperiodic</span></span></a>
   </div>
 </li>
@@ -286,7 +268,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">References</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title"><span id="sec-reset-periodicity" class="quarto-section-identifier">Appendix D — Proof of Reset Markov Chains Being Aperiodic</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -301,170 +283,11 @@ div.csl-indent {
 
 </header>
 
-<div id="refs" class="references csl-bib-body" role="list">
-<div id="ref-ortega_discrete-time_2023" class="csl-entry" role="listitem">
-<a href="http://arxiv.org/abs/2303.18202"><sup>1</sup> S.A. Ortega and
-M.A. Martin-Delgado, (2023)</a>.
-</div>
-<div id="ref-boito_quantum_2023" class="csl-entry" role="listitem">
-<a href="http://arxiv.org/abs/2302.08871"><sup>2</sup> P. Boito and G.M.
-Del Corso, (2023)</a>.
-</div>
-<div id="ref-jutho_juthokrylovkitjl_nodate" class="csl-entry" role="listitem">
-<a href="https://github.com/Jutho/KrylovKit.jl"><sup>3</sup> Jutho and
-Contributors, (n.d.)</a>.
-</div>
-<div id="ref-wong_exceptional_2017" class="csl-entry" role="listitem">
-<a href="https://doi.org/10.1007/s11128-017-1606-y"><sup>4</sup> T.G.
-Wong and R.A.M. Santos, Quantum Information Processing
-<strong>16</strong>, 154 (2017)</a>.
-</div>
-<div id="ref-glos_iitisquantumwalkjl_2018" class="csl-entry" role="listitem">
-<a href="https://github.com/iitis/QuantumWalk.jl"><sup>5</sup> A. Glos
-and J. Adam Miszczak, (2018)</a>.
-</div>
-<div id="ref-krovi_quantum_2016" class="csl-entry" role="listitem">
-<a href="https://doi.org/10.1007/s00453-015-9979-8"><sup>6</sup> H.
-Krovi, F. Magniez, M. Ozols, and J. Roland, Algorithmica
-<strong>74</strong>, 851 (2016)</a>.
-</div>
-<div id="ref-noauthor_vizings_2023" class="csl-entry" role="listitem">
-<a href="
-           https://en.wikipedia.org/w/index.php?title=Vizing%27s_theorem&amp;oldid=1136394595
-           "><sup>7</sup> Wikipedia contributors, (2023)</a>.
-</div>
-<div id="ref-stefanak_recurrence_2008" class="csl-entry" role="listitem">
-<a href="https://doi.org/10.1103/PhysRevLett.100.020501"><sup>8</sup> M.
-Štefaňák, I. Jex, and T. Kiss, Physical Review Letters
-<strong>100</strong>, 020501 (2008)</a>.
-</div>
-<div id="ref-yin_restart_2022" class="csl-entry" role="listitem">
-<a href="http://arxiv.org/abs/2205.01974"><sup>9</sup> R. Yin and E.
-Barkai, (2022)</a>.
-</div>
-<div id="ref-SO_297334" class="csl-entry" role="listitem">
-<a href="https://math.stackexchange.com/q/297334"><sup>10</sup> user940,
-(n.d.)</a>.
-</div>
-<div id="ref-griffin_investigation_2019" class="csl-entry" role="listitem">
-<a href="https://doi.org/10.13140/RG.2.2.22657.81762"><sup>11</sup> K.P.
-Griffin, S.J. Suresh, T.J. Flint, and W.H.R. Chan, (2019)</a>.
-</div>
-<div id="ref-goldsmith_link_2022" class="csl-entry" role="listitem">
-<a href="http://arxiv.org/abs/2208.11030"><sup>12</sup> M. Goldsmith, G.
-García-Pérez, J. Malmi, M.A.C. Rossi, H. Saarinen, and S. Maniscalco,
-(2022)</a>.
-</div>
-<div id="ref-bonnetain_finding_2022" class="csl-entry" role="listitem">
-<a href="http://arxiv.org/abs/2205.14023"><sup>13</sup> X. Bonnetain, A.
-Chailloux, A. Schrottenloher, and Y. Shen, (2022)</a>.
-</div>
-<div id="ref-szegedy_quantum_2004" class="csl-entry" role="listitem">
-<a href="https://doi.org/10.1109/FOCS.2004.53"><sup>14</sup> M. Szegedy,
-in <em>45th <span>Annual</span> <span>IEEE</span> <span>Symposium</span>
-on <span>Foundations</span> of <span>Computer</span>
-<span>Science</span></em> (IEEE, Rome, Italy, 2004), pp. 32–41</a>.
-</div>
-<div id="ref-ortega_generalized_2022" class="csl-entry" role="listitem">
-<a href="http://arxiv.org/abs/2209.13451"><sup>15</sup> S.A. Ortega and
-M.A. Martin-Delgado, (2022)</a>.
-</div>
-<div id="ref-friedman_quantum_2017" class="csl-entry" role="listitem">
-<a href="https://doi.org/10.1103/PhysRevE.95.032141"><sup>16</sup> H.
-Friedman, D.A. Kessler, and E. Barkai, Phys. Rev. E <strong>95</strong>,
-032141 (2017)</a>.
-</div>
-<div id="ref-magniez_search_2011" class="csl-entry" role="listitem">
-<a href="https://doi.org/10.1137/090745854"><sup>17</sup> F. Magniez, A.
-Nayak, J. Roland, and M. Santha, SIAM Journal on Computing
-<strong>40</strong>, 142 (2011)</a>.
-</div>
-<div id="ref-psaltis_markov_2022" class="csl-entry" role="listitem">
-<a href="https://doi.org/10.3847/1538-4357/ac2c69"><sup>18</sup> D.
-Psaltis, F. Özel, L. Medeiros, P. Christian, J. Kim, C. Chan, L.J.
-Conway, C.A. Raithel, D. Marrone, and T.R. Lauer, ApJ
-<strong>928</strong>, 55 (2022)</a>.
-</div>
-<div id="ref-qiskit_quantum" class="csl-entry" role="listitem">
-<a href="
-           https://qiskit.org/textbook/ch-algorithms/quantum-walk-search-algorithm.html#4.-Quantum-walk-search-algorithm-
-           "><sup>19</sup> Qiskit, Quantum Walk Search Algorithm
-(n.d.)</a>.
-</div>
-<div id="ref-norris_markov_1998" class="csl-entry" role="listitem">
-<sup>20</sup> J.R. Norris, <em><a href="https://www.cambridge.org/in/academic/subjects/statistics-probability/applied-probability-and-stochastic-networks/markov-chains?format=PB&amp;isbn=9780521633963">Markov
-Chains</a></em>, 1st pbk. ed (Cambridge University Press, Cambridge, UK
-; New York, 1998).
-</div>
-<div id="ref-glasserman_monte_2004" class="csl-entry" role="listitem">
-<sup>21</sup> P. Glasserman, <em><a href="https://doi.org/10.1007/978-0-387-21617-1">Monte
-<span>Carlo</span> <span>Methods</span> in <span>Financial</span>
-<span>Engineering</span></a></em> (Springer New York, New York, NY,
-2003).
-</div>
-<div id="ref-metropolis_beginning_1987" class="csl-entry" role="listitem">
-<a href="https://sgp.fas.org/othergov/doe/lanl/pubs/00326866.pdf"><sup>22</sup>
-N. Metropolis, Los Alamos Science Spl. Issue (1987)</a>.
-</div>
-<div id="ref-srivastava_resetting_2021" class="csl-entry" role="listitem">
-<sup>23</sup> A. Srivastava, <a href="https://library.iisermohali.ac.in">Resetting <span>Quantum</span>
-<span>Systems</span> Through <span>Superposition</span> of
-<span>Evolution </span></a>, PhD thesis, IISER Mohali, 2021.
-</div>
-<div id="ref-de_souza_quantum_2019" class="csl-entry" role="listitem">
-<a href="https://doi.org/10.1109/BRACIS.2019.00149"><sup>24</sup> L.S.
-de Souza, J.H.A. de Carvalho, and T.A.E. Ferreira, in <em>2019 8th
-<span>Brazilian</span> <span>Conference</span> on
-<span>Intelligent</span> <span>Systems</span> (<span>
-BRACIS</span>)</em> (IEEE, Salvador, Brazil, 2019), pp. 836–841</a>.
-</div>
-<div id="ref-bae_source_2021" class="csl-entry" role="listitem">
-<a href="https://doi.org/10.48550/ARXIV.2102.02252"><sup>25</sup> M. Bae
-and W.O. Krawec, (2021)</a>.
-</div>
-<div id="ref-mukherjee_grover_2022" class="csl-entry" role="listitem">
-<a href="https://doi.org/10.1109/TQE.2022.3151137"><sup>26</sup> S.
-Mukherjee, IEEE Trans. Quantum Eng. <strong>3</strong>, 1 (2022)</a>.
-</div>
-<div id="ref-luo_yaojl_2020" class="csl-entry" role="listitem">
-<a href="https://doi.org/10.22331/q-2020-10-11-341"><sup>27</sup> X.-Z.
-Luo, J.-G. Liu, P. Zhang, and L. Wang, Quantum <strong>4</strong>, 341
-(2020)</a>.
-</div>
-<div id="ref-breloff_plotsjl_2022" class="csl-entry" role="listitem">
-<a href="https://doi.org/10.5281/ZENODO.4725317"><sup>28</sup> T.
-Breloff, (2022)</a>.
-</div>
-<div id="ref-bezanson_julia_2017" class="csl-entry" role="listitem">
-<a href="https://doi.org/10.1137/141000671"><sup>29</sup> J. Bezanson,
-A. Edelman, S. Karpinski, and V.B. Shah, SIAM Rev. <strong>59</strong>,
-65 (2017)</a>.
-</div>
-<div id="ref-gawron_quantuminformationjljulia_2018" class="csl-entry" role="listitem">
-<a href="https://doi.org/10.1371/journal.pone.0209358"><sup>30</sup> P.
-Gawron, D. Kurzyk, and Ł. Pawela, PLoS ONE <strong>13</strong>, e0209358
-(2018)</a>.
-</div>
-<div id="ref-juliagraphics_luxorjl" class="csl-entry" role="listitem">
-<a href="https://github.com/JuliaGraphics/Luxor.jl"><sup>31</sup>
-JuliaGraphics, (n.d.)</a>.
-</div>
-<div id="ref-bromberger_juliagraphslightgraphsjl_2017" class="csl-entry" role="listitem">
-<a href="https://doi.org/10.5281/ZENODO.1412141"><sup>32</sup> S.
-Bromberger and O. Contributors, (2017)</a>.
-</div>
-<div id="ref-wong_equivalence_2017" class="csl-entry" role="listitem">
-<a href="https://doi.org/10.1007/s11128-017-1667-y"><sup>33</sup> T.G.
-Wong, Quantum Information Processing <strong>16</strong>, 215
-(2017)</a>.
-</div>
-<div id="ref-portugal_quantum_2018" class="csl-entry" role="listitem">
-<sup>34</sup> R. Portugal, <em><a href="https://doi.org/10.1007/978-3-319-97813-0">Quantum
-<span>Walks</span> and <span>Search</span>
-<span>Algorithms</span></a></em>, 2nd ed. 2018 (Springer International
-Publishing : Imprint: Springer, Cham, 2018).
-</div>
-</div>
+<p>Given an irreducible Markov chain with transition matrix <span class="math inline">\(P\)</span> with state space <span class="math inline">\(S\)</span>, <span class="math inline">\(s_r \in S\)</span> and <span class="math inline">\(0 &lt; \gamma &lt; 1\)</span>, define the <strong>reset Markov chain to <span class="math inline">\(s_r\)</span> w.p <span class="math inline">\(\gamma\)</span></strong> as the Markov chain given by the transition matrix <span class="math inline">\(P^* =(1-\gamma) P + \gamma R\)</span>, where <span class="math inline">\([R_{ij}] = \begin {cases}  1, &amp; j = s_r\\  0, &amp; otherwise \end{cases}\)</span> on state space <span class="math inline">\(S\)</span>. Note that this is a well-defined irreducible Markov chain.</p>
+<p>Let the period of <span class="math inline">\(P^*\)</span> be <span class="math inline">\(d\)</span>. Therefore, we can partition the state space into disjoint sets.</p>
+<p><span class="math display">\[S = C_0 \cup C_1 \cup \dots \cup C_{d-1}\]</span></p>
+<p>and set <span class="math inline">\(C_{nd+r} = C_r\)</span>, such that <span class="math inline">\(p^{*(n)}_{ij} &gt; 0\)</span> only if <span class="math inline">\(i \in C_r\)</span> and <span class="math inline">\(j \in C_{r+n}\)</span> for some <span class="math inline">\(r\)</span>. Let <span class="math inline">\(s \in C_k, s\neq s_r\)</span> for some <span class="math inline">\(k\)</span>. Since <span class="math inline">\(p^*_{s s_r} = p_{s s_r} + \gamma &gt; 0\)</span>, <span class="math inline">\(s_r\)</span> must lie in <span class="math inline">\(C_{k+1}\)</span>. Since this holds for all <span class="math inline">\(k\)</span>, there can at most be two <span class="math inline">\(C\)</span>s, one with <span class="math inline">\(s_r\)</span> and the other with the rest of the nodes. Finally, if <span class="math inline">\(p_{ij} &gt; 0\)</span> for any <span class="math inline">\(i,j \in S/\{s_r\}\)</span>, they must lie in different classes, or there must be only one class. Since the former would create a contradiction, we must have that <span class="math inline">\(d=1\)</span> and <span class="math inline">\(P^*\)</span> is aperiodic.</p>
+<p>If no such <span class="math inline">\(i,j\)</span> exist, then <span class="math inline">\(P\)</span> must be a star network. While in the current formalism, the self loop at <span class="math inline">\(s_r\)</span> renders the proof almost trivial, we have provided a proof which shows aperiodicity even if <span class="math inline">\(P*\)</span> be modified to remove the self loop. In such a case, barring the star network, all other irreducible graphs follow this proof.</p>
 
 
 <!-- -->
@@ -771,20 +594,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./summary.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Summary and Future directions</span></span>
+      <a href="./appendix-qreset.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Quantum Reset is a CPTP map</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./appendix-markov.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Markov Chains</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># References  {.unnumbered}</span></span>
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Proof of Reset Markov Chains Being Aperiodic {#sec-reset-periodicity}</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>::: {#refs}</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>Given an irreducible Markov chain with transition matrix $P$ with state space $S$, $s_r \in S$ and $0 &lt; \gamma &lt; 1$, define the **reset Markov chain to $s_r$ w.p $\gamma$** as the Markov chain given by the transition matrix $P^* =(1-\gamma) P + \gamma R$, where $<span class="co">[</span><span class="ot">R_{ij}</span><span class="co">]</span> = \begin {cases}</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    1, &amp; j = s_r<span class="sc">\\</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    0, &amp; otherwise</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>\end{cases}$ on state space $S$. Note that this is a well-defined irreducible Markov chain.</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>Let the period of $P^*$ be $d$. Therefore, we can partition the state space into disjoint sets.</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>$$S = C_0 \cup C_1 \cup \dots \cup C_{d-1}$$</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>and set $C_{nd+r} = C_r$, such that $p^{*(n)}_{ij} &gt; 0$ only if $i \in C_r$ and $j \in C_{r+n}$ for some $r$. Let $s \in C_k, s\neq s_r$ for some $k$. Since $p^*_{s s_r} = p_{s s_r} + \gamma &gt; 0$, $s_r$ must lie in $C_{k+1}$. Since this holds for all $k$, there can at most be two $C$s, one with $s_r$ and the other with the rest of the nodes. Finally, if $p_{ij} &gt; 0$ for any $i,j \in S/\{s_r\}$, they must lie in different classes, or there must be only one class. Since the former would create a contradiction, we must have that $d=1$ and $P^*$ is aperiodic.</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>If no such $i,j$ exist, then $P$ must be a star network. While in the current formalism, the self loop at $s_r$ renders the proof almost trivial, we have provided a proof which shows aperiodicity even if $P*$ be modified to remove the self loop. In such a case, barring the star network, all other irreducible graphs follow this proof.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

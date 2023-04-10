@@ -2,10 +2,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="561pt" height="225pt" viewBox="0 0 561 225" version="1.1">
 <defs>
 <g>
-<symbol overflow="visible" id="glyph-2031500-0">
+<symbol overflow="visible" id="glyph-6446370-0">
 <path style="stroke:none;" d="M 0.8125 2.828125 L 0.8125 -11.28125 L 8.8125 -11.28125 L 8.8125 2.828125 Z M 1.71875 1.9375 L 7.921875 1.9375 L 7.921875 -10.390625 L 1.71875 -10.390625 Z M 1.71875 1.9375 "/>
 </symbol>
-<symbol overflow="visible" id="glyph-2031500-1">
+<symbol overflow="visible" id="glyph-6446370-1">
 <path style="stroke:none;" d="M 0.671875 -11.671875 L 2.375 -11.671875 L 4.9375 -7.265625 L 7.546875 -11.671875 L 9.234375 -11.671875 L 5.75 -6.1875 L 9.484375 0 L 7.796875 0 L 4.9375 -5.03125 L 1.84375 0 L 0.140625 0 L 4.046875 -6.1875 Z M 0.671875 -11.671875 "/>
 </symbol>
 </g>
@@ -73,7 +73,7 @@
 <path style="fill:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 212.398438 67.5 L 229.5 67.5 "/>
 <path style="fill:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 243 34.5 L 243 10.5 L 267 10.5 L 267 34.5 Z M 243 34.5 "/>
 <g style="fill:rgb(0%,0%,0%);fill-opacity:1;">
-  <use xlink:href="#glyph-2031500-1" x="250.183594" y="28.332031"/>
+  <use xlink:href="#glyph-6446370-1" x="250.183594" y="28.332031"/>
 </g>
 <path style="fill:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 229.5 22.5 L 243 22.5 "/>
 <path style="fill:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 267 22.5 L 280.5 22.5 "/>
@@ -139,7 +139,7 @@
 <path style="fill:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 467.398438 202.5 L 484.5 202.5 "/>
 <path style="fill:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 498 34.5 L 498 10.5 L 522 10.5 L 522 34.5 Z M 498 34.5 "/>
 <g style="fill:rgb(0%,0%,0%);fill-opacity:1;">
-  <use xlink:href="#glyph-2031500-1" x="505.183594" y="28.332031"/>
+  <use xlink:href="#glyph-6446370-1" x="505.183594" y="28.332031"/>
 </g>
 <path style="fill:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 484.5 22.5 L 498 22.5 "/>
 <path style="fill:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 522 22.5 L 535.5 22.5 "/>
