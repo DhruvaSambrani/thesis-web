@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.319">
+<meta name="generator" content="quarto-1.3.326">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -321,8 +321,7 @@ div.csl-indent {
 
 <section id="introduction" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">2.1</span> Introduction</h2>
-<p>Quantum walks are defined analogous to the classical walks.</p>
-<p>First, our walker is quantum mechanical, and the position of the walker can be a superposition of the nodes. Thus, we define the state of the walker to be a superposition of the node states <span class="math inline">\(|i\rangle\)</span>.</p>
+<p>Quantum walks are defined analogous to the classical walks. First, our walker is quantum mechanical, and the position of the walker can be a superposition of the nodes. Thus, we define the state of the walker to be a superposition of the node states <span class="math inline">\(|i\rangle\)</span>.</p>
 <p><span class="math display">\[|\psi\rangle = \sum_i c_i|i\rangle\]</span></p>
 <p>Let this Hilbert space be denoted as <span class="math inline">\(\mathcal{H}_W\)</span>. The projection of the state on some node <span class="math inline">\(i\)</span> given by <span class="math inline">\(|\langle i | \psi\rangle|^2 = |c_i|^2\)</span> is understood as the probability that the walker will collapse to the state <span class="math inline">\(|i\rangle\)</span> on measurement.</p>
 <p>To define the evolution of the node, we look back at the transition matrix <span class="math inline">\(P_{ij}\)</span>. Thus, we would define an operation in the following manner -</p>
@@ -377,33 +376,33 @@ Other Boundary Conditions
 <h3 data-number="2.3.1" class="anchored" data-anchor-id="matrix-formalism"><span class="header-section-number">2.3.1</span> Matrix formalism</h3>
 <p>The first and more immediate method is to simply write down the matrix equivalent of the above operations. For the visualization of the implementations, we will assume that the walk occurs in a 1 D chain of size 4.</p>
 <p>The coin is preferred to be in the <span class="math inline">\(\frac{1}{\sqrt2}(|0\rangle + i |1\rangle)\)</span> when we start so that the walk proceeds symmetrically<span class="citation" data-cites="portugal_quantum_2018"><sup><a href="references.html#ref-portugal_quantum_2018" role="doc-biblioref">1</a></sup></span>.</p>
-<div class="cell" data-execution_count="2">
+<div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>init_coin <span class="op">=</span> <span class="fl">1</span><span class="op">/</span>√<span class="fl">2</span> <span class="op">*</span> (<span class="fu">ket</span>(<span class="fl">1</span>,<span class="fl">2</span>) <span class="op">-</span> <span class="fl">1im</span> <span class="op">*</span> <span class="fu">ket</span>(<span class="fl">2</span>,<span class="fl">2</span>));</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The coin operator is trivial to write,</p>
-<div class="cell" data-execution_count="3">
+<div class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>H <span class="op">=</span> <span class="fu">KrausOperators</span>([<span class="fu">sparse</span>(<span class="fu">hadamard</span>(<span class="fl">2</span>)<span class="fu">⊗I</span>(<span class="fl">4</span>))]);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The left and right shift operators can be defined in the following manner.</p>
-<div class="cell" data-execution_count="4">
+<div class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>R <span class="op">=</span> <span class="fu">collect</span>(<span class="fu">Tridiagonal</span>(<span class="fu">fill</span>(<span class="fl">1</span>., <span class="fl">3</span>), <span class="fu">zeros</span>(<span class="fl">4</span>), <span class="fu">zeros</span>(<span class="fl">3</span>)))</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>R[<span class="fl">1</span>, <span class="kw">end</span>] <span class="op">=</span> <span class="fl">1</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>L <span class="op">=</span> <span class="fu">collect</span>(<span class="fu">Tridiagonal</span>(<span class="fu">zeros</span>(<span class="fl">3</span>), <span class="fu">zeros</span>(<span class="fl">4</span>), <span class="fu">fill</span>(<span class="fl">1</span>., <span class="fl">3</span>)))</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>L[<span class="kw">end</span>, <span class="fl">1</span>] <span class="op">=</span> <span class="fl">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Thus, the shift operator is defined as</p>
-<div class="cell" data-execution_count="5">
+<div class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>S <span class="op">=</span> <span class="fu">KrausOperators</span>([<span class="fu">sparse</span>(<span class="fu">proj</span>(<span class="fu">ket</span>(<span class="fl">1</span>, <span class="fl">2</span>)) <span class="op">⊗</span> L <span class="op">+</span> <span class="fu">proj</span>(<span class="fu">ket</span>(<span class="fl">2</span>, <span class="fl">2</span>)) <span class="op">⊗</span> R)]);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Thus, we can repeatedly apply <span class="math inline">\(S\circ H\)</span> to the initial state and accumulate the results.</p>
-<div class="cell" data-execution_count="6">
+<div class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>init_state <span class="op">=</span> <span class="fu">proj</span>(init_coin <span class="op">⊗</span> <span class="fu">ket</span>(<span class="fl">2</span>,<span class="fl">4</span>))</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>ψ <span class="op">=</span> [[init_state]; <span class="fu">accumulate</span>(<span class="fl">1</span><span class="op">:</span><span class="fl">40</span>, init<span class="op">=</span>init_state) do old, _</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">H</span>(<span class="fu">S</span>(old))</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span>];</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now we can plot the readout statistics by partially tracing out the coin, and plotting the diagonal. <a href="#fig-quant">Figure&nbsp;<span>2.1</span></a> is a walk on 61 nodes.</p>
-<div class="cell" data-execution_count="7">
+<div class="cell" data-execution_count="8">
 <div id="fig-quant" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <!--?xml version="1.0" encoding="utf-8"?-->
@@ -605,7 +604,7 @@ Quantum Walks are not random
 <li>We can similarly construct the <code>SubOne</code> circuit, but that is simplified by noting that the <code>SubOne</code> circuit is simply the inverse of the <code>AddOne</code> circuit, and this corresponds to just inverting the circuit (all gates are unitary).</li>
 <li>The circuits for the left (and right) shift operation is shown in <a href="#fig-leftshift">Figure&nbsp;<span>2.3</span></a> (and <a href="#fig-rightshift">Figure&nbsp;<span>2.2</span></a>)</li>
 </ul>
-<div class="cell" data-execution_count="8">
+<div class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rightshift</span>(n) <span class="op">=</span> <span class="fu">chain</span>(</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    n,</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">map</span>(n<span class="op">:-</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span>) <span class="cf">do</span> i</span>
@@ -614,7 +613,7 @@ Quantum Walks are not random
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">leftshift</span>(n) <span class="op">=</span> <span class="fu">rightshift</span>(n)<span class="ch">';</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="9">
+<div class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>YaoPlots.<span class="fu">plot</span>(<span class="fu">rightshift</span>(<span class="fl">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
 <div id="fig-rightshift" class="quarto-figure quarto-figure-center anchored">
@@ -625,7 +624,7 @@ Quantum Walks are not random
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="10">
+<div class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>YaoPlots.<span class="fu">plot</span>(<span class="fu">leftshift</span>(<span class="fl">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="11">
 <div id="fig-leftshift" class="quarto-figure quarto-figure-center anchored">
@@ -639,7 +638,7 @@ Quantum Walks are not random
 <ul>
 <li>The controlled shift operation is encoded by controlling on the coin qubit as seen in <a href="#fig-shift">Figure&nbsp;<span>2.4</span></a>.</li>
 </ul>
-<div class="cell" data-execution_count="11">
+<div class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shift</span>(n) <span class="op">=</span> <span class="fu">chain</span>(n<span class="op">+</span><span class="fl">1</span>,</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">control</span>(<span class="fl">1</span>, <span class="fl">2</span><span class="op">:</span>n<span class="op">+</span><span class="fl">1</span> <span class="op">=&gt;</span> <span class="fu">rightshift</span>(n)),</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">put</span>(<span class="fl">1</span> <span class="op">=&gt;</span> X),</span>
@@ -661,7 +660,7 @@ Quantum Walks are not random
 <section id="coin-operator" class="level4" data-number="2.3.2.4">
 <h4 data-number="2.3.2.4" class="anchored" data-anchor-id="coin-operator"><span class="header-section-number">2.3.2.4</span> Coin operator</h4>
 <p>We can add the coin operator as usual on the first rail (<a href="#fig-coin">Figure&nbsp;<span>2.5</span></a>).</p>
-<div class="cell" data-execution_count="12">
+<div class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coin</span>(n, c<span class="op">=</span>Yao.H) <span class="op">=</span> <span class="fu">chain</span>(n<span class="op">+</span><span class="fl">1</span>, <span class="fu">put</span>(<span class="fl">1</span> <span class="op">=&gt;</span> c))</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>YaoPlots.<span class="fu">plot</span>(<span class="fu">coin</span>(<span class="fl">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
@@ -678,7 +677,7 @@ Quantum Walks are not random
 <h4 data-number="2.3.2.5" class="anchored" data-anchor-id="evolve-circuit"><span class="header-section-number">2.3.2.5</span> Evolve Circuit</h4>
 <p>Putting these together, we get the operation for a single step of the evolution as below. Note that the top qubit rail is that of the coin, and the rest are those of the simulation of the system.</p>
 <p>This circuit (<a href="#fig-evolve">Figure&nbsp;<span>2.6</span></a>) can be repeated to achieve any number of steps.</p>
-<div class="cell" data-execution_count="13">
+<div class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">evolve</span>(n) <span class="op">=</span> <span class="fu">shift</span>(n) <span class="op">*</span> <span class="fu">coin</span>(n)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>YaoPlots.<span class="fu">plot</span>(<span class="fu">evolve</span>(<span class="fl">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="14">
@@ -696,7 +695,7 @@ Quantum Walks are not random
 <p>While we can already simulate the walk, a very useful helper function that we can define is the prepare circuit.</p>
 <p>Quantum registers are often initialized to the 0 state, and it is also easy to restart the walk from the 0 state. However, we often like to start the walk in the center of the chain instead of at node 0. Also, the coin is prefered to be in the <span class="math inline">\(\frac{1}{\sqrt2}(|0\rangle + i |1\rangle)\)</span> when we start so that the walk proceeds symmetrically<span class="citation" data-cites="portugal_quantum_2018"><sup><a href="references.html#ref-portugal_quantum_2018" role="doc-biblioref">1</a></sup></span>.</p>
 <p>Hence, to perform these steps, we define the following <code>prepare</code> subroutine (<a href="#fig-prepare">Figure&nbsp;<span>2.7</span></a>).</p>
-<div class="cell" data-execution_count="14">
+<div class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prepare</span>(n) <span class="op">=</span> <span class="fu">chain</span>(</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    n<span class="op">+</span><span class="fl">1</span>,</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">put</span>(<span class="fl">1</span><span class="op">=&gt;</span>Yao.H),</span>
@@ -715,7 +714,7 @@ Quantum Walks are not random
 </div>
 </div>
 <p>Plotting the walker distribution (<a href="#fig-qwcirc">Figure&nbsp;<span>2.8</span></a>) as before, we see that the two implementations are equivalent.</p>
-<div class="cell" data-execution_count="15">
+<div class="cell" data-execution_count="16">
 <div id="fig-qwcirc" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <!--?xml version="1.0" encoding="utf-8"?-->
@@ -1224,272 +1223,270 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introduction</span></span>
 <span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>Quantum walks are defined analogous to the classical walks.</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>Quantum walks are defined analogous to the classical walks. First, our walker is quantum mechanical, and the position of the walker can be a superposition of the nodes. Thus, we define the state of the walker to be a superposition of the node states $|i\rangle$.</span>
 <span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>First, our walker is quantum mechanical, and the position of the walker can be a superposition of the nodes. Thus, we define the state of the walker to be a superposition of the node states $|i\rangle$.</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>$$|\psi\rangle = \sum_i c_i|i\rangle$$</span>
 <span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>$$|\psi\rangle = \sum_i c_i|i\rangle$$</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>Let this Hilbert space be denoted as $\mathcal{H}_W$. The projection of the state on some node $i$ given by $|\langle i | \psi\rangle|^2 = |c_i|^2$ is understood as the probability that the walker will collapse to the state $|i\rangle$ on measurement.</span>
 <span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>Let this Hilbert space be denoted as $\mathcal{H}_W$. The projection of the state on some node $i$ given by $|\langle i | \psi\rangle|^2 = |c_i|^2$ is understood as the probability that the walker will collapse to the state $|i\rangle$ on measurement.</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>To define the evolution of the node, we look back at the transition matrix $P_{ij}$. Thus, we would define an operation in the following manner -</span>
 <span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>To define the evolution of the node, we look back at the transition matrix $P_{ij}$. Thus, we would define an operation in the following manner -</span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>$$O |i\rangle = \sum_j \sqrt{p_{ij}} |j\rangle$$</span>
 <span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>$$O |i\rangle = \sum_j \sqrt{p_{ij}} |j\rangle$$</span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>The walk proceeds by repeated application of $O$.</span>
 <span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a>The walk proceeds by repeated application of $O$.</span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a>While this expression is enough to define the walk, it is not immediately clear how one would explicitly realize such an operation. Multiple formalisms define such walks, but we shall use the coined quantum walk formalism which is very natural for regular graphs, as is the case for the 1D chain. Note that for the symmetric walks on nD lattices, like the 1D chain, the tight-binding model is already a well understood continuous time quantum walk. However, we prefer a discrete time formalism.</span>
 <span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a>While this expression is enough to define the walk, it is not immediately clear how one would explicitly realize such an operation. Multiple formalisms define such walks, but we shall use the coined quantum walk formalism which is very natural for regular graphs, as is the case for the 1D chain. Note that for the symmetric walks on nD lattices, like the 1D chain, the tight-binding model is already a well understood continuous time quantum walk. However, we prefer a discrete time formalism.</span>
+<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a><span class="fu">## Coined Quantum Walk for 1D Chain</span></span>
 <span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a><span class="fu">## Coined Quantum Walk for 1D Chain</span></span>
+<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a>For the 1D chain, given a specific node, there are only 2 other nodes connected to it. Thus, we can add a 2 level system, which "decides" which node the walker jumps to. More formally, we attach a 2 level qubit system to the walker whose bases are denoted by $|0\rangle$ and $|1\rangle$. Let us denote this Hilbert space as $\mathcal{H}_C$</span>
 <span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a>For the 1D chain, given a specific node, there are only 2 other nodes connected to it. Thus, we can add a 2 level system, which "decides" which node the walker jumps to. More formally, we attach a 2 level qubit system to the walker whose bases are denoted by $|0\rangle$ and $|1\rangle$. Let us denote this Hilbert space as $\mathcal{H}_C$</span>
+<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a>Thus, we can define the shift operation as</span>
 <span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a>Thus, we can define the shift operation as</span>
+<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a>$$S |0\rangle|i\rangle = |0\rangle|i-1\rangle; S |1\rangle|i\rangle = |1\rangle|i+1\rangle$$</span>
 <span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a>$$S |0\rangle|i\rangle = |0\rangle|i-1\rangle; S |1\rangle|i\rangle = |1\rangle|i+1\rangle$$</span>
+<span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a>How would we define such an operation explicitly?</span>
 <span id="cb13-39"><a href="#cb13-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-40"><a href="#cb13-40" aria-hidden="true" tabindex="-1"></a>How would we define such an operation explicitly?</span>
+<span id="cb13-40"><a href="#cb13-40" aria-hidden="true" tabindex="-1"></a>$$S = |0\rangle\langle 0|\otimes S_L + |1\rangle\langle 1|\otimes S_R$$</span>
 <span id="cb13-41"><a href="#cb13-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-42"><a href="#cb13-42" aria-hidden="true" tabindex="-1"></a>$$S = |0\rangle\langle 0|\otimes S_L + |1\rangle\langle 1|\otimes S_R$$</span>
+<span id="cb13-42"><a href="#cb13-42" aria-hidden="true" tabindex="-1"></a>Where $S_L$ and $S_R$ are defined as</span>
 <span id="cb13-43"><a href="#cb13-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-44"><a href="#cb13-44" aria-hidden="true" tabindex="-1"></a>Where $S_L$ and $S_R$ are defined as</span>
+<span id="cb13-44"><a href="#cb13-44" aria-hidden="true" tabindex="-1"></a>$$S_L |i\rangle = |i-1\rangle,\ S_R |i\rangle = |i+1\rangle$$</span>
 <span id="cb13-45"><a href="#cb13-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-46"><a href="#cb13-46" aria-hidden="true" tabindex="-1"></a>$$S_L |i\rangle = |i-1\rangle,\ S_R |i\rangle = |i+1\rangle$$</span>
+<span id="cb13-46"><a href="#cb13-46" aria-hidden="true" tabindex="-1"></a>Note that $S$ operates on $\mathcal{H}_C\otimes\mathcal{H}_W$, whereas $S_L$ and $S_R$ operate on $\mathcal{H}_W$ only.</span>
 <span id="cb13-47"><a href="#cb13-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-48"><a href="#cb13-48" aria-hidden="true" tabindex="-1"></a>Note that $S$ operates on $\mathcal{H}_C\otimes\mathcal{H}_W$, whereas $S_L$ and $S_R$ operate on $\mathcal{H}_W$ only.</span>
+<span id="cb13-48"><a href="#cb13-48" aria-hidden="true" tabindex="-1"></a>The superposition in the two choices at each step is recovered by putting the coin into a superposition of its basis states. This is achieved via a coin operator, which is commonly defined as $H\otimes I$, where $H$ is the single qubit Hadamard operator.</span>
 <span id="cb13-49"><a href="#cb13-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-50"><a href="#cb13-50" aria-hidden="true" tabindex="-1"></a>The superposition in the two choices at each step is recovered by putting the coin into a superposition of its basis states. This is achieved via a coin operator, which is commonly defined as $H\otimes I$, where $H$ is the single qubit Hadamard operator.</span>
+<span id="cb13-50"><a href="#cb13-50" aria-hidden="true" tabindex="-1"></a>Let us explicitly write down two steps of the walk</span>
 <span id="cb13-51"><a href="#cb13-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-52"><a href="#cb13-52" aria-hidden="true" tabindex="-1"></a>Let us explicitly write down two steps of the walk</span>
-<span id="cb13-53"><a href="#cb13-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-54"><a href="#cb13-54" aria-hidden="true" tabindex="-1"></a>$$H\otimes I (|0\rangle |0\rangle) = \frac{|0\rangle |0\rangle + |1\rangle |0\rangle}{\sqrt 2}$$</span>
-<span id="cb13-55"><a href="#cb13-55" aria-hidden="true" tabindex="-1"></a>$$S\left(\frac{|0\rangle |0\rangle + |1\rangle |0\rangle}{\sqrt 2}\right) = \frac{|0\rangle |-1\rangle + |1\rangle |1\rangle}{\sqrt 2}$$</span>
-<span id="cb13-56"><a href="#cb13-56" aria-hidden="true" tabindex="-1"></a>$$H\otimes I \frac{|0\rangle |-1\rangle + |1\rangle |1\rangle}{\sqrt 2} = \frac{|0\rangle |-1\rangle + |1\rangle |-1\rangle + |0\rangle |1\rangle - |1\rangle |1\rangle}{2}$$</span>
-<span id="cb13-57"><a href="#cb13-57" aria-hidden="true" tabindex="-1"></a>$$S \frac{|0\rangle |-1\rangle + |1\rangle |-1\rangle + |0\rangle |1\rangle - |1\rangle |1\rangle}{2} = \frac{|0\rangle |-2\rangle + (|1\rangle + |0\rangle) |0\rangle - |1\rangle |2\rangle}{2}$$</span>
+<span id="cb13-52"><a href="#cb13-52" aria-hidden="true" tabindex="-1"></a>$$H\otimes I (|0\rangle |0\rangle) = \frac{|0\rangle |0\rangle + |1\rangle |0\rangle}{\sqrt 2}$$</span>
+<span id="cb13-53"><a href="#cb13-53" aria-hidden="true" tabindex="-1"></a>$$S\left(\frac{|0\rangle |0\rangle + |1\rangle |0\rangle}{\sqrt 2}\right) = \frac{|0\rangle |-1\rangle + |1\rangle |1\rangle}{\sqrt 2}$$</span>
+<span id="cb13-54"><a href="#cb13-54" aria-hidden="true" tabindex="-1"></a>$$H\otimes I \frac{|0\rangle |-1\rangle + |1\rangle |1\rangle}{\sqrt 2} = \frac{|0\rangle |-1\rangle + |1\rangle |-1\rangle + |0\rangle |1\rangle - |1\rangle |1\rangle}{2}$$</span>
+<span id="cb13-55"><a href="#cb13-55" aria-hidden="true" tabindex="-1"></a>$$S \frac{|0\rangle |-1\rangle + |1\rangle |-1\rangle + |0\rangle |1\rangle - |1\rangle |1\rangle}{2} = \frac{|0\rangle |-2\rangle + (|1\rangle + |0\rangle) |0\rangle - |1\rangle |2\rangle}{2}$$</span>
+<span id="cb13-56"><a href="#cb13-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-57"><a href="#cb13-57" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning}</span>
 <span id="cb13-58"><a href="#cb13-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-59"><a href="#cb13-59" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning}</span>
+<span id="cb13-59"><a href="#cb13-59" aria-hidden="true" tabindex="-1"></a><span class="fu">## Repeated application of Coin Operator</span></span>
 <span id="cb13-60"><a href="#cb13-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-61"><a href="#cb13-61" aria-hidden="true" tabindex="-1"></a><span class="fu">## Repeated application of Coin Operator</span></span>
-<span id="cb13-62"><a href="#cb13-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-63"><a href="#cb13-63" aria-hidden="true" tabindex="-1"></a>Note specifically the repeated application of the coin operator. If the coin operator is not applied in step 3, our state will end up in $\frac{1}{\sqrt{2}} (|0\rangle|-2\rangle + |1\rangle|2\rangle)$ which is not what we wanted. This is because the application of the controlled shift operation entangles the coin and the walker systems, and thus there is no superposition in each term of the system</span>
-<span id="cb13-64"><a href="#cb13-64" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb13-61"><a href="#cb13-61" aria-hidden="true" tabindex="-1"></a>Note specifically the repeated application of the coin operator. If the coin operator is not applied in step 3, our state will end up in $\frac{1}{\sqrt{2}} (|0\rangle|-2\rangle + |1\rangle|2\rangle)$ which is not what we wanted. This is because the application of the controlled shift operation entangles the coin and the walker systems, and thus there is no superposition in each term of the system</span>
+<span id="cb13-62"><a href="#cb13-62" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb13-63"><a href="#cb13-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-64"><a href="#cb13-64" aria-hidden="true" tabindex="-1"></a><span class="fu">## Computational Implementation</span></span>
 <span id="cb13-65"><a href="#cb13-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-66"><a href="#cb13-66" aria-hidden="true" tabindex="-1"></a><span class="fu">## Computational Implementation</span></span>
+<span id="cb13-66"><a href="#cb13-66" aria-hidden="true" tabindex="-1"></a>We show 2 ways to implement the Quantum walks, which are both interesting in their own ways. But the foremost thing to tackle would be how to store an infinite vector and an infinite dimensional operator. Since we cannot do either of these simply, we instead limit our walk to a node space of $2n$, and use periodic boundary conditions.</span>
 <span id="cb13-67"><a href="#cb13-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-68"><a href="#cb13-68" aria-hidden="true" tabindex="-1"></a>We show 2 ways to implement the Quantum walks, which are both interesting in their own ways. But the foremost thing to tackle would be how to store an infinite vector and an infinite dimensional operator. Since we cannot do either of these simply, we instead limit our walk to a node space of $2n$, and use periodic boundary conditions.</span>
+<span id="cb13-68"><a href="#cb13-68" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning}</span>
 <span id="cb13-69"><a href="#cb13-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-70"><a href="#cb13-70" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning}</span>
+<span id="cb13-70"><a href="#cb13-70" aria-hidden="true" tabindex="-1"></a><span class="fu">## Other Boundary Conditions</span></span>
 <span id="cb13-71"><a href="#cb13-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-72"><a href="#cb13-72" aria-hidden="true" tabindex="-1"></a><span class="fu">## Other Boundary Conditions</span></span>
-<span id="cb13-73"><a href="#cb13-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-74"><a href="#cb13-74" aria-hidden="true" tabindex="-1"></a>One could pick other boundary conditions too, such as the open or the absorbing boundary conditions, but both of these BCs lead to non-unitary operations, which complicate the definition and application of the gate.</span>
-<span id="cb13-75"><a href="#cb13-75" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb13-72"><a href="#cb13-72" aria-hidden="true" tabindex="-1"></a>One could pick other boundary conditions too, such as the open or the absorbing boundary conditions, but both of these BCs lead to non-unitary operations, which complicate the definition and application of the gate.</span>
+<span id="cb13-73"><a href="#cb13-73" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb13-74"><a href="#cb13-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-75"><a href="#cb13-75" aria-hidden="true" tabindex="-1"></a><span class="fu">### Matrix formalism</span></span>
 <span id="cb13-76"><a href="#cb13-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-77"><a href="#cb13-77" aria-hidden="true" tabindex="-1"></a><span class="fu">### Matrix formalism</span></span>
+<span id="cb13-77"><a href="#cb13-77" aria-hidden="true" tabindex="-1"></a>The first and more immediate method is to simply write down the matrix equivalent of the above operations. For the visualization of the implementations, we will assume that the walk occurs in a 1 D chain of size 4.</span>
 <span id="cb13-78"><a href="#cb13-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-79"><a href="#cb13-79" aria-hidden="true" tabindex="-1"></a>The first and more immediate method is to simply write down the matrix equivalent of the above operations. For the visualization of the implementations, we will assume that the walk occurs in a 1 D chain of size 4.</span>
+<span id="cb13-79"><a href="#cb13-79" aria-hidden="true" tabindex="-1"></a>The coin is preferred to be in the $\frac{1}{\sqrt2}(|0\rangle + i |1\rangle)$ when we start so that the walk proceeds symmetrically @portugal_quantum_2018.</span>
 <span id="cb13-80"><a href="#cb13-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-81"><a href="#cb13-81" aria-hidden="true" tabindex="-1"></a>The coin is preferred to be in the $\frac{1}{\sqrt2}(|0\rangle + i |1\rangle)$ when we start so that the walk proceeds symmetrically @portugal_quantum_2018.</span>
-<span id="cb13-82"><a href="#cb13-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-85"><a href="#cb13-85" aria-hidden="true" tabindex="-1"></a><span class="in">```{julia}</span></span>
-<span id="cb13-86"><a href="#cb13-86" aria-hidden="true" tabindex="-1"></a>init_coin = <span class="dv">1</span>/√<span class="dv">2</span> <span class="ot">*</span> (ket(<span class="dv">1</span>,<span class="dv">2</span>) - <span class="dv">1</span>im <span class="ot">*</span> ket(<span class="dv">2</span>,<span class="dv">2</span>));</span>
-<span id="cb13-87"><a href="#cb13-87" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-83"><a href="#cb13-83" aria-hidden="true" tabindex="-1"></a><span class="in">```{julia}</span></span>
+<span id="cb13-84"><a href="#cb13-84" aria-hidden="true" tabindex="-1"></a>init_coin = <span class="dv">1</span>/√<span class="dv">2</span> <span class="ot">*</span> (ket(<span class="dv">1</span>,<span class="dv">2</span>) - <span class="dv">1</span>im <span class="ot">*</span> ket(<span class="dv">2</span>,<span class="dv">2</span>));</span>
+<span id="cb13-85"><a href="#cb13-85" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-86"><a href="#cb13-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-87"><a href="#cb13-87" aria-hidden="true" tabindex="-1"></a>The coin operator is trivial to write,</span>
 <span id="cb13-88"><a href="#cb13-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-89"><a href="#cb13-89" aria-hidden="true" tabindex="-1"></a>The coin operator is trivial to write,</span>
-<span id="cb13-90"><a href="#cb13-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-93"><a href="#cb13-93" aria-hidden="true" tabindex="-1"></a><span class="in">```{julia}</span></span>
-<span id="cb13-94"><a href="#cb13-94" aria-hidden="true" tabindex="-1"></a>H = KrausOperators([sparse(hadamard(<span class="dv">2</span>)⊗I(<span class="dv">4</span>))]);</span>
-<span id="cb13-95"><a href="#cb13-95" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-91"><a href="#cb13-91" aria-hidden="true" tabindex="-1"></a><span class="in">```{julia}</span></span>
+<span id="cb13-92"><a href="#cb13-92" aria-hidden="true" tabindex="-1"></a>H = KrausOperators([sparse(hadamard(<span class="dv">2</span>)⊗I(<span class="dv">4</span>))]);</span>
+<span id="cb13-93"><a href="#cb13-93" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-94"><a href="#cb13-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-95"><a href="#cb13-95" aria-hidden="true" tabindex="-1"></a>The left and right shift operators can be defined in the following manner.</span>
 <span id="cb13-96"><a href="#cb13-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-97"><a href="#cb13-97" aria-hidden="true" tabindex="-1"></a>The left and right shift operators can be defined in the following manner.</span>
-<span id="cb13-98"><a href="#cb13-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-101"><a href="#cb13-101" aria-hidden="true" tabindex="-1"></a><span class="in">```{julia}</span></span>
-<span id="cb13-102"><a href="#cb13-102" aria-hidden="true" tabindex="-1"></a><span class="co">#|output: false</span></span>
-<span id="cb13-103"><a href="#cb13-103" aria-hidden="true" tabindex="-1"></a>R = collect(Tridiagonal(fill(<span class="dv">1</span>., <span class="dv">3</span>), zeros(<span class="dv">4</span>), zeros(<span class="dv">3</span>)))</span>
-<span id="cb13-104"><a href="#cb13-104" aria-hidden="true" tabindex="-1"></a>R[<span class="dv">1</span>, end] = <span class="dv">1</span></span>
-<span id="cb13-105"><a href="#cb13-105" aria-hidden="true" tabindex="-1"></a>L = collect(Tridiagonal(zeros(<span class="dv">3</span>), zeros(<span class="dv">4</span>), fill(<span class="dv">1</span>., <span class="dv">3</span>)))</span>
-<span id="cb13-106"><a href="#cb13-106" aria-hidden="true" tabindex="-1"></a>L[end, <span class="dv">1</span>] = <span class="dv">1</span></span>
-<span id="cb13-107"><a href="#cb13-107" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-99"><a href="#cb13-99" aria-hidden="true" tabindex="-1"></a><span class="in">```{julia}</span></span>
+<span id="cb13-100"><a href="#cb13-100" aria-hidden="true" tabindex="-1"></a><span class="co">#|output: false</span></span>
+<span id="cb13-101"><a href="#cb13-101" aria-hidden="true" tabindex="-1"></a>R = collect(Tridiagonal(fill(<span class="dv">1</span>., <span class="dv">3</span>), zeros(<span class="dv">4</span>), zeros(<span class="dv">3</span>)))</span>
+<span id="cb13-102"><a href="#cb13-102" aria-hidden="true" tabindex="-1"></a>R[<span class="dv">1</span>, end] = <span class="dv">1</span></span>
+<span id="cb13-103"><a href="#cb13-103" aria-hidden="true" tabindex="-1"></a>L = collect(Tridiagonal(zeros(<span class="dv">3</span>), zeros(<span class="dv">4</span>), fill(<span class="dv">1</span>., <span class="dv">3</span>)))</span>
+<span id="cb13-104"><a href="#cb13-104" aria-hidden="true" tabindex="-1"></a>L[end, <span class="dv">1</span>] = <span class="dv">1</span></span>
+<span id="cb13-105"><a href="#cb13-105" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-106"><a href="#cb13-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-107"><a href="#cb13-107" aria-hidden="true" tabindex="-1"></a>Thus, the shift operator is defined as</span>
 <span id="cb13-108"><a href="#cb13-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-109"><a href="#cb13-109" aria-hidden="true" tabindex="-1"></a>Thus, the shift operator is defined as</span>
-<span id="cb13-110"><a href="#cb13-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-113"><a href="#cb13-113" aria-hidden="true" tabindex="-1"></a><span class="in">```{julia}</span></span>
-<span id="cb13-114"><a href="#cb13-114" aria-hidden="true" tabindex="-1"></a>S = KrausOperators([sparse(proj(ket(<span class="dv">1</span>, <span class="dv">2</span>)) ⊗ L + proj(ket(<span class="dv">2</span>, <span class="dv">2</span>)) ⊗ R)]);</span>
-<span id="cb13-115"><a href="#cb13-115" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-111"><a href="#cb13-111" aria-hidden="true" tabindex="-1"></a><span class="in">```{julia}</span></span>
+<span id="cb13-112"><a href="#cb13-112" aria-hidden="true" tabindex="-1"></a>S = KrausOperators([sparse(proj(ket(<span class="dv">1</span>, <span class="dv">2</span>)) ⊗ L + proj(ket(<span class="dv">2</span>, <span class="dv">2</span>)) ⊗ R)]);</span>
+<span id="cb13-113"><a href="#cb13-113" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-114"><a href="#cb13-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-115"><a href="#cb13-115" aria-hidden="true" tabindex="-1"></a>Thus, we can repeatedly apply $S\circ H$ to the initial state and accumulate the results.</span>
 <span id="cb13-116"><a href="#cb13-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-117"><a href="#cb13-117" aria-hidden="true" tabindex="-1"></a>Thus, we can repeatedly apply $S\circ H$ to the initial state and accumulate the results.</span>
-<span id="cb13-118"><a href="#cb13-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-121"><a href="#cb13-121" aria-hidden="true" tabindex="-1"></a><span class="in">```{julia}</span></span>
-<span id="cb13-122"><a href="#cb13-122" aria-hidden="true" tabindex="-1"></a>init_state = proj(init_coin ⊗ ket(<span class="dv">2</span>,<span class="dv">4</span>))</span>
-<span id="cb13-123"><a href="#cb13-123" aria-hidden="true" tabindex="-1"></a>ψ = [[init_state]; accumulate(<span class="dv">1</span>:<span class="dv">40</span>, init=init_state) <span class="kw">do</span> old, _</span>
-<span id="cb13-124"><a href="#cb13-124" aria-hidden="true" tabindex="-1"></a>    H(S(old))</span>
-<span id="cb13-125"><a href="#cb13-125" aria-hidden="true" tabindex="-1"></a>end];</span>
-<span id="cb13-126"><a href="#cb13-126" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-119"><a href="#cb13-119" aria-hidden="true" tabindex="-1"></a><span class="in">```{julia}</span></span>
+<span id="cb13-120"><a href="#cb13-120" aria-hidden="true" tabindex="-1"></a>init_state = proj(init_coin ⊗ ket(<span class="dv">2</span>,<span class="dv">4</span>))</span>
+<span id="cb13-121"><a href="#cb13-121" aria-hidden="true" tabindex="-1"></a>ψ = [[init_state]; accumulate(<span class="dv">1</span>:<span class="dv">40</span>, init=init_state) <span class="kw">do</span> old, _</span>
+<span id="cb13-122"><a href="#cb13-122" aria-hidden="true" tabindex="-1"></a>    H(S(old))</span>
+<span id="cb13-123"><a href="#cb13-123" aria-hidden="true" tabindex="-1"></a>end];</span>
+<span id="cb13-124"><a href="#cb13-124" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-125"><a href="#cb13-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-126"><a href="#cb13-126" aria-hidden="true" tabindex="-1"></a>Now we can plot the readout statistics by partially tracing out the coin, and plotting the diagonal. @fig-quant is a walk on 61 nodes.</span>
 <span id="cb13-127"><a href="#cb13-127" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-128"><a href="#cb13-128" aria-hidden="true" tabindex="-1"></a>Now we can plot the readout statistics by partially tracing out the coin, and plotting the diagonal. @fig-quant is a walk on 61 nodes.</span>
-<span id="cb13-129"><a href="#cb13-129" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-132"><a href="#cb13-132" aria-hidden="true" tabindex="-1"></a><span class="in">```{julia}</span></span>
-<span id="cb13-133"><a href="#cb13-133" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb13-134"><a href="#cb13-134" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-quant</span></span>
-<span id="cb13-135"><a href="#cb13-135" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Probability distribution of a Quantum Walker in time. Note the ballistic spread of the walk, compared to the diffusive spread of the classical walk in @fig-cwp."</span></span>
-<span id="cb13-136"><a href="#cb13-136" aria-hidden="true" tabindex="-1"></a>qps = let</span>
-<span id="cb13-137"><a href="#cb13-137" aria-hidden="true" tabindex="-1"></a>    R = collect(Tridiagonal(fill(<span class="dv">1</span>., <span class="dv">60</span>), zeros(<span class="dv">61</span>), zeros(<span class="dv">60</span>)))</span>
-<span id="cb13-138"><a href="#cb13-138" aria-hidden="true" tabindex="-1"></a>    R[<span class="dv">1</span>, end] = <span class="dv">1</span></span>
-<span id="cb13-139"><a href="#cb13-139" aria-hidden="true" tabindex="-1"></a>    L = collect(Tridiagonal(zeros(<span class="dv">60</span>), zeros(<span class="dv">61</span>), fill(<span class="dv">1</span>., <span class="dv">60</span>)))</span>
-<span id="cb13-140"><a href="#cb13-140" aria-hidden="true" tabindex="-1"></a>    L[end, <span class="dv">1</span>] = <span class="dv">1</span></span>
-<span id="cb13-141"><a href="#cb13-141" aria-hidden="true" tabindex="-1"></a>    U = KrausOperators([sparse(proj(ket(<span class="dv">1</span>, <span class="dv">2</span>)) ⊗ L + proj(ket(<span class="dv">2</span>, <span class="dv">2</span>)) ⊗ R)])</span>
-<span id="cb13-142"><a href="#cb13-142" aria-hidden="true" tabindex="-1"></a>    init_coin = <span class="dv">1</span>/√<span class="dv">2</span> <span class="ot">*</span> (ket(<span class="dv">1</span>,<span class="dv">2</span>) - <span class="dv">1</span>im <span class="ot">*</span> ket(<span class="dv">2</span>,<span class="dv">2</span>))</span>
-<span id="cb13-143"><a href="#cb13-143" aria-hidden="true" tabindex="-1"></a>    H = KrausOperators([sparse(hadamard(<span class="dv">2</span>)⊗I(<span class="dv">61</span>))])</span>
-<span id="cb13-144"><a href="#cb13-144" aria-hidden="true" tabindex="-1"></a>    init_state = proj(init_coin ⊗ ket(<span class="dv">31</span>,<span class="dv">61</span>))</span>
-<span id="cb13-145"><a href="#cb13-145" aria-hidden="true" tabindex="-1"></a>    ψ = [[init_state]; accumulate(<span class="dv">1</span>:<span class="dv">40</span>, init=init_state) <span class="kw">do</span> old, _</span>
-<span id="cb13-146"><a href="#cb13-146" aria-hidden="true" tabindex="-1"></a>        H(U(old))</span>
-<span id="cb13-147"><a href="#cb13-147" aria-hidden="true" tabindex="-1"></a>    end]</span>
-<span id="cb13-148"><a href="#cb13-148" aria-hidden="true" tabindex="-1"></a>    <span class="fu">map</span>(enumerate(real.(diag.(ptrace.(ψ, Ref([<span class="dv">2</span>, <span class="dv">61</span>]), Ref([<span class="dv">1</span>])))))) <span class="kw">do</span> (t, ps)</span>
-<span id="cb13-149"><a href="#cb13-149" aria-hidden="true" tabindex="-1"></a>        Plots.plot(-<span class="dv">30</span>:<span class="dv">30</span>, ps, ylims=(<span class="dv">0</span>, <span class="fl">0.51</span>), xlabel=<span class="ot">"</span><span class="st">\$i\$</span><span class="ot">"</span>, ylabel=<span class="ot">"</span><span class="st">\$|\\langle i|\\psi\\rangle|^2\$</span><span class="ot">"</span>, title=<span class="ot">"</span><span class="st">\$t=</span><span class="wa">$(</span><span class="st">t-1)\$</span><span class="ot">"</span>, legend=false)</span>
-<span id="cb13-150"><a href="#cb13-150" aria-hidden="true" tabindex="-1"></a>    end</span>
-<span id="cb13-151"><a href="#cb13-151" aria-hidden="true" tabindex="-1"></a>end;</span>
-<span id="cb13-152"><a href="#cb13-152" aria-hidden="true" tabindex="-1"></a>Plots.plot(qps[<span class="dv">1</span>], qps[<span class="dv">14</span>], qps[<span class="dv">27</span>], qps[<span class="dv">40</span>],)</span>
-<span id="cb13-153"><a href="#cb13-153" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-130"><a href="#cb13-130" aria-hidden="true" tabindex="-1"></a><span class="in">```{julia}</span></span>
+<span id="cb13-131"><a href="#cb13-131" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb13-132"><a href="#cb13-132" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-quant</span></span>
+<span id="cb13-133"><a href="#cb13-133" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Probability distribution of a Quantum Walker in time. Note the ballistic spread of the walk, compared to the diffusive spread of the classical walk in @fig-cwp."</span></span>
+<span id="cb13-134"><a href="#cb13-134" aria-hidden="true" tabindex="-1"></a>qps = let</span>
+<span id="cb13-135"><a href="#cb13-135" aria-hidden="true" tabindex="-1"></a>    R = collect(Tridiagonal(fill(<span class="dv">1</span>., <span class="dv">60</span>), zeros(<span class="dv">61</span>), zeros(<span class="dv">60</span>)))</span>
+<span id="cb13-136"><a href="#cb13-136" aria-hidden="true" tabindex="-1"></a>    R[<span class="dv">1</span>, end] = <span class="dv">1</span></span>
+<span id="cb13-137"><a href="#cb13-137" aria-hidden="true" tabindex="-1"></a>    L = collect(Tridiagonal(zeros(<span class="dv">60</span>), zeros(<span class="dv">61</span>), fill(<span class="dv">1</span>., <span class="dv">60</span>)))</span>
+<span id="cb13-138"><a href="#cb13-138" aria-hidden="true" tabindex="-1"></a>    L[end, <span class="dv">1</span>] = <span class="dv">1</span></span>
+<span id="cb13-139"><a href="#cb13-139" aria-hidden="true" tabindex="-1"></a>    U = KrausOperators([sparse(proj(ket(<span class="dv">1</span>, <span class="dv">2</span>)) ⊗ L + proj(ket(<span class="dv">2</span>, <span class="dv">2</span>)) ⊗ R)])</span>
+<span id="cb13-140"><a href="#cb13-140" aria-hidden="true" tabindex="-1"></a>    init_coin = <span class="dv">1</span>/√<span class="dv">2</span> <span class="ot">*</span> (ket(<span class="dv">1</span>,<span class="dv">2</span>) - <span class="dv">1</span>im <span class="ot">*</span> ket(<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb13-141"><a href="#cb13-141" aria-hidden="true" tabindex="-1"></a>    H = KrausOperators([sparse(hadamard(<span class="dv">2</span>)⊗I(<span class="dv">61</span>))])</span>
+<span id="cb13-142"><a href="#cb13-142" aria-hidden="true" tabindex="-1"></a>    init_state = proj(init_coin ⊗ ket(<span class="dv">31</span>,<span class="dv">61</span>))</span>
+<span id="cb13-143"><a href="#cb13-143" aria-hidden="true" tabindex="-1"></a>    ψ = [[init_state]; accumulate(<span class="dv">1</span>:<span class="dv">40</span>, init=init_state) <span class="kw">do</span> old, _</span>
+<span id="cb13-144"><a href="#cb13-144" aria-hidden="true" tabindex="-1"></a>        H(U(old))</span>
+<span id="cb13-145"><a href="#cb13-145" aria-hidden="true" tabindex="-1"></a>    end]</span>
+<span id="cb13-146"><a href="#cb13-146" aria-hidden="true" tabindex="-1"></a>    <span class="fu">map</span>(enumerate(real.(diag.(ptrace.(ψ, Ref([<span class="dv">2</span>, <span class="dv">61</span>]), Ref([<span class="dv">1</span>])))))) <span class="kw">do</span> (t, ps)</span>
+<span id="cb13-147"><a href="#cb13-147" aria-hidden="true" tabindex="-1"></a>        Plots.plot(-<span class="dv">30</span>:<span class="dv">30</span>, ps, ylims=(<span class="dv">0</span>, <span class="fl">0.51</span>), xlabel=<span class="ot">"</span><span class="st">\$i\$</span><span class="ot">"</span>, ylabel=<span class="ot">"</span><span class="st">\$|\\langle i|\\psi\\rangle|^2\$</span><span class="ot">"</span>, title=<span class="ot">"</span><span class="st">\$t=</span><span class="wa">$(</span><span class="st">t-1)\$</span><span class="ot">"</span>, legend=false)</span>
+<span id="cb13-148"><a href="#cb13-148" aria-hidden="true" tabindex="-1"></a>    end</span>
+<span id="cb13-149"><a href="#cb13-149" aria-hidden="true" tabindex="-1"></a>end;</span>
+<span id="cb13-150"><a href="#cb13-150" aria-hidden="true" tabindex="-1"></a>Plots.plot(qps[<span class="dv">1</span>], qps[<span class="dv">14</span>], qps[<span class="dv">27</span>], qps[<span class="dv">40</span>],)</span>
+<span id="cb13-151"><a href="#cb13-151" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-152"><a href="#cb13-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-153"><a href="#cb13-153" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning}</span>
 <span id="cb13-154"><a href="#cb13-154" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-155"><a href="#cb13-155" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning}</span>
+<span id="cb13-155"><a href="#cb13-155" aria-hidden="true" tabindex="-1"></a><span class="fu">## Quantum Walks are not random</span></span>
 <span id="cb13-156"><a href="#cb13-156" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-157"><a href="#cb13-157" aria-hidden="true" tabindex="-1"></a><span class="fu">## Quantum Walks are not random</span></span>
-<span id="cb13-158"><a href="#cb13-158" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-159"><a href="#cb13-159" aria-hidden="true" tabindex="-1"></a>Note, this is a single walker, not an ensemble of walkers as is the case in classical random walks. Quantum walks (without measurement), are completely deterministic.</span>
-<span id="cb13-160"><a href="#cb13-160" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb13-157"><a href="#cb13-157" aria-hidden="true" tabindex="-1"></a>Note, this is a single walker, not an ensemble of walkers as is the case in classical random walks. Quantum walks (without measurement), are completely deterministic.</span>
+<span id="cb13-158"><a href="#cb13-158" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb13-159"><a href="#cb13-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-160"><a href="#cb13-160" aria-hidden="true" tabindex="-1"></a><span class="fu">### Circuit Formalism</span></span>
 <span id="cb13-161"><a href="#cb13-161" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-162"><a href="#cb13-162" aria-hidden="true" tabindex="-1"></a><span class="fu">### Circuit Formalism</span></span>
+<span id="cb13-162"><a href="#cb13-162" aria-hidden="true" tabindex="-1"></a>While the matrix definition of the Quantum Walks are easy to formalize and understand, finally these need to be simulated on some sort of device which may require us to reformulate it. Further, we try to ensure that the reformulation allows for easy additions of other dynamics which we may want to study.</span>
 <span id="cb13-163"><a href="#cb13-163" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-164"><a href="#cb13-164" aria-hidden="true" tabindex="-1"></a>While the matrix definition of the Quantum Walks are easy to formalize and understand, finally these need to be simulated on some sort of device which may require us to reformulate it. Further, we try to ensure that the reformulation allows for easy additions of other dynamics which we may want to study.</span>
+<span id="cb13-164"><a href="#cb13-164" aria-hidden="true" tabindex="-1"></a>The advantages of using a Quantum Computer over a classical computer for a quantum walk should be obvious. The problem however is that the quantum walk is over a high dimensional space, and we rarely have access to such high dimensional systems which we can control easily. Instead, we need to simulate such a system using the accessible 2 level systems available in quantum computers.</span>
 <span id="cb13-165"><a href="#cb13-165" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-166"><a href="#cb13-166" aria-hidden="true" tabindex="-1"></a>The advantages of using a Quantum Computer over a classical computer for a quantum walk should be obvious. The problem however is that the quantum walk is over a high dimensional space, and we rarely have access to such high dimensional systems which we can control easily. Instead, we need to simulate such a system using the accessible 2 level systems available in quantum computers.</span>
+<span id="cb13-166"><a href="#cb13-166" aria-hidden="true" tabindex="-1"></a>Let us define the basic components of our walk.</span>
 <span id="cb13-167"><a href="#cb13-167" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-168"><a href="#cb13-168" aria-hidden="true" tabindex="-1"></a>Let us define the basic components of our walk.</span>
+<span id="cb13-168"><a href="#cb13-168" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Nodes</span></span>
 <span id="cb13-169"><a href="#cb13-169" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-170"><a href="#cb13-170" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Nodes</span></span>
-<span id="cb13-171"><a href="#cb13-171" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-172"><a href="#cb13-172" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Each numbered node is then converted into its 2-ary $n$ length representation denoted by $(x_i)$. $n$ is chosen such that $2^n$ &gt; $N$</span>
-<span id="cb13-173"><a href="#cb13-173" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>These bitstrings are encoded into an $n$ qubit computer, where each basis state in the computational basis corresponds to the node with the same bitstring.</span>
-<span id="cb13-174"><a href="#cb13-174" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The amplitude of a particular basis corresponds to the amplitude of the walker in the corresponding node</span>
+<span id="cb13-170"><a href="#cb13-170" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Each numbered node is then converted into its 2-ary $n$ length representation denoted by $(x_i)$. $n$ is chosen such that $2^n$ &gt; $N$</span>
+<span id="cb13-171"><a href="#cb13-171" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>These bitstrings are encoded into an $n$ qubit computer, where each basis state in the computational basis corresponds to the node with the same bitstring.</span>
+<span id="cb13-172"><a href="#cb13-172" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The amplitude of a particular basis corresponds to the amplitude of the walker in the corresponding node</span>
+<span id="cb13-173"><a href="#cb13-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-174"><a href="#cb13-174" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Coin</span></span>
 <span id="cb13-175"><a href="#cb13-175" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-176"><a href="#cb13-176" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Coin</span></span>
+<span id="cb13-176"><a href="#cb13-176" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The Walk Coin is a two level system, as usual</span>
 <span id="cb13-177"><a href="#cb13-177" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-178"><a href="#cb13-178" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The Walk Coin is a two level system, as usual</span>
+<span id="cb13-178"><a href="#cb13-178" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Edges and Shifts</span></span>
 <span id="cb13-179"><a href="#cb13-179" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-180"><a href="#cb13-180" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Edges and Shifts</span></span>
-<span id="cb13-181"><a href="#cb13-181" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-182"><a href="#cb13-182" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Since shifts are only to adjacent nodes, the left (right) shift is equivalent of subtracting (adding) 1 from the bitstring of the state.</span>
-<span id="cb13-183"><a href="#cb13-183" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>From the Quantum adder circuit, we can set one input to be $(0)_{n-1}1$ and reduce the circuit to get the Quantum <span class="in">`AddOne`</span> circuit. Shown below is the circuit for $n=4$ $(N=16)$</span>
-<span id="cb13-184"><a href="#cb13-184" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>We can similarly construct the <span class="in">`SubOne`</span> circuit, but that is simplified by noting that the <span class="in">`SubOne`</span> circuit is simply the inverse of the <span class="in">`AddOne`</span> circuit, and this corresponds to just inverting the circuit (all gates are unitary).</span>
-<span id="cb13-185"><a href="#cb13-185" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The circuits for the left (and right) shift operation is shown in @fig-leftshift (and @fig-rightshift)</span>
-<span id="cb13-186"><a href="#cb13-186" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-189"><a href="#cb13-189" aria-hidden="true" tabindex="-1"></a><span class="in">```{julia}</span></span>
-<span id="cb13-190"><a href="#cb13-190" aria-hidden="true" tabindex="-1"></a>rightshift(n) = chain(</span>
-<span id="cb13-191"><a href="#cb13-191" aria-hidden="true" tabindex="-1"></a>    n,</span>
-<span id="cb13-192"><a href="#cb13-192" aria-hidden="true" tabindex="-1"></a>    <span class="fu">map</span>(n:-<span class="dv">1</span>:<span class="dv">2</span>) <span class="kw">do</span> i</span>
-<span id="cb13-193"><a href="#cb13-193" aria-hidden="true" tabindex="-1"></a>        control(<span class="dv">1</span>:i<span class="dv">-1</span>, i=&gt;X) end...,</span>
-<span id="cb13-194"><a href="#cb13-194" aria-hidden="true" tabindex="-1"></a>    put(<span class="dv">1</span>=&gt;X)</span>
-<span id="cb13-195"><a href="#cb13-195" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb13-196"><a href="#cb13-196" aria-hidden="true" tabindex="-1"></a>leftshift(n) = rightshift(n)<span class="ot">'</span><span class="ss">;</span></span>
-<span id="cb13-197"><a href="#cb13-197" aria-hidden="true" tabindex="-1"></a><span class="ss">```</span></span>
-<span id="cb13-198"><a href="#cb13-198" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-201"><a href="#cb13-201" aria-hidden="true" tabindex="-1"></a><span class="in">```{julia}</span></span>
-<span id="cb13-202"><a href="#cb13-202" aria-hidden="true" tabindex="-1"></a><span class="ss">#| label: fig-rightshift</span></span>
-<span id="cb13-203"><a href="#cb13-203" aria-hidden="true" tabindex="-1"></a><span class="ss">#| fig-cap: "A diagrammatic representation of the right shift circuit."</span></span>
-<span id="cb13-204"><a href="#cb13-204" aria-hidden="true" tabindex="-1"></a><span class="ss">YaoPlots.plot(rightshift(4))</span></span>
-<span id="cb13-205"><a href="#cb13-205" aria-hidden="true" tabindex="-1"></a><span class="ss">```</span></span>
-<span id="cb13-206"><a href="#cb13-206" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-209"><a href="#cb13-209" aria-hidden="true" tabindex="-1"></a><span class="in">```{julia}</span></span>
-<span id="cb13-210"><a href="#cb13-210" aria-hidden="true" tabindex="-1"></a><span class="ss">#| label: fig-leftshift</span></span>
-<span id="cb13-211"><a href="#cb13-211" aria-hidden="true" tabindex="-1"></a><span class="ss">#| fig-cap: "A diagrammatic representation of the left shift circuit."</span></span>
-<span id="cb13-212"><a href="#cb13-212" aria-hidden="true" tabindex="-1"></a><span class="ss">YaoPlots.plot(leftshift(4))</span></span>
-<span id="cb13-213"><a href="#cb13-213" aria-hidden="true" tabindex="-1"></a><span class="ss">```</span></span>
+<span id="cb13-180"><a href="#cb13-180" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Since shifts are only to adjacent nodes, the left (right) shift is equivalent of subtracting (adding) 1 from the bitstring of the state.</span>
+<span id="cb13-181"><a href="#cb13-181" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>From the Quantum adder circuit, we can set one input to be $(0)_{n-1}1$ and reduce the circuit to get the Quantum <span class="in">`AddOne`</span> circuit. Shown below is the circuit for $n=4$ $(N=16)$</span>
+<span id="cb13-182"><a href="#cb13-182" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>We can similarly construct the <span class="in">`SubOne`</span> circuit, but that is simplified by noting that the <span class="in">`SubOne`</span> circuit is simply the inverse of the <span class="in">`AddOne`</span> circuit, and this corresponds to just inverting the circuit (all gates are unitary).</span>
+<span id="cb13-183"><a href="#cb13-183" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The circuits for the left (and right) shift operation is shown in @fig-leftshift (and @fig-rightshift)</span>
+<span id="cb13-184"><a href="#cb13-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-187"><a href="#cb13-187" aria-hidden="true" tabindex="-1"></a><span class="in">```{julia}</span></span>
+<span id="cb13-188"><a href="#cb13-188" aria-hidden="true" tabindex="-1"></a>rightshift(n) = chain(</span>
+<span id="cb13-189"><a href="#cb13-189" aria-hidden="true" tabindex="-1"></a>    n,</span>
+<span id="cb13-190"><a href="#cb13-190" aria-hidden="true" tabindex="-1"></a>    <span class="fu">map</span>(n:-<span class="dv">1</span>:<span class="dv">2</span>) <span class="kw">do</span> i</span>
+<span id="cb13-191"><a href="#cb13-191" aria-hidden="true" tabindex="-1"></a>        control(<span class="dv">1</span>:i<span class="dv">-1</span>, i=&gt;X) end...,</span>
+<span id="cb13-192"><a href="#cb13-192" aria-hidden="true" tabindex="-1"></a>    put(<span class="dv">1</span>=&gt;X)</span>
+<span id="cb13-193"><a href="#cb13-193" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-194"><a href="#cb13-194" aria-hidden="true" tabindex="-1"></a>leftshift(n) = rightshift(n)<span class="ot">'</span><span class="ss">;</span></span>
+<span id="cb13-195"><a href="#cb13-195" aria-hidden="true" tabindex="-1"></a><span class="ss">```</span></span>
+<span id="cb13-196"><a href="#cb13-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-199"><a href="#cb13-199" aria-hidden="true" tabindex="-1"></a><span class="in">```{julia}</span></span>
+<span id="cb13-200"><a href="#cb13-200" aria-hidden="true" tabindex="-1"></a><span class="ss">#| label: fig-rightshift</span></span>
+<span id="cb13-201"><a href="#cb13-201" aria-hidden="true" tabindex="-1"></a><span class="ss">#| fig-cap: "A diagrammatic representation of the right shift circuit."</span></span>
+<span id="cb13-202"><a href="#cb13-202" aria-hidden="true" tabindex="-1"></a><span class="ss">YaoPlots.plot(rightshift(4))</span></span>
+<span id="cb13-203"><a href="#cb13-203" aria-hidden="true" tabindex="-1"></a><span class="ss">```</span></span>
+<span id="cb13-204"><a href="#cb13-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-207"><a href="#cb13-207" aria-hidden="true" tabindex="-1"></a><span class="in">```{julia}</span></span>
+<span id="cb13-208"><a href="#cb13-208" aria-hidden="true" tabindex="-1"></a><span class="ss">#| label: fig-leftshift</span></span>
+<span id="cb13-209"><a href="#cb13-209" aria-hidden="true" tabindex="-1"></a><span class="ss">#| fig-cap: "A diagrammatic representation of the left shift circuit."</span></span>
+<span id="cb13-210"><a href="#cb13-210" aria-hidden="true" tabindex="-1"></a><span class="ss">YaoPlots.plot(leftshift(4))</span></span>
+<span id="cb13-211"><a href="#cb13-211" aria-hidden="true" tabindex="-1"></a><span class="ss">```</span></span>
+<span id="cb13-212"><a href="#cb13-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-213"><a href="#cb13-213" aria-hidden="true" tabindex="-1"></a><span class="ss">- The controlled shift operation is encoded by controlling on the coin qubit as seen in @fig-shift.</span></span>
 <span id="cb13-214"><a href="#cb13-214" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-215"><a href="#cb13-215" aria-hidden="true" tabindex="-1"></a><span class="ss">- The controlled shift operation is encoded by controlling on the coin qubit as seen in @fig-shift.</span></span>
-<span id="cb13-216"><a href="#cb13-216" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-219"><a href="#cb13-219" aria-hidden="true" tabindex="-1"></a><span class="in">```{julia}</span></span>
-<span id="cb13-220"><a href="#cb13-220" aria-hidden="true" tabindex="-1"></a><span class="ss">#| label: fig-shift</span></span>
-<span id="cb13-221"><a href="#cb13-221" aria-hidden="true" tabindex="-1"></a><span class="ss">#| fig-cap: "A diagrammatic representation of the controlled shift circuit. This acts as the walk operator."</span></span>
-<span id="cb13-222"><a href="#cb13-222" aria-hidden="true" tabindex="-1"></a><span class="ss">shift(n) = chain(n+1,</span></span>
-<span id="cb13-223"><a href="#cb13-223" aria-hidden="true" tabindex="-1"></a><span class="ss">    control(1, 2:n+1 =&gt; rightshift(n)),</span></span>
+<span id="cb13-217"><a href="#cb13-217" aria-hidden="true" tabindex="-1"></a><span class="in">```{julia}</span></span>
+<span id="cb13-218"><a href="#cb13-218" aria-hidden="true" tabindex="-1"></a><span class="ss">#| label: fig-shift</span></span>
+<span id="cb13-219"><a href="#cb13-219" aria-hidden="true" tabindex="-1"></a><span class="ss">#| fig-cap: "A diagrammatic representation of the controlled shift circuit. This acts as the walk operator."</span></span>
+<span id="cb13-220"><a href="#cb13-220" aria-hidden="true" tabindex="-1"></a><span class="ss">shift(n) = chain(n+1,</span></span>
+<span id="cb13-221"><a href="#cb13-221" aria-hidden="true" tabindex="-1"></a><span class="ss">    control(1, 2:n+1 =&gt; rightshift(n)),</span></span>
+<span id="cb13-222"><a href="#cb13-222" aria-hidden="true" tabindex="-1"></a><span class="ss">    put(1 =&gt; X),</span></span>
+<span id="cb13-223"><a href="#cb13-223" aria-hidden="true" tabindex="-1"></a><span class="ss">    control(1, 2:n+1 =&gt; leftshift(n)),</span></span>
 <span id="cb13-224"><a href="#cb13-224" aria-hidden="true" tabindex="-1"></a><span class="ss">    put(1 =&gt; X),</span></span>
-<span id="cb13-225"><a href="#cb13-225" aria-hidden="true" tabindex="-1"></a><span class="ss">    control(1, 2:n+1 =&gt; leftshift(n)),</span></span>
-<span id="cb13-226"><a href="#cb13-226" aria-hidden="true" tabindex="-1"></a><span class="ss">    put(1 =&gt; X),</span></span>
-<span id="cb13-227"><a href="#cb13-227" aria-hidden="true" tabindex="-1"></a><span class="ss">)</span></span>
-<span id="cb13-228"><a href="#cb13-228" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-229"><a href="#cb13-229" aria-hidden="true" tabindex="-1"></a><span class="ss">YaoPlots.plot(shift(4))</span></span>
-<span id="cb13-230"><a href="#cb13-230" aria-hidden="true" tabindex="-1"></a><span class="ss">```</span></span>
+<span id="cb13-225"><a href="#cb13-225" aria-hidden="true" tabindex="-1"></a><span class="ss">)</span></span>
+<span id="cb13-226"><a href="#cb13-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-227"><a href="#cb13-227" aria-hidden="true" tabindex="-1"></a><span class="ss">YaoPlots.plot(shift(4))</span></span>
+<span id="cb13-228"><a href="#cb13-228" aria-hidden="true" tabindex="-1"></a><span class="ss">```</span></span>
+<span id="cb13-229"><a href="#cb13-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-230"><a href="#cb13-230" aria-hidden="true" tabindex="-1"></a><span class="ss">#### Coin operator</span></span>
 <span id="cb13-231"><a href="#cb13-231" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-232"><a href="#cb13-232" aria-hidden="true" tabindex="-1"></a><span class="ss">#### Coin operator</span></span>
+<span id="cb13-232"><a href="#cb13-232" aria-hidden="true" tabindex="-1"></a><span class="ss">We can add the coin operator as usual on the first rail (@fig-coin).</span></span>
 <span id="cb13-233"><a href="#cb13-233" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-234"><a href="#cb13-234" aria-hidden="true" tabindex="-1"></a><span class="ss">We can add the coin operator as usual on the first rail (@fig-coin).</span></span>
-<span id="cb13-235"><a href="#cb13-235" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-238"><a href="#cb13-238" aria-hidden="true" tabindex="-1"></a><span class="in">```{julia}</span></span>
-<span id="cb13-239"><a href="#cb13-239" aria-hidden="true" tabindex="-1"></a><span class="ss">#| label: fig-coin</span></span>
-<span id="cb13-240"><a href="#cb13-240" aria-hidden="true" tabindex="-1"></a><span class="ss">#| fig-cap: "A diagrammatic representation of the coin operator circuit. This acts to introduce superposition in the coin."</span></span>
-<span id="cb13-241"><a href="#cb13-241" aria-hidden="true" tabindex="-1"></a><span class="ss">coin(n, c=Yao.H) = chain(n+1, put(1 =&gt; c))</span></span>
-<span id="cb13-242"><a href="#cb13-242" aria-hidden="true" tabindex="-1"></a><span class="ss">YaoPlots.plot(coin(4))</span></span>
-<span id="cb13-243"><a href="#cb13-243" aria-hidden="true" tabindex="-1"></a><span class="ss">```</span></span>
+<span id="cb13-236"><a href="#cb13-236" aria-hidden="true" tabindex="-1"></a><span class="in">```{julia}</span></span>
+<span id="cb13-237"><a href="#cb13-237" aria-hidden="true" tabindex="-1"></a><span class="ss">#| label: fig-coin</span></span>
+<span id="cb13-238"><a href="#cb13-238" aria-hidden="true" tabindex="-1"></a><span class="ss">#| fig-cap: "A diagrammatic representation of the coin operator circuit. This acts to introduce superposition in the coin."</span></span>
+<span id="cb13-239"><a href="#cb13-239" aria-hidden="true" tabindex="-1"></a><span class="ss">coin(n, c=Yao.H) = chain(n+1, put(1 =&gt; c))</span></span>
+<span id="cb13-240"><a href="#cb13-240" aria-hidden="true" tabindex="-1"></a><span class="ss">YaoPlots.plot(coin(4))</span></span>
+<span id="cb13-241"><a href="#cb13-241" aria-hidden="true" tabindex="-1"></a><span class="ss">```</span></span>
+<span id="cb13-242"><a href="#cb13-242" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-243"><a href="#cb13-243" aria-hidden="true" tabindex="-1"></a><span class="ss">#### Evolve Circuit</span></span>
 <span id="cb13-244"><a href="#cb13-244" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-245"><a href="#cb13-245" aria-hidden="true" tabindex="-1"></a><span class="ss">#### Evolve Circuit</span></span>
+<span id="cb13-245"><a href="#cb13-245" aria-hidden="true" tabindex="-1"></a><span class="ss">Putting these together, we get the operation for a single step of the evolution as below. Note that the top qubit rail is that of the coin, and the rest are those of the simulation of the system.</span></span>
 <span id="cb13-246"><a href="#cb13-246" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-247"><a href="#cb13-247" aria-hidden="true" tabindex="-1"></a><span class="ss">Putting these together, we get the operation for a single step of the evolution as below. Note that the top qubit rail is that of the coin, and the rest are those of the simulation of the system.</span></span>
+<span id="cb13-247"><a href="#cb13-247" aria-hidden="true" tabindex="-1"></a><span class="ss">This circuit (@fig-evolve) can be repeated to achieve any number of steps.</span></span>
 <span id="cb13-248"><a href="#cb13-248" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-249"><a href="#cb13-249" aria-hidden="true" tabindex="-1"></a><span class="ss">This circuit (@fig-evolve) can be repeated to achieve any number of steps.</span></span>
-<span id="cb13-250"><a href="#cb13-250" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-253"><a href="#cb13-253" aria-hidden="true" tabindex="-1"></a><span class="in">```{julia}</span></span>
-<span id="cb13-254"><a href="#cb13-254" aria-hidden="true" tabindex="-1"></a><span class="ss">#| label: fig-evolve</span></span>
-<span id="cb13-255"><a href="#cb13-255" aria-hidden="true" tabindex="-1"></a><span class="ss">#| fig-cap: "A diagrammatic representation of the Quantum walk evolve circuit, composed of a Coin operator followed by a Controlled shift"</span></span>
-<span id="cb13-256"><a href="#cb13-256" aria-hidden="true" tabindex="-1"></a><span class="ss">evolve(n) = shift(n) * coin(n)</span></span>
-<span id="cb13-257"><a href="#cb13-257" aria-hidden="true" tabindex="-1"></a><span class="ss">YaoPlots.plot(evolve(4))</span></span>
-<span id="cb13-258"><a href="#cb13-258" aria-hidden="true" tabindex="-1"></a><span class="ss">```</span></span>
+<span id="cb13-251"><a href="#cb13-251" aria-hidden="true" tabindex="-1"></a><span class="in">```{julia}</span></span>
+<span id="cb13-252"><a href="#cb13-252" aria-hidden="true" tabindex="-1"></a><span class="ss">#| label: fig-evolve</span></span>
+<span id="cb13-253"><a href="#cb13-253" aria-hidden="true" tabindex="-1"></a><span class="ss">#| fig-cap: "A diagrammatic representation of the Quantum walk evolve circuit, composed of a Coin operator followed by a Controlled shift"</span></span>
+<span id="cb13-254"><a href="#cb13-254" aria-hidden="true" tabindex="-1"></a><span class="ss">evolve(n) = shift(n) * coin(n)</span></span>
+<span id="cb13-255"><a href="#cb13-255" aria-hidden="true" tabindex="-1"></a><span class="ss">YaoPlots.plot(evolve(4))</span></span>
+<span id="cb13-256"><a href="#cb13-256" aria-hidden="true" tabindex="-1"></a><span class="ss">```</span></span>
+<span id="cb13-257"><a href="#cb13-257" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-258"><a href="#cb13-258" aria-hidden="true" tabindex="-1"></a><span class="ss">#### Prepare circuit</span></span>
 <span id="cb13-259"><a href="#cb13-259" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-260"><a href="#cb13-260" aria-hidden="true" tabindex="-1"></a><span class="ss">#### Prepare circuit</span></span>
+<span id="cb13-260"><a href="#cb13-260" aria-hidden="true" tabindex="-1"></a><span class="ss">While we can already simulate the walk, a very useful helper function that we can define is the prepare circuit.</span></span>
 <span id="cb13-261"><a href="#cb13-261" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-262"><a href="#cb13-262" aria-hidden="true" tabindex="-1"></a><span class="ss">While we can already simulate the walk, a very useful helper function that we can define is the prepare circuit.</span></span>
+<span id="cb13-262"><a href="#cb13-262" aria-hidden="true" tabindex="-1"></a><span class="ss">Quantum registers are often initialized to the 0 state, and it is also easy to restart the walk from the 0 state. However, we often like to start the walk in the center of the chain instead of at node 0. Also, the coin is prefered to be in the $\frac{1}{\sqrt2}(|0\rangle + i |1\rangle)$ when we start so that the walk proceeds symmetrically [@portugal_quantum_2018 pp. 30].</span></span>
 <span id="cb13-263"><a href="#cb13-263" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-264"><a href="#cb13-264" aria-hidden="true" tabindex="-1"></a><span class="ss">Quantum registers are often initialized to the 0 state, and it is also easy to restart the walk from the 0 state. However, we often like to start the walk in the center of the chain instead of at node 0. Also, the coin is prefered to be in the $\frac{1}{\sqrt2}(|0\rangle + i |1\rangle)$ when we start so that the walk proceeds symmetrically [@portugal_quantum_2018 pp. 30].</span></span>
+<span id="cb13-264"><a href="#cb13-264" aria-hidden="true" tabindex="-1"></a><span class="ss">Hence, to perform these steps, we define the following `prepare` subroutine (@fig-prepare).</span></span>
 <span id="cb13-265"><a href="#cb13-265" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-266"><a href="#cb13-266" aria-hidden="true" tabindex="-1"></a><span class="ss">Hence, to perform these steps, we define the following `prepare` subroutine (@fig-prepare).</span></span>
-<span id="cb13-267"><a href="#cb13-267" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-270"><a href="#cb13-270" aria-hidden="true" tabindex="-1"></a><span class="in">```{julia}</span></span>
-<span id="cb13-271"><a href="#cb13-271" aria-hidden="true" tabindex="-1"></a><span class="ss">#| label: fig-prepare</span></span>
-<span id="cb13-272"><a href="#cb13-272" aria-hidden="true" tabindex="-1"></a><span class="ss">#| fig-cap: "A diagrammatic representation of the initial state preparation circuit."</span></span>
-<span id="cb13-273"><a href="#cb13-273" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-274"><a href="#cb13-274" aria-hidden="true" tabindex="-1"></a><span class="ss">prepare(n) = chain(</span></span>
-<span id="cb13-275"><a href="#cb13-275" aria-hidden="true" tabindex="-1"></a><span class="ss">    n+1,</span></span>
-<span id="cb13-276"><a href="#cb13-276" aria-hidden="true" tabindex="-1"></a><span class="ss">    put(1=&gt;Yao.H),</span></span>
-<span id="cb13-277"><a href="#cb13-277" aria-hidden="true" tabindex="-1"></a><span class="ss">    put(1=&gt;Yao.shift(-π/2)),</span></span>
-<span id="cb13-278"><a href="#cb13-278" aria-hidden="true" tabindex="-1"></a><span class="ss">    put(n+1=&gt;X)</span></span>
-<span id="cb13-279"><a href="#cb13-279" aria-hidden="true" tabindex="-1"></a><span class="ss">)</span></span>
-<span id="cb13-280"><a href="#cb13-280" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-281"><a href="#cb13-281" aria-hidden="true" tabindex="-1"></a><span class="ss">YaoPlots.plot(prepare(3))</span></span>
-<span id="cb13-282"><a href="#cb13-282" aria-hidden="true" tabindex="-1"></a><span class="ss">```</span></span>
+<span id="cb13-268"><a href="#cb13-268" aria-hidden="true" tabindex="-1"></a><span class="in">```{julia}</span></span>
+<span id="cb13-269"><a href="#cb13-269" aria-hidden="true" tabindex="-1"></a><span class="ss">#| label: fig-prepare</span></span>
+<span id="cb13-270"><a href="#cb13-270" aria-hidden="true" tabindex="-1"></a><span class="ss">#| fig-cap: "A diagrammatic representation of the initial state preparation circuit."</span></span>
+<span id="cb13-271"><a href="#cb13-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-272"><a href="#cb13-272" aria-hidden="true" tabindex="-1"></a><span class="ss">prepare(n) = chain(</span></span>
+<span id="cb13-273"><a href="#cb13-273" aria-hidden="true" tabindex="-1"></a><span class="ss">    n+1,</span></span>
+<span id="cb13-274"><a href="#cb13-274" aria-hidden="true" tabindex="-1"></a><span class="ss">    put(1=&gt;Yao.H),</span></span>
+<span id="cb13-275"><a href="#cb13-275" aria-hidden="true" tabindex="-1"></a><span class="ss">    put(1=&gt;Yao.shift(-π/2)),</span></span>
+<span id="cb13-276"><a href="#cb13-276" aria-hidden="true" tabindex="-1"></a><span class="ss">    put(n+1=&gt;X)</span></span>
+<span id="cb13-277"><a href="#cb13-277" aria-hidden="true" tabindex="-1"></a><span class="ss">)</span></span>
+<span id="cb13-278"><a href="#cb13-278" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-279"><a href="#cb13-279" aria-hidden="true" tabindex="-1"></a><span class="ss">YaoPlots.plot(prepare(3))</span></span>
+<span id="cb13-280"><a href="#cb13-280" aria-hidden="true" tabindex="-1"></a><span class="ss">```</span></span>
+<span id="cb13-281"><a href="#cb13-281" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-282"><a href="#cb13-282" aria-hidden="true" tabindex="-1"></a><span class="ss">Plotting the walker distribution (@fig-qwcirc) as before, we see that the two implementations are equivalent.</span></span>
 <span id="cb13-283"><a href="#cb13-283" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-284"><a href="#cb13-284" aria-hidden="true" tabindex="-1"></a><span class="ss">Plotting the walker distribution (@fig-qwcirc) as before, we see that the two implementations are equivalent.</span></span>
-<span id="cb13-285"><a href="#cb13-285" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-288"><a href="#cb13-288" aria-hidden="true" tabindex="-1"></a><span class="in">```{julia}</span></span>
-<span id="cb13-289"><a href="#cb13-289" aria-hidden="true" tabindex="-1"></a><span class="ss">#| echo: false</span></span>
-<span id="cb13-290"><a href="#cb13-290" aria-hidden="true" tabindex="-1"></a><span class="ss">#| label: fig-qwcirc</span></span>
-<span id="cb13-291"><a href="#cb13-291" aria-hidden="true" tabindex="-1"></a><span class="ss">#| fig-cap: "Quantum walk using circuit formalism. For this simulation, we use 6 qubits ($2^6 = 64$ nodes) to represent the walker system. See that the probability distribution changes similarly to @fig-quant"</span></span>
-<span id="cb13-292"><a href="#cb13-292" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-293"><a href="#cb13-293" aria-hidden="true" tabindex="-1"></a><span class="ss">Plots.plot(map([1, 13, 26, 39]) do k</span></span>
-<span id="cb13-294"><a href="#cb13-294" aria-hidden="true" tabindex="-1"></a><span class="ss">    zero_state(7) |&gt;</span></span>
-<span id="cb13-295"><a href="#cb13-295" aria-hidden="true" tabindex="-1"></a><span class="ss">        prepare(6) |&gt;</span></span>
-<span id="cb13-296"><a href="#cb13-296" aria-hidden="true" tabindex="-1"></a><span class="ss">        evolve(6)^k |&gt;</span></span>
-<span id="cb13-297"><a href="#cb13-297" aria-hidden="true" tabindex="-1"></a><span class="ss">        r-&gt;density_matrix(r, 2:7) |&gt;</span></span>
-<span id="cb13-298"><a href="#cb13-298" aria-hidden="true" tabindex="-1"></a><span class="ss">        r-&gt;abs.(diag(r.state)) |&gt;</span></span>
-<span id="cb13-299"><a href="#cb13-299" aria-hidden="true" tabindex="-1"></a><span class="ss">        x-&gt;Plots.plot(-32:31, x, ylims=(0,0.5), xlabel="\$n\$", ylabel="\$|</span><span class="ch">\\</span><span class="ss">langle n|</span><span class="ch">\\</span><span class="ss">psi</span><span class="ch">\\</span><span class="ss">rangle|^2\$", legend=:none, title="\$t=$(k)\$")</span></span>
-<span id="cb13-300"><a href="#cb13-300" aria-hidden="true" tabindex="-1"></a><span class="ss">end...)</span></span>
-<span id="cb13-301"><a href="#cb13-301" aria-hidden="true" tabindex="-1"></a><span class="ss">```</span></span>
+<span id="cb13-286"><a href="#cb13-286" aria-hidden="true" tabindex="-1"></a><span class="in">```{julia}</span></span>
+<span id="cb13-287"><a href="#cb13-287" aria-hidden="true" tabindex="-1"></a><span class="ss">#| echo: false</span></span>
+<span id="cb13-288"><a href="#cb13-288" aria-hidden="true" tabindex="-1"></a><span class="ss">#| label: fig-qwcirc</span></span>
+<span id="cb13-289"><a href="#cb13-289" aria-hidden="true" tabindex="-1"></a><span class="ss">#| fig-cap: "Quantum walk using circuit formalism. For this simulation, we use 6 qubits ($2^6 = 64$ nodes) to represent the walker system. See that the probability distribution changes similarly to @fig-quant"</span></span>
+<span id="cb13-290"><a href="#cb13-290" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-291"><a href="#cb13-291" aria-hidden="true" tabindex="-1"></a><span class="ss">Plots.plot(map([1, 13, 26, 39]) do k</span></span>
+<span id="cb13-292"><a href="#cb13-292" aria-hidden="true" tabindex="-1"></a><span class="ss">    zero_state(7) |&gt;</span></span>
+<span id="cb13-293"><a href="#cb13-293" aria-hidden="true" tabindex="-1"></a><span class="ss">        prepare(6) |&gt;</span></span>
+<span id="cb13-294"><a href="#cb13-294" aria-hidden="true" tabindex="-1"></a><span class="ss">        evolve(6)^k |&gt;</span></span>
+<span id="cb13-295"><a href="#cb13-295" aria-hidden="true" tabindex="-1"></a><span class="ss">        r-&gt;density_matrix(r, 2:7) |&gt;</span></span>
+<span id="cb13-296"><a href="#cb13-296" aria-hidden="true" tabindex="-1"></a><span class="ss">        r-&gt;abs.(diag(r.state)) |&gt;</span></span>
+<span id="cb13-297"><a href="#cb13-297" aria-hidden="true" tabindex="-1"></a><span class="ss">        x-&gt;Plots.plot(-32:31, x, ylims=(0,0.5), xlabel="\$n\$", ylabel="\$|</span><span class="ch">\\</span><span class="ss">langle n|</span><span class="ch">\\</span><span class="ss">psi</span><span class="ch">\\</span><span class="ss">rangle|^2\$", legend=:none, title="\$t=$(k)\$")</span></span>
+<span id="cb13-298"><a href="#cb13-298" aria-hidden="true" tabindex="-1"></a><span class="ss">end...)</span></span>
+<span id="cb13-299"><a href="#cb13-299" aria-hidden="true" tabindex="-1"></a><span class="ss">```</span></span>
+<span id="cb13-300"><a href="#cb13-300" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-301"><a href="#cb13-301" aria-hidden="true" tabindex="-1"></a><span class="ss">## Properties of the walk</span></span>
 <span id="cb13-302"><a href="#cb13-302" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-303"><a href="#cb13-303" aria-hidden="true" tabindex="-1"></a><span class="ss">## Properties of the walk</span></span>
+<span id="cb13-303"><a href="#cb13-303" aria-hidden="true" tabindex="-1"></a><span class="ss">Similar to the classical random walk, the mean $\mu(t) = 0$.</span></span>
 <span id="cb13-304"><a href="#cb13-304" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-305"><a href="#cb13-305" aria-hidden="true" tabindex="-1"></a><span class="ss">Similar to the classical random walk, the mean $\mu(t) = 0$.</span></span>
+<span id="cb13-305"><a href="#cb13-305" aria-hidden="true" tabindex="-1"></a><span class="ss">However, a more interesting feature is that the standard deviation $\sigma(t) = 0.54 t$ @portugal_quantum_2018. Compare this with the classical random walk (@fig-std-comp), the quantum walk has a quadratic speed up. This is the reason for the quadratic speedup commonly seen in the Grover search and other Monte Carlo problems.</span></span>
 <span id="cb13-306"><a href="#cb13-306" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-307"><a href="#cb13-307" aria-hidden="true" tabindex="-1"></a><span class="ss">However, a more interesting feature is that the standard deviation $\sigma(t) = 0.54 t$ @portugal_quantum_2018. Compare this with the classical random walk (@fig-std-comp), the quantum walk has a quadratic speed up. This is the reason for the quadratic speedup commonly seen in the Grover search and other Monte Carlo problems.</span></span>
-<span id="cb13-308"><a href="#cb13-308" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-309"><a href="#cb13-309" aria-hidden="true" tabindex="-1"></a><span class="ss">![A comparision between the standard Deviation with time for the quantum(_crosses_) and classical random(_circles_) walks @portugal_quantum_2018. It is clear that the quantum walk spreads ballistically, whereas the classical walk spreads diffusively.](./images/11-23-15-35.png){#fig-std-comp}</span></span>
+<span id="cb13-307"><a href="#cb13-307" aria-hidden="true" tabindex="-1"></a><span class="ss">![A comparision between the standard Deviation with time for the quantum(_crosses_) and classical random(_circles_) walks @portugal_quantum_2018. It is clear that the quantum walk spreads ballistically, whereas the classical walk spreads diffusively.](./images/11-23-15-35.png){#fig-std-comp}</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

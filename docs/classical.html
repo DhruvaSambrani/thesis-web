@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.319">
+<meta name="generator" content="quarto-1.3.326">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -617,7 +617,8 @@ p_{ij} = \begin{cases}
 <p>Certain properties of the walk that are interesting for the problem we pose in the subsequent sections. Primarily, we are interested in the mean, standard deviation and recurrence of the graph.</p>
 <p>The probability that a walker is on node <span class="math inline">\(n\)</span> at time <span class="math inline">\(t\)</span> is given by the expression</p>
 <p><span class="math display">\[p(n, t) = \binom{t}{\frac{t+n}{2}} \frac{1}{2^t}\]</span></p>
-<p>This equation is valid only if <span class="math inline">\(t + n\)</span> is even and <span class="math inline">\(n \le t\)</span>. If <span class="math inline">\(t + n\)</span> is odd or <span class="math inline">\(n &gt; t\)</span>, the probability is zero It should be obvious from the even symmetry of <span class="math inline">\(p(n, t)\)</span> that the mean <span class="math inline">\(\mu(t) = \sum_n np(n,t) = 0\)</span>. This comes from the fact that the walk is symmetric. The standard deviation of the walker position <span class="math inline">\(\sigma(t) = \sqrt{\langle n^2 \rangle - \langle n\rangle^2} = \sqrt{\sum_n n^2p(n,t)} = \sqrt t\)</span><span class="citation" data-cites="portugal_quantum_2018"><sup><a href="references.html#ref-portugal_quantum_2018" role="doc-biblioref">1</a></sup></span>.</p>
+<p>This equation is valid only if <span class="math inline">\(t + n\)</span> is even and <span class="math inline">\(n \le t\)</span>. If <span class="math inline">\(t + n\)</span> is odd or <span class="math inline">\(n &gt; t\)</span>, the probability is zero It should be obvious from the even symmetry of <span class="math inline">\(p(n, t)\)</span> that the mean <span class="math inline">\(\mu(t) = \sum_n np(n,t) = 0\)</span>. This comes from the fact that the walk is symmetric. From <a href="#fig-cwp">Figure&nbsp;<span>1.3</span></a>, we see that the walker spreads diffusively, and is more heavily concentrated in the middle of the chain rather than the edges. Mathematically, this follows from the binomial distribution.</p>
+<p>The standard deviation of the walker position <span class="math inline">\(\sigma(t) = \sqrt{\langle n^2 \rangle - \langle n\rangle^2} = \sqrt{\sum_n n^2p(n,t)} = \sqrt t\)</span><span class="citation" data-cites="portugal_quantum_2018"><sup><a href="references.html#ref-portugal_quantum_2018" role="doc-biblioref">1</a></sup></span>. Therefore, this means that the walker reaches about double the space in about four times the amount of steps.</p>
 
 
 <!-- -->
@@ -1077,7 +1078,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb3-147"><a href="#cb3-147" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-148"><a href="#cb3-148" aria-hidden="true" tabindex="-1"></a>$$p(n, t) = \binom{t}{\frac{t+n}{2}} \frac{1}{2^t}$$</span>
 <span id="cb3-149"><a href="#cb3-149" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-150"><a href="#cb3-150" aria-hidden="true" tabindex="-1"></a>This equation is valid only if $t + n$ is even and $n \le t$. If $t + n$ is odd or $n &gt; t$, the probability is zero It should be obvious from the even symmetry of $p(n, t)$ that the mean $\mu(t) = \sum_n np(n,t) = 0$. This comes from the fact that the walk is symmetric. The standard deviation of the walker position $\sigma(t) = \sqrt{\langle n^2 \rangle - \langle n\rangle^2} = \sqrt{\sum_n n^2p(n,t)} = \sqrt t$ @portugal_quantum_2018.</span>
+<span id="cb3-150"><a href="#cb3-150" aria-hidden="true" tabindex="-1"></a>This equation is valid only if $t + n$ is even and $n \le t$. If $t + n$ is odd or $n &gt; t$, the probability is zero It should be obvious from the even symmetry of $p(n, t)$ that the mean $\mu(t) = \sum_n np(n,t) = 0$. This comes from the fact that the walk is symmetric. From @fig-cwp, we see that the walker spreads diffusively, and is more heavily concentrated in the middle of the chain rather than the edges. Mathematically, this follows from the binomial distribution.</span>
+<span id="cb3-151"><a href="#cb3-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-152"><a href="#cb3-152" aria-hidden="true" tabindex="-1"></a>The standard deviation of the walker position $\sigma(t) = \sqrt{\langle n^2 \rangle - \langle n\rangle^2} = \sqrt{\sum_n n^2p(n,t)} = \sqrt t$ @portugal_quantum_2018. Therefore, this means that the walker reaches about double the space in about four times the amount of steps.</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
