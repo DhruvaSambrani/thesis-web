@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.326">
+<meta name="generator" content="quarto-1.4.6">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -305,12 +305,12 @@ div.csl-indent {
 
 <p>Random walks are a commonly used tool in the arsenal of algorithms on Classical Computers to solve a variety of problems which do not have a known easy solution. The power of such methods can be attributed to the fact that while the space of possible solutions is vast, we only need to sample few solutions to come to a close solution. This power has been routinely exploited in the past to sample from Markov Chains using the MCMC algorithm which can be found in any introductory textbook<span class="citation" data-cites="norris_markov_1998"><sup><a href="references.html#ref-norris_markov_1998" role="doc-biblioref">1</a></sup></span> of Markov processes, and they have recently been used in the fields of Financial engineering<span class="citation" data-cites="glasserman_monte_2004"><sup><a href="references.html#ref-glasserman_monte_2004" role="doc-biblioref">2</a></sup></span>, fluid mechanics<span class="citation" data-cites="griffin_investigation_2019"><sup><a href="references.html#ref-griffin_investigation_2019" role="doc-biblioref">3</a></sup></span>, fitting black hole images<span class="citation" data-cites="psaltis_markov_2022"><sup><a href="references.html#ref-psaltis_markov_2022" role="doc-biblioref">4</a></sup></span> and most famously in the Los Alamos project<span class="citation" data-cites="metropolis_beginning_1987"><sup><a href="references.html#ref-metropolis_beginning_1987" role="doc-biblioref">5</a></sup></span>.</p>
 <p>With the advent of quantum algorithms, quantum walks have arisen as an obvious extension of classical walks in the quantum domain. The applications of quantum walks are just as many: ANN training<span class="citation" data-cites="de_souza_quantum_2019"><sup><a href="references.html#ref-de_souza_quantum_2019" role="doc-biblioref">6</a></sup></span>, Random Number Generation<span class="citation" data-cites="bae_source_2021"><sup><a href="references.html#ref-bae_source_2021" role="doc-biblioref">7</a></sup></span>, List coloring (Grover)<span class="citation" data-cites="mukherjee_grover_2022"><sup><a href="references.html#ref-mukherjee_grover_2022" role="doc-biblioref">8</a></sup></span>, collision finding<span class="citation" data-cites="bonnetain_finding_2022"><sup><a href="references.html#ref-bonnetain_finding_2022" role="doc-biblioref">9</a></sup></span>, link prediction<span class="citation" data-cites="goldsmith_link_2022"><sup><a href="references.html#ref-goldsmith_link_2022" role="doc-biblioref">10</a></sup></span>. There has even been a recent foray into classifying and using a quantum-classical walk to speed up certain classical algorithms, namely the Google PageRank Algorithm<span class="citation" data-cites="ortega_generalized_2022"><sup><a href="references.html#ref-ortega_generalized_2022" role="doc-biblioref">11</a></sup></span>. The increased interest in quantum walks can be attributed to the quadratic speed up which it grants the solution a-la the Grover algorithm, which itself can be considered as a Quantum Walk<span class="citation" data-cites="qiskit_quantum"><sup><a href="references.html#ref-qiskit_quantum" role="doc-biblioref">12</a></sup></span>.</p>
-<p>In this master thesis, we will first define the classical (<a href="classical.html"><span>Chapter&nbsp;1</span></a>) walk, and specifically, the 1D walk. The classical 1D walk has a standard deviation which goes as <span class="math inline">\(\mathcal{O}(T^{1/2})\)</span>, and is recurrent.</p>
-<p>Then we define quantum (<a href="quantum.html"><span>Chapter&nbsp;2</span></a>) walk, particularly the coined walk on a 1D grid. The quantum 1D walk has a standard deviation which goes as <span class="math inline">\(\mathcal{O}(T)\)</span>, and is transient.</p>
-<p>We define these walks with a view of using these walks in search algorithms. We formalise the search problem and show how the quantum walk is faster, but its transient nature leads to a non-zero asymptotic failure rate in <a href="search.html"><span>Chapter&nbsp;3</span></a>.</p>
-<p>Then, we look at previous attempts at solving this by resetting (<a href="reset.html"><span>Chapter&nbsp;4</span></a>). By resetting a markov chain, we can convert a transient chain to a recurrent one. We explore the effect of resetting in the quantum case, attempting to recreate past work in continuous time quantum walks in the discrete time quantum walks. We also look at possible shortcomings of the solution.</p>
-<p>In <a href="qreset.html"><span>Chapter&nbsp;5</span></a>, we introduce a new mechanism for quantum resetting based on superposition of the evolution and reset operations and show numerically that it does not have a clear advantage in the search problem (<a href="qreset.html"><span>Chapter&nbsp;5</span></a>). Due to the complexity of the formalism, we approach quantum resetting unitarily.</p>
-<p>Finally, we introduce a second protocol for reset quantum walks by quantizing the Markov process via Szegedy walks (<a href="szegedy.html"><span>Chapter&nbsp;6</span></a>). We also present a Grover like search algorithm, which is easily analyzable by eigenvalue analysis. The results and discussions of this protocol are presented in <a href="uqreset.html"><span>Chapter&nbsp;7</span></a>. We then conclude and provide future directions of this work in <a href="summary.html"><span>Chapter&nbsp;8</span></a>.</p>
+<p>In this master thesis, we will first define the classical (<a href="classical.html" class="quarto-xref"><span>Chapter&nbsp;1</span></a>) walk, and specifically, the 1D walk. The classical 1D walk has a standard deviation which goes as <span class="math inline">\(\mathcal{O}(T^{1/2})\)</span>, and is recurrent.</p>
+<p>Then we define quantum (<a href="quantum.html" class="quarto-xref"><span>Chapter&nbsp;2</span></a>) walk, particularly the coined walk on a 1D grid. The quantum 1D walk has a standard deviation which goes as <span class="math inline">\(\mathcal{O}(T)\)</span>, and is transient.</p>
+<p>We define these walks with a view of using these walks in search algorithms. We formalise the search problem and show how the quantum walk is faster, but its transient nature leads to a non-zero asymptotic failure rate in <a href="search.html" class="quarto-xref"><span>Chapter&nbsp;3</span></a>.</p>
+<p>Then, we look at previous attempts at solving this by resetting (<a href="reset.html" class="quarto-xref"><span>Chapter&nbsp;4</span></a>). By resetting a markov chain, we can convert a transient chain to a recurrent one. We explore the effect of resetting in the quantum case, attempting to recreate past work in continuous time quantum walks in the discrete time quantum walks. We also look at possible shortcomings of the solution.</p>
+<p>In <a href="qreset.html" class="quarto-xref"><span>Chapter&nbsp;5</span></a>, we introduce a new mechanism for quantum resetting based on superposition of the evolution and reset operations and show numerically that it does not have a clear advantage in the search problem (<a href="qreset.html" class="quarto-xref"><span>Chapter&nbsp;5</span></a>). Due to the complexity of the formalism, we approach quantum resetting unitarily.</p>
+<p>Finally, we introduce a second protocol for reset quantum walks by quantizing the Markov process via Szegedy walks (<a href="szegedy.html" class="quarto-xref"><span>Chapter&nbsp;6</span></a>). We also present a Grover like search algorithm, which is easily analyzable by eigenvalue analysis. The results and discussions of this protocol are presented in <a href="uqreset.html" class="quarto-xref"><span>Chapter&nbsp;7</span></a>. We then conclude and provide future directions of this work in <a href="summary.html" class="quarto-xref"><span>Chapter&nbsp;8</span></a>.</p>
 <p>Along with the theory, certain aspects of the implementation of the walks computationally are also added as necessary. This is done inline instead of in an appendix, which is the norm, since the author believes that such a presentation solidifies the readers’ understanding of both, the model and the implementation. We use Julia<span class="citation" data-cites="bezanson_julia_2017"><sup><a href="references.html#ref-bezanson_julia_2017" role="doc-biblioref">13</a></sup></span> and its standard libraries, Plots.jl<span class="citation" data-cites="breloff_plotsjl_2022"><sup><a href="references.html#ref-breloff_plotsjl_2022" role="doc-biblioref">14</a></sup></span>, QuantumInformation.jl<span class="citation" data-cites="gawron_quantuminformationjljulia_2018"><sup><a href="references.html#ref-gawron_quantuminformationjljulia_2018" role="doc-biblioref">15</a></sup></span>, Luxor.jl<span class="citation" data-cites="juliagraphics_luxorjl"><sup><a href="references.html#ref-juliagraphics_luxorjl" role="doc-biblioref">16</a></sup></span>, Yao.jl and YaoPlots.jl<span class="citation" data-cites="luo_yaojl_2020"><sup><a href="references.html#ref-luo_yaojl_2020" role="doc-biblioref">17</a></sup></span>.</p>
 
 
@@ -530,6 +530,30 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, function() {
+      let href = xref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children.length > 2) {
+          for (let i = 0; i < 2; i++) {
+            container.appendChild(note.children[i].cloneNode(true));
+          }
+          return container.innerHTML
+        } else {
+          return note.innerHTML;
+        }
+      } else {
+        return note.innerHTML;
+      }
     });
   }
       let selectedAnnoteEl;

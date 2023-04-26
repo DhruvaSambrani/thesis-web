@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.326">
+<meta name="generator" content="quarto-1.4.6">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -335,15 +335,15 @@ flowchart TD
     classDef newwork fill:#45f97b,color:#000;
 </pre>
 </div>
-<p></p><figcaption class="figure-caption">Figure&nbsp;6.1: Work until now: Our initial proposal to combat the transient nature of the quantum walk was by following a semi-quantum stochastic reset protocol. To further quantize the resetting mechanism, we propose a coined reset formalism. This proved to be too complex, prompting a unitary reset walk, which we shall introduce now.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;6.1: Work until now: Our initial proposal to combat the transient nature of the quantum walk was by following a semi-quantum stochastic reset protocol. To further quantize the resetting mechanism, we propose a coined reset formalism. This proved to be too complex, prompting a unitary reset walk, which we shall introduce now.</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>As suggested in the earlier chapter, we would like to define a unitary quantum resetting protocol unitary for analytical and interpretational simplicity. For this, we reconsider our path until now (<a href="summary.html#fig-work">Figure&nbsp;<span>8.1</span></a>). Instead of quantizing the stochastic reset quantum walk via a coin, can we quantize the stochastic reset classical walk directly?</p>
+<p>As suggested in the earlier chapter, we would like to define a unitary quantum resetting protocol unitary for analytical and interpretational simplicity. For this, we reconsider our path until now (<a href="summary.html#fig-work" class="quarto-xref">Figure&nbsp;<span>8.1</span></a>). Instead of quantizing the stochastic reset quantum walk via a coin, can we quantize the stochastic reset classical walk directly?</p>
 <section id="generalized-coined-walks" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="generalized-coined-walks"><span class="header-section-number">6.1</span> Generalized Coined walks</h2>
-<p>When we quantized walks in <a href="quantum.html"><span>Chapter&nbsp;2</span></a>, we attached a 2 level coin whose states represented the selected edge, and by putting the coin into superposition, one can apply a superposition of jumps. We would like to quantize walks on arbitrary undirected graphs using the coined walk formalism.</p>
+<p>When we quantized walks in <a href="quantum.html" class="quarto-xref"><span>Chapter&nbsp;2</span></a>, we attached a 2 level coin whose states represented the selected edge, and by putting the coin into superposition, one can apply a superposition of jumps. We would like to quantize walks on arbitrary undirected graphs using the coined walk formalism.</p>
 <p>Graphs can be partitioned into two classes, Class 1 and 2, based of the chromaticity of the graph.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -359,15 +359,15 @@ Edge Chromaticity
 </div>
 </div>
 <p>By Vizing’s theorem<span class="citation" data-cites="noauthor_vizings_2023"><sup><a href="references.html#ref-noauthor_vizings_2023" role="doc-biblioref">1</a></sup></span>, <span class="math inline">\(\Delta(G) \le \rho(G) \le \Delta(G)+1\)</span>, where <span class="math inline">\(\Delta(G)\)</span> is the max degree of the graph.</p>
-<p>Graphs of Class 1 are those where <span class="math inline">\(\Delta(G) = \rho(G)\)</span> and graphs of Class 2 are the others. Walks on Class 1 graphs can be quantized by the coin - position formalism similar to the one introduced in <a href="quantum.html"><span>Chapter&nbsp;2</span></a>, whereas walks on Class 2 graphs can be quantized by a walk on the edges rather than the nodes<span class="citation" data-cites="portugal_quantum_2018"><sup><a href="references.html#ref-portugal_quantum_2018" role="doc-biblioref">2</a></sup></span>. However, we’re still restricted to undirected graphs.</p>
+<p>Graphs of Class 1 are those where <span class="math inline">\(\Delta(G) = \rho(G)\)</span> and graphs of Class 2 are the others. Walks on Class 1 graphs can be quantized by the coin - position formalism similar to the one introduced in <a href="quantum.html" class="quarto-xref"><span>Chapter&nbsp;2</span></a>, whereas walks on Class 2 graphs can be quantized by a walk on the edges rather than the nodes<span class="citation" data-cites="portugal_quantum_2018"><sup><a href="references.html#ref-portugal_quantum_2018" role="doc-biblioref">2</a></sup></span>. However, we’re still restricted to undirected graphs.</p>
 </section>
 <section id="szegedy-walks" class="level2" data-number="6.2">
 <h2 data-number="6.2" class="anchored" data-anchor-id="szegedy-walks"><span class="header-section-number">6.2</span> Szegedy Walks</h2>
-<p>It is known that discrete time Markov chains do not naturally quantize via the coin formalism<span class="citation" data-cites="szegedy_quantum_2004"><sup><a href="references.html#ref-szegedy_quantum_2004" role="doc-biblioref">3</a></sup></span>. Szegedy<span class="citation" data-cites="szegedy_quantum_2004"><sup><a href="references.html#ref-szegedy_quantum_2004" role="doc-biblioref">3</a></sup></span> came up with a formalism to quantize symmetric irreducible Markov chains by using the bipartite double cover of the underlying graph (<a href="#fig-dup">Figure&nbsp;<span>6.2</span></a>). This was then generalized to ergodic chains by Magniez et al.<span class="citation" data-cites="magniez_search_2011"><sup><a href="references.html#ref-magniez_search_2011" role="doc-biblioref">4</a></sup></span>. What follows is a brief introduction to the generalized Szegedy walks.</p>
+<p>It is known that discrete time Markov chains do not naturally quantize via the coin formalism<span class="citation" data-cites="szegedy_quantum_2004"><sup><a href="references.html#ref-szegedy_quantum_2004" role="doc-biblioref">3</a></sup></span>. Szegedy<span class="citation" data-cites="szegedy_quantum_2004"><sup><a href="references.html#ref-szegedy_quantum_2004" role="doc-biblioref">3</a></sup></span> came up with a formalism to quantize symmetric irreducible Markov chains by using the bipartite double cover of the underlying graph (<a href="#fig-dup" class="quarto-xref">Figure&nbsp;<span>6.2</span></a>). This was then generalized to ergodic chains by Magniez et al.<span class="citation" data-cites="magniez_search_2011"><sup><a href="references.html#ref-magniez_search_2011" role="doc-biblioref">4</a></sup></span>. What follows is a brief introduction to the generalized Szegedy walks.</p>
 <div id="fig-dup" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="./images/03-19-22-24.png" class="img-fluid figure-img" style="width:75.0%"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;6.2: Duplication Process on a graph<span class="citation" data-cites="portugal_quantum_2018"><sup><a href="references.html#ref-portugal_quantum_2018" role="doc-biblioref">2</a></sup></span>. The nodes are copied, and edges are drawn between the two sets if the pair of nodes had a connecting edge in the original graph.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;6.2: Duplication Process on a graph<span class="citation" data-cites="portugal_quantum_2018"><sup><a href="references.html#ref-portugal_quantum_2018" role="doc-biblioref">2</a></sup></span>. The nodes are copied, and edges are drawn between the two sets if the pair of nodes had a connecting edge in the original graph.</figcaption>
 </figure>
 </div>
 <section id="sec-szegedy-formalism" class="level3" data-number="6.2.1">
@@ -418,9 +418,9 @@ The Discriminant matrix
 </section>
 <section id="sec-qht" class="level2" data-number="6.3">
 <h2 data-number="6.3" class="anchored" data-anchor-id="sec-qht"><span class="header-section-number">6.3</span> Szegedy Search or the Quantum Hitting Time</h2>
-<p>Of the many ways to define the search algorithm (refer to <a href="search.html"><span>Chapter&nbsp;3</span></a> for an introduction) for Szegedy walks, we shall look at two protocols, one which is easy to understand and the other easy to analyse. The original paper by Szegedy<span class="citation" data-cites="szegedy_quantum_2004"><sup><a href="references.html#ref-szegedy_quantum_2004" role="doc-biblioref">3</a></sup></span> proposed the following protocol -</p>
+<p>Of the many ways to define the search algorithm (refer to <a href="search.html" class="quarto-xref"><span>Chapter&nbsp;3</span></a> for an introduction) for Szegedy walks, we shall look at two protocols, one which is easy to understand and the other easy to analyse. The original paper by Szegedy<span class="citation" data-cites="szegedy_quantum_2004"><sup><a href="references.html#ref-szegedy_quantum_2004" role="doc-biblioref">3</a></sup></span> proposed the following protocol -</p>
 <ol type="1">
-<li>Modify the classical Markov chain to make all the marked vertices sinks (<a href="#fig-dup-marked">Figure&nbsp;<span>6.3</span></a>).</li>
+<li>Modify the classical Markov chain to make all the marked vertices sinks (<a href="#fig-dup-marked" class="quarto-xref">Figure&nbsp;<span>6.3</span></a>).</li>
 </ol>
 <p><span class="math display">\[
 p^\prime_{xy} = \begin{cases}
@@ -432,18 +432,18 @@ p_{xy}, &amp;x \notin G\\
 <li>Define <span class="math inline">\(W^\prime(P)\)</span> as the quantum Markov chain by the usual protocol.</li>
 <li>Define the initial state</li>
 </ol>
-<p><span class="math display">\[|\psi(0)\rangle = \frac{1}{\sqrt{n}}\sum_{\substack{x\in X\\ y \in Y}}\sqrt{p_{xy}}\]</span></p>
+<p><span class="math display">\[|\psi(0)\rangle = \frac{1}{\sqrt{n}}\sum_{\substack{x\in X\\ y \in Y}}\sqrt{p_{xy}}|x\rangle |y\rangle\]</span></p>
 <ol start="4" type="1">
 <li>Finally, define the quantum hitting time such that <span class="math display">\[F(T) \ge 1 - \frac{g}{n}\]</span> where <span class="math display">\[F(T) = \frac{1}{T+1}\sum_{t=0}^{T}\Big\lVert |\psi(t)\rangle - |\psi(0)\rangle\Big\rVert^2; g = |G|\]</span></li>
 </ol>
 <div id="fig-dup-marked" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="./images/03-19-22-30.png" class="img-fluid figure-img" style="width:75.0%"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;6.3: Duplication Process of a graph with marked vertex <span class="math inline">\(3\)</span><span class="citation" data-cites="portugal_quantum_2018"><sup><a href="references.html#ref-portugal_quantum_2018" role="doc-biblioref">2</a></sup></span>. All edges going outwards from <span class="math inline">\(x_3\)</span> and <span class="math inline">\(y_3\)</span> are broken, making the graph directed</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;6.3: Duplication Process of a graph with marked vertex <span class="math inline">\(3\)</span><span class="citation" data-cites="portugal_quantum_2018"><sup><a href="references.html#ref-portugal_quantum_2018" role="doc-biblioref">2</a></sup></span>. All edges going outwards from <span class="math inline">\(x_3\)</span> and <span class="math inline">\(y_3\)</span> are broken, making the graph directed</figcaption>
 </figure>
 </div>
 <p>Defined by this protocol, the quantum hitting time is quadratically smaller than the classical hitting time<span class="citation" data-cites="szegedy_quantum_2004"><sup><a href="references.html#ref-szegedy_quantum_2004" role="doc-biblioref">3</a></sup></span> for the 1D case.</p>
-<p>A later modification<span class="citation" data-cites="magniez_search_2011"><sup><a href="references.html#ref-magniez_search_2011" role="doc-biblioref">4</a></sup></span> defined the search operation via a Grover-like oracle. This was easier to analyse, and the connection between the spectral gap of the discriminant matrix (<a href="#sec-szegedy-formalism"><span>Section&nbsp;6.2.1</span></a>) and the quadratic speedup attained by the walk is clearer. We leave the exact protocol to reference<span class="citation" data-cites="magniez_search_2011"><sup><a href="references.html#ref-magniez_search_2011" role="doc-biblioref">4</a></sup></span>, but only outline the steps.</p>
+<p>A later modification<span class="citation" data-cites="magniez_search_2011"><sup><a href="references.html#ref-magniez_search_2011" role="doc-biblioref">4</a></sup></span> defined the search operation via a Grover-like oracle. This was easier to analyse, and the connection between the spectral gap of the discriminant matrix (<a href="#sec-szegedy-formalism" class="quarto-xref"><span>Section&nbsp;6.2.1</span></a>) and the quadratic speedup attained by the walk is clearer. We leave the exact protocol to reference<span class="citation" data-cites="magniez_search_2011"><sup><a href="references.html#ref-magniez_search_2011" role="doc-biblioref">4</a></sup></span>, but only outline the steps.</p>
 <ol type="1">
 <li>Prepare the initial state <span class="math inline">\(|\pi\rangle|0^Tks\rangle\)</span>, where <span class="math display">\[|\pi\rangle_d = \sum_{x\in X} \sqrt{\pi_x}|x\rangle |p_x\rangle = \sum_{y\in X} \sqrt{\pi_x}|x\rangle |p_x\rangle\]</span></li>
 <li>First apply the Grover oracle <span class="math display">\[\mathcal{G}(|x\rangle_d|y\rangle_d |z\rangle) = \begin{cases}-|x\rangle_d|y\rangle_d|z\rangle, &amp; \text{if } x \in G\\+|x\rangle_d|y\rangle_d|z\rangle, &amp; \text{otherwise}\end{cases}\]</span></li>
@@ -646,6 +646,30 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, function() {
+      let href = xref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children.length > 2) {
+          for (let i = 0; i < 2; i++) {
+            container.appendChild(note.children[i].cloneNode(true));
+          }
+          return container.innerHTML
+        } else {
+          return note.innerHTML;
+        }
+      } else {
+        return note.innerHTML;
+      }
     });
   }
       let selectedAnnoteEl;
@@ -895,7 +919,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Define $W^\prime(P)$ as the quantum Markov chain by the usual protocol.</span>
 <span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Define the initial state</span>
 <span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>$$|\psi(0)\rangle = \frac{1}{\sqrt{n}}\sum_{\substack{x\in X<span class="sc">\\</span> y \in Y}}\sqrt{p_{xy}}$$</span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>$$|\psi(0)\rangle = \frac{1}{\sqrt{n}}\sum_{\substack{x\in X<span class="sc">\\</span> y \in Y}}\sqrt{p_{xy}}|x\rangle |y\rangle$$</span>
 <span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Finally, define the quantum hitting time such that $$F(T) \ge 1 - \frac{g}{n}$$ where $$F(T) = \frac{1}{T+1}\sum_{t=0}^{T}\Big\lVert |\psi(t)\rangle - |\psi(0)\rangle\Big\rVert^2; g = |G|$$</span>
 <span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a></span>

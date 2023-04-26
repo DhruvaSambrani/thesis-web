@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.326">
+<meta name="generator" content="quarto-1.4.6">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -320,7 +320,7 @@ div.csl-indent {
 
 </header>
 
-<p>Armed with the Szegedy formalism from the previous chapter, we can define the unitary quantum reset quantum walk by quantizing the stochastic reset classical walk (<a href="reset.html#sec-reset-cw"><span>Section&nbsp;4.1.2</span></a>). It is obvious that the stochastic reset classical walk is not symmetric (<span class="math inline">\(p_{i0} \ne p_{0i}\forall i\ne 0\)</span>), so we cannot use the original Szegedy walk, but we can use the generalized Szegedy formalism if we show that our process is ergodic.</p>
+<p>Armed with the Szegedy formalism from the previous chapter, we can define the unitary quantum reset quantum walk by quantizing the stochastic reset classical walk (<a href="reset.html#sec-reset-cw" class="quarto-xref"><span>Section&nbsp;4.1.2</span></a>). It is obvious that the stochastic reset classical walk is not symmetric (<span class="math inline">\(p_{i0} \ne p_{0i}\forall i\ne 0\)</span>), so we cannot use the original Szegedy walk, but we can use the generalized Szegedy formalism if we show that our process is ergodic.</p>
 <section id="ergodicity-of-the-stochastic-reset-classical-walk" class="level2" data-number="7.1">
 <h2 data-number="7.1" class="anchored" data-anchor-id="ergodicity-of-the-stochastic-reset-classical-walk"><span class="header-section-number">7.1</span> Ergodicity of the Stochastic Reset Classical Walk</h2>
 <div class="cell quarto-layout-panel" data-execution_count="2">
@@ -682,9 +682,9 @@ amount2:1-d})};a.filter.invert.toString=function(){return this()};a.filter.brigh
 </div>
 </div>
 <p>To show ergodicity, we need to show that the walk is irreducible, aperiodic and positive recurrent.</p>
-<p>Irreducibility follows from the irreducibility of the 1D walk (<a href="appendix-markov.html"><span>Appendix&nbsp;A</span></a>) <span class="math inline">\(\forall \gamma &lt; 1\)</span>. For the trivial case of <span class="math inline">\(\gamma = 1\)</span>, the chain is not irreducible, and we cannot use the Szegedy formalism.</p>
-<p>Aperiodicity (<a href="appendix-markov.html"><span>Appendix&nbsp;A</span></a>) of the chain follows from the irreducibility of the chain and aperiodicity of node <span class="math inline">\(0\)</span> which is obvious due to the existence of the self loop.</p>
-<p>Recurrence is obvious from <span class="math inline">\(p_{00}^{(n)} \ge \gamma \forall i\)</span> and irreducibility. Positive recurrence is harder to show, but we can solve the recurrence relation (<a href="qreset.html"><span>Chapter&nbsp;5</span></a>).</p>
+<p>Irreducibility follows from the irreducibility of the 1D walk (<a href="appendix-markov.html" class="quarto-xref"><span>Appendix&nbsp;A</span></a>) <span class="math inline">\(\forall \gamma &lt; 1\)</span>. For the trivial case of <span class="math inline">\(\gamma = 1\)</span>, the chain is not irreducible, and we cannot use the Szegedy formalism.</p>
+<p>Aperiodicity (<a href="appendix-markov.html" class="quarto-xref"><span>Appendix&nbsp;A</span></a>) of the chain follows from the irreducibility of the chain and aperiodicity of node <span class="math inline">\(0\)</span> which is obvious due to the existence of the self loop.</p>
+<p>Recurrence is obvious from <span class="math inline">\(p_{00}^{(n)} \ge \gamma \forall i\)</span> and irreducibility. Positive recurrence is harder to show, but we can solve the recurrence relation (<a href="qreset.html" class="quarto-xref"><span>Chapter&nbsp;5</span></a>).</p>
 <p>Thus, the stochastic reset classical walk is ergodic and is a viable candidate for quantization via the Szegedy walk.</p>
 </section>
 <section id="implementation-and-results" class="level2" data-number="7.2">
@@ -728,7 +728,7 @@ amount2:1-d})};a.filter.invert.toString=function(){return this()};a.filter.brigh
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    (<span class="fl">1</span><span class="op">-</span>old) <span class="op">*</span> curr <span class="op">+</span> old</span>
 <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>We can scan over <span class="math inline">\(\gamma \in [0, 1]\)</span> and plot the instantaneous probability of measuring in <span class="math inline">\(\delta\)</span>, success probability and the mean hitting time in <a href="#fig-uqreset">Figure&nbsp;<span>7.1</span></a>.</p>
+<p>We can scan over <span class="math inline">\(\gamma \in [0, 1]\)</span> and plot the instantaneous probability of measuring in <span class="math inline">\(\delta\)</span>, success probability and the mean hitting time in <a href="#fig-uqreset" class="quarto-xref">Figure&nbsp;<span>7.1</span></a>.</p>
 <div id="sec-umht" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -739,7 +739,7 @@ Alternative Definition of the Mean Hitting Time
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Although the definition of mean hitting time we have defined until now is only valid for a measure and continue semi-quantum walk, we adopt a similar definition for this walk, only without actual measurements. In this section, (particularly <a href="#fig-uqreset">Figure&nbsp;<span>7.1</span></a> and <a href="#fig-uqreset-full">Figure&nbsp;<span>7.2</span></a>), we use a measure and rerun protocol, and define the success probability <span class="math inline">\(S_n\)</span> on the basis of <span class="math inline">\(F_i\)</span> of the unmeasured quantum walk until each time <span class="math inline">\(i &lt; n\)</span></p>
+<p>Although the definition of mean hitting time we have defined until now is only valid for a measure and continue semi-quantum walk, we adopt a similar definition for this walk, only without actual measurements. In this section, (particularly <a href="#fig-uqreset" class="quarto-xref">Figure&nbsp;<span>7.1</span></a> and <a href="#fig-uqreset-full" class="quarto-xref">Figure&nbsp;<span>7.2</span></a>), we use a measure and rerun protocol, and define the success probability <span class="math inline">\(S_n\)</span> on the basis of <span class="math inline">\(F_i\)</span> of the unmeasured quantum walk until each time <span class="math inline">\(i &lt; n\)</span></p>
 </div>
 </div>
 <div class="cell" data-execution_count="7">
@@ -806,7 +806,7 @@ Alternative Definition of the Mean Hitting Time
 <path clip-path="url(#clip790)" d="M2556.59 970.297 Q2552.98 970.297 2551.16 973.862 Q2549.35 977.404 2549.35 984.533 Q2549.35 991.64 2551.16 995.205 Q2552.98 998.746 2556.59 998.746 Q2560.23 998.746 2562.03 995.205 Q2563.86 991.64 2563.86 984.533 Q2563.86 977.404 2562.03 973.862 Q2560.23 970.297 2556.59 970.297 M2556.59 966.594 Q2562.41 966.594 2565.46 971.2 Q2568.54 975.783 2568.54 984.533 Q2568.54 993.26 2565.46 997.867 Q2562.41 1002.45 2556.59 1002.45 Q2550.78 1002.45 2547.71 997.867 Q2544.65 993.26 2544.65 984.533 Q2544.65 975.783 2547.71 971.2 Q2550.78 966.594 2556.59 966.594 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip790)" d="M2576.76 995.899 L2581.64 995.899 L2581.64 1001.78 L2576.76 1001.78 L2576.76 995.899 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip790)" d="M2602.4 982.635 Q2599.26 982.635 2597.4 984.788 Q2595.58 986.941 2595.58 990.691 Q2595.58 994.418 2597.4 996.594 Q2599.26 998.746 2602.4 998.746 Q2605.55 998.746 2607.38 996.594 Q2609.23 994.418 2609.23 990.691 Q2609.23 986.941 2607.38 984.788 Q2605.55 982.635 2602.4 982.635 M2611.69 967.983 L2611.69 972.242 Q2609.93 971.409 2608.12 970.969 Q2606.34 970.529 2604.58 970.529 Q2599.95 970.529 2597.5 973.654 Q2595.07 976.779 2594.72 983.098 Q2596.09 981.084 2598.15 980.02 Q2600.21 978.932 2602.68 978.932 Q2607.89 978.932 2610.9 982.103 Q2613.93 985.251 2613.93 990.691 Q2613.93 996.015 2610.78 999.232 Q2607.64 1002.45 2602.4 1002.45 Q2596.41 1002.45 2593.24 997.867 Q2590.07 993.26 2590.07 984.533 Q2590.07 976.339 2593.96 971.478 Q2597.84 966.594 2604.4 966.594 Q2606.15 966.594 2607.94 966.941 Q2609.74 967.288 2611.69 967.983 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><polyline clip-path="url(#clip790)" style="stroke:#ac8d18; stroke-linecap:round; stroke-linejoin:round; stroke-width:4; stroke-opacity:1; fill:none" points="2359.16,1036.34 2518.15,1036.34 "></polyline>
 <path clip-path="url(#clip790)" d="M2556.59 1022.14 Q2552.98 1022.14 2551.16 1025.7 Q2549.35 1029.24 2549.35 1036.37 Q2549.35 1043.48 2551.16 1047.04 Q2552.98 1050.59 2556.59 1050.59 Q2560.23 1050.59 2562.03 1047.04 Q2563.86 1043.48 2563.86 1036.37 Q2563.86 1029.24 2562.03 1025.7 Q2560.23 1022.14 2556.59 1022.14 M2556.59 1018.43 Q2562.41 1018.43 2565.46 1023.04 Q2568.54 1027.62 2568.54 1036.37 Q2568.54 1045.1 2565.46 1049.71 Q2562.41 1054.29 2556.59 1054.29 Q2550.78 1054.29 2547.71 1049.71 Q2544.65 1045.1 2544.65 1036.37 Q2544.65 1027.62 2547.71 1023.04 Q2550.78 1018.43 2556.59 1018.43 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip790)" d="M2576.76 1047.74 L2581.64 1047.74 L2581.64 1053.62 L2576.76 1053.62 L2576.76 1047.74 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip790)" d="M2601.83 1037.21 Q2598.49 1037.21 2596.57 1038.99 Q2594.67 1040.77 2594.67 1043.9 Q2594.67 1047.02 2596.57 1048.8 Q2598.49 1050.59 2601.83 1050.59 Q2605.16 1050.59 2607.08 1048.8 Q2609 1047 2609 1043.9 Q2609 1040.77 2607.08 1038.99 Q2605.18 1037.21 2601.83 1037.21 M2597.15 1035.22 Q2594.14 1034.48 2592.45 1032.42 Q2590.78 1030.35 2590.78 1027.39 Q2590.78 1023.25 2593.72 1020.84 Q2596.69 1018.43 2601.83 1018.43 Q2606.99 1018.43 2609.93 1020.84 Q2612.87 1023.25 2612.87 1027.39 Q2612.87 1030.35 2611.18 1032.42 Q2609.51 1034.48 2606.53 1035.22 Q2609.9 1036 2611.78 1038.29 Q2613.68 1040.59 2613.68 1043.9 Q2613.68 1048.92 2610.6 1051.6 Q2607.54 1054.29 2601.83 1054.29 Q2596.11 1054.29 2593.03 1051.6 Q2589.97 1048.92 2589.97 1043.9 Q2589.97 1040.59 2591.87 1038.29 Q2593.77 1036 2597.15 1035.22 M2595.44 1027.83 Q2595.44 1030.52 2597.1 1032.02 Q2598.79 1033.53 2601.83 1033.53 Q2604.84 1033.53 2606.53 1032.02 Q2608.24 1030.52 2608.24 1027.83 Q2608.24 1025.15 2606.53 1023.64 Q2604.84 1022.14 2601.83 1022.14 Q2598.79 1022.14 2597.1 1023.64 Q2595.44 1025.15 2595.44 1027.83 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><polyline clip-path="url(#clip790)" style="stroke:#00a9ad; stroke-linecap:round; stroke-linejoin:round; stroke-width:4; stroke-opacity:1; fill:none" points="2359.16,1088.18 2518.15,1088.18 "></polyline>
 <path clip-path="url(#clip790)" d="M2545.32 1101.52 L2552.96 1101.52 L2552.96 1075.16 L2544.65 1076.82 L2544.65 1072.57 L2552.91 1070.9 L2557.59 1070.9 L2557.59 1101.52 L2565.23 1101.52 L2565.23 1105.46 L2545.32 1105.46 L2545.32 1101.52 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip790)" d="M2574.67 1099.58 L2579.56 1099.58 L2579.56 1105.46 L2574.67 1105.46 L2574.67 1099.58 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip790)" d="M2599.74 1073.98 Q2596.13 1073.98 2594.3 1077.54 Q2592.5 1081.08 2592.5 1088.21 Q2592.5 1095.32 2594.3 1098.88 Q2596.13 1102.43 2599.74 1102.43 Q2603.38 1102.43 2605.18 1098.88 Q2607.01 1095.32 2607.01 1088.21 Q2607.01 1081.08 2605.18 1077.54 Q2603.38 1073.98 2599.74 1073.98 M2599.74 1070.27 Q2605.55 1070.27 2608.61 1074.88 Q2611.69 1079.46 2611.69 1088.21 Q2611.69 1096.94 2608.61 1101.55 Q2605.55 1106.13 2599.74 1106.13 Q2593.93 1106.13 2590.85 1101.55 Q2587.8 1096.94 2587.8 1088.21 Q2587.8 1079.46 2590.85 1074.88 Q2593.93 1070.27 2599.74 1070.27 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path></svg>
-<p></p><figcaption class="figure-caption">(a) Probability of measuring in <span class="math inline">\(\delta\)</span></figcaption><p></p>
+<figcaption class="figure-caption">(a) Probability of measuring in <span class="math inline">\(\delta\)</span></figcaption>
 </figure>
 </div>
 <div id="fig-uqreset-2" class="quarto-figure quarto-figure-center anchored" style="flex-basis: 50.0%;justify-content: center;">
@@ -867,7 +867,7 @@ Alternative Definition of the Mean Hitting Time
 <path clip-path="url(#clip880)" d="M2556.27 970.297 Q2552.65 970.297 2550.83 973.862 Q2549.02 977.404 2549.02 984.533 Q2549.02 991.64 2550.83 995.205 Q2552.65 998.746 2556.27 998.746 Q2559.9 998.746 2561.7 995.205 Q2563.53 991.64 2563.53 984.533 Q2563.53 977.404 2561.7 973.862 Q2559.9 970.297 2556.27 970.297 M2556.27 966.594 Q2562.08 966.594 2565.13 971.2 Q2568.21 975.783 2568.21 984.533 Q2568.21 993.26 2565.13 997.867 Q2562.08 1002.45 2556.27 1002.45 Q2550.45 1002.45 2547.38 997.867 Q2544.32 993.26 2544.32 984.533 Q2544.32 975.783 2547.38 971.2 Q2550.45 966.594 2556.27 966.594 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip880)" d="M2576.43 995.899 L2581.31 995.899 L2581.31 1001.78 L2576.43 1001.78 L2576.43 995.899 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip880)" d="M2602.08 982.635 Q2598.93 982.635 2597.08 984.788 Q2595.25 986.941 2595.25 990.691 Q2595.25 994.418 2597.08 996.594 Q2598.93 998.746 2602.08 998.746 Q2605.22 998.746 2607.05 996.594 Q2608.9 994.418 2608.9 990.691 Q2608.9 986.941 2607.05 984.788 Q2605.22 982.635 2602.08 982.635 M2611.36 967.983 L2611.36 972.242 Q2609.6 971.409 2607.79 970.969 Q2606.01 970.529 2604.25 970.529 Q2599.62 970.529 2597.17 973.654 Q2594.74 976.779 2594.39 983.098 Q2595.76 981.084 2597.82 980.02 Q2599.88 978.932 2602.35 978.932 Q2607.56 978.932 2610.57 982.103 Q2613.6 985.251 2613.6 990.691 Q2613.6 996.015 2610.45 999.232 Q2607.31 1002.45 2602.08 1002.45 Q2596.08 1002.45 2592.91 997.867 Q2589.74 993.26 2589.74 984.533 Q2589.74 976.339 2593.63 971.478 Q2597.51 966.594 2604.07 966.594 Q2605.83 966.594 2607.61 966.941 Q2609.41 967.288 2611.36 967.983 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><polyline clip-path="url(#clip880)" style="stroke:#ac8d18; stroke-linecap:round; stroke-linejoin:round; stroke-width:4; stroke-opacity:1; fill:none" points="2356.52,1036.34 2517.49,1036.34 "></polyline>
 <path clip-path="url(#clip880)" d="M2556.27 1022.14 Q2552.65 1022.14 2550.83 1025.7 Q2549.02 1029.24 2549.02 1036.37 Q2549.02 1043.48 2550.83 1047.04 Q2552.65 1050.59 2556.27 1050.59 Q2559.9 1050.59 2561.7 1047.04 Q2563.53 1043.48 2563.53 1036.37 Q2563.53 1029.24 2561.7 1025.7 Q2559.9 1022.14 2556.27 1022.14 M2556.27 1018.43 Q2562.08 1018.43 2565.13 1023.04 Q2568.21 1027.62 2568.21 1036.37 Q2568.21 1045.1 2565.13 1049.71 Q2562.08 1054.29 2556.27 1054.29 Q2550.45 1054.29 2547.38 1049.71 Q2544.32 1045.1 2544.32 1036.37 Q2544.32 1027.62 2547.38 1023.04 Q2550.45 1018.43 2556.27 1018.43 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip880)" d="M2576.43 1047.74 L2581.31 1047.74 L2581.31 1053.62 L2576.43 1053.62 L2576.43 1047.74 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip880)" d="M2601.5 1037.21 Q2598.16 1037.21 2596.24 1038.99 Q2594.34 1040.77 2594.34 1043.9 Q2594.34 1047.02 2596.24 1048.8 Q2598.16 1050.59 2601.5 1050.59 Q2604.83 1050.59 2606.75 1048.8 Q2608.67 1047 2608.67 1043.9 Q2608.67 1040.77 2606.75 1038.99 Q2604.85 1037.21 2601.5 1037.21 M2596.82 1035.22 Q2593.81 1034.48 2592.12 1032.42 Q2590.45 1030.35 2590.45 1027.39 Q2590.45 1023.25 2593.39 1020.84 Q2596.36 1018.43 2601.5 1018.43 Q2606.66 1018.43 2609.6 1020.84 Q2612.54 1023.25 2612.54 1027.39 Q2612.54 1030.35 2610.85 1032.42 Q2609.18 1034.48 2606.2 1035.22 Q2609.58 1036 2611.45 1038.29 Q2613.35 1040.59 2613.35 1043.9 Q2613.35 1048.92 2610.27 1051.6 Q2607.21 1054.29 2601.5 1054.29 Q2595.78 1054.29 2592.7 1051.6 Q2589.64 1048.92 2589.64 1043.9 Q2589.64 1040.59 2591.54 1038.29 Q2593.44 1036 2596.82 1035.22 M2595.11 1027.83 Q2595.11 1030.52 2596.77 1032.02 Q2598.46 1033.53 2601.5 1033.53 Q2604.51 1033.53 2606.2 1032.02 Q2607.91 1030.52 2607.91 1027.83 Q2607.91 1025.15 2606.2 1023.64 Q2604.51 1022.14 2601.5 1022.14 Q2598.46 1022.14 2596.77 1023.64 Q2595.11 1025.15 2595.11 1027.83 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><polyline clip-path="url(#clip880)" style="stroke:#00a9ad; stroke-linecap:round; stroke-linejoin:round; stroke-width:4; stroke-opacity:1; fill:none" points="2356.52,1088.18 2517.49,1088.18 "></polyline>
 <path clip-path="url(#clip880)" d="M2544.99 1101.52 L2552.63 1101.52 L2552.63 1075.16 L2544.32 1076.82 L2544.32 1072.57 L2552.58 1070.9 L2557.26 1070.9 L2557.26 1101.52 L2564.9 1101.52 L2564.9 1105.46 L2544.99 1105.46 L2544.99 1101.52 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip880)" d="M2574.34 1099.58 L2579.23 1099.58 L2579.23 1105.46 L2574.34 1105.46 L2574.34 1099.58 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip880)" d="M2599.41 1073.98 Q2595.8 1073.98 2593.97 1077.54 Q2592.17 1081.08 2592.17 1088.21 Q2592.17 1095.32 2593.97 1098.88 Q2595.8 1102.43 2599.41 1102.43 Q2603.05 1102.43 2604.85 1098.88 Q2606.68 1095.32 2606.68 1088.21 Q2606.68 1081.08 2604.85 1077.54 Q2603.05 1073.98 2599.41 1073.98 M2599.41 1070.27 Q2605.22 1070.27 2608.28 1074.88 Q2611.36 1079.46 2611.36 1088.21 Q2611.36 1096.94 2608.28 1101.55 Q2605.22 1106.13 2599.41 1106.13 Q2593.6 1106.13 2590.52 1101.55 Q2587.47 1096.94 2587.47 1088.21 Q2587.47 1079.46 2590.52 1074.88 Q2593.6 1070.27 2599.41 1070.27 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path></svg>
-<p></p><figcaption class="figure-caption">(b) Success Probability</figcaption><p></p>
+<figcaption class="figure-caption">(b) Success Probability</figcaption>
 </figure>
 </div>
 </div>
@@ -924,7 +924,7 @@ Alternative Definition of the Mean Hitting Time
 <polyline clip-path="url(#clip970)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:4; stroke-opacity:1; fill:none" points="2264.34,285.016 2559.76,285.016 2559.76,181.336 2264.34,181.336 2264.34,285.016 "></polyline>
 <polyline clip-path="url(#clip970)" style="stroke:#009af9; stroke-linecap:round; stroke-linejoin:round; stroke-width:4; stroke-opacity:1; fill:none" points="2291.34,233.176 2453.33,233.176 "></polyline>
 <path clip-path="url(#clip970)" d="M2494.17 252.864 Q2492.37 257.493 2490.66 258.905 Q2488.94 260.317 2486.07 260.317 L2482.67 260.317 L2482.67 256.753 L2485.17 256.753 Q2486.93 256.753 2487.9 255.919 Q2488.87 255.086 2490.05 251.984 L2490.82 250.04 L2480.33 224.531 L2484.85 224.531 L2492.95 244.808 L2501.05 224.531 L2505.56 224.531 L2494.17 252.864 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip970)" d="M2512.85 246.521 L2520.49 246.521 L2520.49 220.156 L2512.18 221.822 L2512.18 217.563 L2520.45 215.896 L2525.12 215.896 L2525.12 246.521 L2532.76 246.521 L2532.76 250.456 L2512.85 250.456 L2512.85 246.521 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path></svg>
-<p></p><figcaption class="figure-caption">(c) Mean hit time vs time</figcaption><p></p>
+<figcaption class="figure-caption">(c) Mean hit time vs time</figcaption>
 </figure>
 </div>
 </div>
@@ -941,11 +941,11 @@ Alternative Definition of the Mean Hitting Time
 </section>
 <section id="mean-hitting-time-vs-gamma" class="level3" data-number="7.3.2">
 <h3 data-number="7.3.2" class="anchored" data-anchor-id="mean-hitting-time-vs-gamma"><span class="header-section-number">7.3.2</span> Mean hitting time vs <span class="math inline">\(\gamma\)</span></h3>
-<p>Plotting the mean hitting time (see <a href="#sec-umht">previous callout on the alternative definition</a>) versus <span class="math inline">\(\gamma\)</span> for <span class="math inline">\(500\)</span> nodes and <span class="math inline">\(500\)</span> steps, we get the curve in <a href="#fig-uqreset-full">Figure&nbsp;<span>7.2</span></a>.</p>
+<p>Plotting the mean hitting time (see <a href="#sec-umht">previous callout on the alternative definition</a>) versus <span class="math inline">\(\gamma\)</span> for <span class="math inline">\(500\)</span> nodes and <span class="math inline">\(500\)</span> steps, we get the curve in <a href="#fig-uqreset-full" class="quarto-xref">Figure&nbsp;<span>7.2</span></a>.</p>
 <div id="fig-uqreset-full" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="./images/uqreset-full.png" class="img-fluid figure-img" style="width:75.0%"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;7.2: Mean hitting time vs <span class="math inline">\(\gamma\)</span> for the Unitary Quantum Reset. We observe a non-monotonic curve for the mean hitting time. This was run for <span class="math inline">\(n=500, \delta=50, T_{max}=1000\)</span></figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;7.2: Mean hitting time vs <span class="math inline">\(\gamma\)</span> for the Unitary Quantum Reset. We observe a non-monotonic curve for the mean hitting time. This was run for <span class="math inline">\(n=500, \delta=50, T_{max}=1000\)</span></figcaption>
 </figure>
 </div>
 <p>As we can see, there is a clear non-monotonous effect of <span class="math inline">\(\gamma\)</span> on the mean hitting time of the walk. For values a bit more than <span class="math inline">\(\gamma = 0.5\)</span>, we see that the mean hitting time is much lower than that for the no reset <span class="math inline">\(\gamma = 0\)</span> case. Also of note is that as <span class="math inline">\(\gamma \to 1\)</span> the mean hitting rate approaches that of the no reset case.</p>
@@ -953,7 +953,7 @@ Alternative Definition of the Mean Hitting Time
 </section>
 <section id="eigenvalue-analysis" class="level3" data-number="7.3.3">
 <h3 data-number="7.3.3" class="anchored" data-anchor-id="eigenvalue-analysis"><span class="header-section-number">7.3.3</span> Eigenvalue analysis</h3>
-<p>In <a href="szegedy.html#sec-qht"><span>Section&nbsp;6.3</span></a>, we saw how the quadratic increase in the eigen-gap (<span class="math inline">\(\Delta P\)</span>) leads to an associated speedup in the search problem. Thus, if we can show that the eigen-gap increases in for the reset case, we can show that the search protocol requires fewer steps to complete. Furthermore, the space cost of the circuit goes as <span class="math inline">\(\left\lceil \log_2 \left(\frac{2\pi}{\Delta P}\right)\right\rceil\)</span></p>
+<p>In <a href="szegedy.html#sec-qht" class="quarto-xref"><span>Section&nbsp;6.3</span></a>, we saw how the quadratic increase in the eigen-gap (<span class="math inline">\(\Delta P\)</span>) leads to an associated speedup in the search problem. Thus, if we can show that the eigen-gap increases in for the reset case, we can show that the search protocol requires fewer steps to complete. Furthermore, the space cost of the circuit goes as <span class="math inline">\(\left\lceil \log_2 \left(\frac{2\pi}{\Delta P}\right)\right\rceil\)</span></p>
 <p>We see that the transition matrix is extremely sparse, especially for larger system sizes (goes as <span class="math inline">\(\mathcal{O}(3N)\)</span>, so the density goes as <span class="math inline">\(\mathcal{O}(1/N)\)</span>), and that we do not require the entire eigen spectrum to find the eigen-gap. Thus, we can use specialized methods such as the Arnoldi method provided in Julia by the <code>KrylovKit.jl</code><span class="citation" data-cites="jutho_juthokrylovkitjl_nodate"><sup><a href="references.html#ref-jutho_juthokrylovkitjl_nodate" role="doc-biblioref">5</a></sup></span> package.</p>
 <div class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">KrylovKit</span></span>
@@ -1022,7 +1022,7 @@ Alternative Definition of the Mean Hitting Time
 <polyline clip-path="url(#clip060)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:4; stroke-opacity:1; fill:none" points="306.628,282.928 600.52,282.928 600.52,179.248 306.628,179.248 306.628,282.928 "></polyline>
 <polyline clip-path="url(#clip060)" style="stroke:#009af9; stroke-linecap:round; stroke-linejoin:round; stroke-width:4; stroke-opacity:1; fill:none" points="333.457,231.088 494.431,231.088 "></polyline>
 <path clip-path="url(#clip060)" d="M535.103 250.776 Q533.297 255.405 531.584 256.817 Q529.871 258.229 527.001 258.229 L523.598 258.229 L523.598 254.665 L526.098 254.665 Q527.857 254.665 528.83 253.831 Q529.802 252.998 530.982 249.896 L531.746 247.952 L521.26 222.443 L525.774 222.443 L533.876 242.72 L541.978 222.443 L546.492 222.443 L535.103 250.776 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip060)" d="M553.783 244.433 L561.422 244.433 L561.422 218.068 L553.112 219.734 L553.112 215.475 L561.376 213.808 L566.052 213.808 L566.052 244.433 L573.69 244.433 L573.69 248.368 L553.783 248.368 L553.783 244.433 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path></svg>
-<p></p><figcaption class="figure-caption">(a) Eigen Gap</figcaption><p></p>
+<figcaption class="figure-caption">(a) Eigen Gap</figcaption>
 </figure>
 </div>
 <div id="fig-eigengap-2" class="quarto-figure quarto-figure-center anchored" style="flex-basis: 50.0%;justify-content: center;">
@@ -1073,19 +1073,19 @@ Alternative Definition of the Mean Hitting Time
 <polyline clip-path="url(#clip150)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:4; stroke-opacity:1; fill:none" points="2270.06,285.016 2561.19,285.016 2561.19,181.336 2270.06,181.336 2270.06,285.016 "></polyline>
 <polyline clip-path="url(#clip150)" style="stroke:#009af9; stroke-linecap:round; stroke-linejoin:round; stroke-width:4; stroke-opacity:1; fill:none" points="2296.58,233.176 2455.71,233.176 "></polyline>
 <path clip-path="url(#clip150)" d="M2496.08 252.864 Q2494.27 257.493 2492.56 258.905 Q2490.85 260.317 2487.98 260.317 L2484.57 260.317 L2484.57 256.753 L2487.07 256.753 Q2488.83 256.753 2489.81 255.919 Q2490.78 255.086 2491.96 251.984 L2492.72 250.04 L2482.24 224.531 L2486.75 224.531 L2494.85 244.808 L2502.95 224.531 L2507.47 224.531 L2496.08 252.864 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip150)" d="M2514.76 246.521 L2522.4 246.521 L2522.4 220.156 L2514.09 221.822 L2514.09 217.563 L2522.35 215.896 L2527.03 215.896 L2527.03 246.521 L2534.67 246.521 L2534.67 250.456 L2514.76 250.456 L2514.76 246.521 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path></svg>
-<p></p><figcaption class="figure-caption">(b) Space complexity</figcaption><p></p>
+<figcaption class="figure-caption">(b) Space complexity</figcaption>
 </figure>
 </div>
 </div>
 <p></p><figcaption class="figure-caption">Figure&nbsp;7.3: Analysis by Eigen Gap of the Reset Walk. See that the eigengap increases with <span class="math inline">\(\gamma\)</span>, and therefore, there is a corresponding decrease in the space requirement of the protocol. <span class="math inline">\(n=500, \delta=50, T_{max}=1000\)</span></figcaption><p></p>
 </figure>
 </div>
-<p>Plotting <span class="math inline">\(\Delta P\)</span> vs <span class="math inline">\(\gamma\)</span> in <a href="#fig-eigengap">Figure&nbsp;<span>7.3</span></a>, we see that increasing <span class="math inline">\(\gamma\)</span> leads to an equal increase in <span class="math inline">\(\Delta P\)</span>, which corresponds to a faster convergence under the Grover-like search protocol. Note however that we do not have a quantitative characterization of what the final probability of success is. Therefore, despite the faster convergence, the non-monotonic nature of the mean hitting time against <span class="math inline">\(\gamma\)</span> can be explained by a loss in final success probability. The interplay of these two effects may be the cause of the existence of an optimal reset parameter.</p>
+<p>Plotting <span class="math inline">\(\Delta P\)</span> vs <span class="math inline">\(\gamma\)</span> in <a href="#fig-eigengap" class="quarto-xref">Figure&nbsp;<span>7.3</span></a>, we see that increasing <span class="math inline">\(\gamma\)</span> leads to an equal increase in <span class="math inline">\(\Delta P\)</span>, which corresponds to a faster convergence under the Grover-like search protocol. Note however that we do not have a quantitative characterization of what the final probability of success is. Therefore, despite the faster convergence, the non-monotonic nature of the mean hitting time against <span class="math inline">\(\gamma\)</span> can be explained by a loss in final success probability. The interplay of these two effects may be the cause of the existence of an optimal reset parameter.</p>
 </section>
 </section>
 <section id="discussions" class="level2" data-number="7.4">
 <h2 data-number="7.4" class="anchored" data-anchor-id="discussions"><span class="header-section-number">7.4</span> Discussions</h2>
-<p>A particular advantage of the Unitary quantum reset is that we are not limited to only resets on 1D chains. We can define the unitary reset walk on any irreducible graph that one can come up with, even periodic graphs, since resetting a periodic graph leads to an aperiodic graph (<a href="appendix-reset-period.html"><span>Appendix&nbsp;D</span></a>), and the corresponding walk can be quantized by the Szegedy formalism.</p>
+<p>A particular advantage of the Unitary quantum reset is that we are not limited to only resets on 1D chains. We can define the unitary reset walk on any irreducible graph that one can come up with, even periodic graphs, since resetting a periodic graph leads to an aperiodic graph (<a href="appendix-reset-period.html" class="quarto-xref"><span>Appendix&nbsp;D</span></a>), and the corresponding walk can be quantized by the Szegedy formalism.</p>
 <p>While it is clear that there is an obvious speedup compared to the walk without reset, we cannot directly compare these results with the stochastic reset quantum walk due to the different definitions of <span class="math inline">\(F_n\)</span>. The quantification of the quantum hitting time for Szegedy walks is an area of very active research<span class="citation" data-cites="boito_quantum_2023"><sup><a href="references.html#ref-boito_quantum_2023" role="doc-biblioref">6</a></sup></span>. Another possible approach would be via the semi-quantum Szegedy walk<span class="citation" data-cites="ortega_discrete-time_2023"><sup><a href="references.html#ref-ortega_discrete-time_2023" role="doc-biblioref">7</a></sup></span>. These methods have been left as a possible future work.</p>
 
 
@@ -1274,6 +1274,30 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, function() {
+      let href = xref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children.length > 2) {
+          for (let i = 0; i < 2; i++) {
+            container.appendChild(note.children[i].cloneNode(true));
+          }
+          return container.innerHTML
+        } else {
+          return note.innerHTML;
+        }
+      } else {
+        return note.innerHTML;
+      }
     });
   }
       let selectedAnnoteEl;
