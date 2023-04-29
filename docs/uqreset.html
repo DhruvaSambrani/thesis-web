@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.6">
+<meta name="generator" content="quarto-1.4.11">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -288,15 +288,15 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#ergodicity-of-the-stochastic-reset-classical-walk" id="toc-ergodicity-of-the-stochastic-reset-classical-walk" class="nav-link active" data-scroll-target="#ergodicity-of-the-stochastic-reset-classical-walk"><span class="header-section-number">7.1</span> Ergodicity of the Stochastic Reset Classical Walk</a></li>
-  <li><a href="#implementation-and-results" id="toc-implementation-and-results" class="nav-link" data-scroll-target="#implementation-and-results"><span class="header-section-number">7.2</span> Implementation and Results</a></li>
-  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results"><span class="header-section-number">7.3</span> Results</a>
+  <li><a href="#ergodicity-of-the-stochastic-reset-classical-walk" id="toc-ergodicity-of-the-stochastic-reset-classical-walk" class="nav-link active" data-scroll-target="#ergodicity-of-the-stochastic-reset-classical-walk">Ergodicity of the Stochastic Reset Classical Walk</a></li>
+  <li><a href="#implementation-and-results" id="toc-implementation-and-results" class="nav-link" data-scroll-target="#implementation-and-results">Implementation and Results</a></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a>
   <ul class="collapse">
-  <li><a href="#exceptional-quantum-walk-on-the-cycle" id="toc-exceptional-quantum-walk-on-the-cycle" class="nav-link" data-scroll-target="#exceptional-quantum-walk-on-the-cycle"><span class="header-section-number">7.3.1</span> Exceptional Quantum Walk on the Cycle</a></li>
-  <li><a href="#mean-hitting-time-vs-gamma" id="toc-mean-hitting-time-vs-gamma" class="nav-link" data-scroll-target="#mean-hitting-time-vs-gamma"><span class="header-section-number">7.3.2</span> Mean hitting time vs <span class="math inline">\(\gamma\)</span></a></li>
-  <li><a href="#eigenvalue-analysis" id="toc-eigenvalue-analysis" class="nav-link" data-scroll-target="#eigenvalue-analysis"><span class="header-section-number">7.3.3</span> Eigenvalue analysis</a></li>
+  <li><a href="#exceptional-quantum-walk-on-the-cycle" id="toc-exceptional-quantum-walk-on-the-cycle" class="nav-link" data-scroll-target="#exceptional-quantum-walk-on-the-cycle">Exceptional Quantum Walk on the Cycle</a></li>
+  <li><a href="#mean-hitting-time-vs-gamma" id="toc-mean-hitting-time-vs-gamma" class="nav-link" data-scroll-target="#mean-hitting-time-vs-gamma">Mean hitting time vs <span class="math inline">\(\gamma\)</span></a></li>
+  <li><a href="#eigenvalue-analysis" id="toc-eigenvalue-analysis" class="nav-link" data-scroll-target="#eigenvalue-analysis">Eigenvalue analysis</a></li>
   </ul></li>
-  <li><a href="#discussions" id="toc-discussions" class="nav-link" data-scroll-target="#discussions"><span class="header-section-number">7.4</span> Discussions</a></li>
+  <li><a href="#discussions" id="toc-discussions" class="nav-link" data-scroll-target="#discussions">Discussions</a></li>
   </ul>
 </nav>
     </div>
@@ -320,9 +320,9 @@ div.csl-indent {
 
 </header>
 
-<p>Armed with the Szegedy formalism from the previous chapter, we can define the unitary quantum reset quantum walk by quantizing the stochastic reset classical walk (<a href="reset.html#sec-reset-cw" class="quarto-xref"><span>Section&nbsp;4.1.2</span></a>). It is obvious that the stochastic reset classical walk is not symmetric (<span class="math inline">\(p_{i0} \ne p_{0i}\forall i\ne 0\)</span>), so we cannot use the original Szegedy walk, but we can use the generalized Szegedy formalism if we show that our process is ergodic.</p>
+<p>Armed with the Szegedy formalism from the previous chapter, we can define the unitary quantum reset quantum walk by quantising the stochastic reset classical walk (<a href="reset.html#sec-reset-cw" class="quarto-xref"><span>Section&nbsp;4.1.2</span></a>). It is obvious that the stochastic reset classical walk is not symmetric (<span class="math inline">\(p_{i0} \ne p_{0i}\forall i\ne 0\)</span>), so we cannot use the original Szegedy walk, but we can use the generalized Szegedy formalism if we show that our process is ergodic.</p>
 <section id="ergodicity-of-the-stochastic-reset-classical-walk" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="ergodicity-of-the-stochastic-reset-classical-walk"><span class="header-section-number">7.1</span> Ergodicity of the Stochastic Reset Classical Walk</h2>
+<h2 data-number="7.1" class="anchored" data-anchor-id="ergodicity-of-the-stochastic-reset-classical-walk">Ergodicity of the Stochastic Reset Classical Walk</h2>
 <div class="cell quarto-layout-panel" data-execution_count="2">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 15.0%;justify-content: center;">
@@ -685,10 +685,10 @@ amount2:1-d})};a.filter.invert.toString=function(){return this()};a.filter.brigh
 <p>Irreducibility follows from the irreducibility of the 1D walk (<a href="appendix-markov.html" class="quarto-xref"><span>Appendix&nbsp;A</span></a>) <span class="math inline">\(\forall \gamma &lt; 1\)</span>. For the trivial case of <span class="math inline">\(\gamma = 1\)</span>, the chain is not irreducible, and we cannot use the Szegedy formalism.</p>
 <p>Aperiodicity (<a href="appendix-markov.html" class="quarto-xref"><span>Appendix&nbsp;A</span></a>) of the chain follows from the irreducibility of the chain and aperiodicity of node <span class="math inline">\(0\)</span> which is obvious due to the existence of the self loop.</p>
 <p>Recurrence is obvious from <span class="math inline">\(p_{00}^{(n)} \ge \gamma \forall i\)</span> and irreducibility. Positive recurrence is harder to show, but we can solve the recurrence relation (<a href="qreset.html" class="quarto-xref"><span>Chapter&nbsp;5</span></a>).</p>
-<p>Thus, the stochastic reset classical walk is ergodic and is a viable candidate for quantization via the Szegedy walk.</p>
+<p>Thus, the stochastic reset classical walk is ergodic and is a viable candidate for quantisation via the Szegedy walk.</p>
 </section>
 <section id="implementation-and-results" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="implementation-and-results"><span class="header-section-number">7.2</span> Implementation and Results</h2>
+<h2 data-number="7.2" class="anchored" data-anchor-id="implementation-and-results">Implementation and Results</h2>
 <p>The implementation of the Szegedy walk is simplified by the use of <code>QuantumWalk.jl</code><span class="citation" data-cites="glos_iitisquantumwalkjl_2018"><sup><a href="references.html#ref-glos_iitisquantumwalkjl_2018" role="doc-biblioref">1</a></sup></span> and <code>LightGraphs.jl</code><span class="citation" data-cites="bromberger_juliagraphslightgraphsjl_2017"><sup><a href="references.html#ref-bromberger_juliagraphslightgraphsjl_2017" role="doc-biblioref">2</a></sup></span></p>
 <p>First we define a function that returns the underlying graph and the transition matrix</p>
 <div class="cell" data-execution_count="4">
@@ -933,26 +933,26 @@ Alternative Definition of the Mean Hitting Time
 </div>
 </section>
 <section id="results" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="results"><span class="header-section-number">7.3</span> Results</h2>
+<h2 data-number="7.3" class="anchored" data-anchor-id="results">Results</h2>
 <section id="exceptional-quantum-walk-on-the-cycle" class="level3" data-number="7.3.1">
-<h3 data-number="7.3.1" class="anchored" data-anchor-id="exceptional-quantum-walk-on-the-cycle"><span class="header-section-number">7.3.1</span> Exceptional Quantum Walk on the Cycle</h3>
+<h3 data-number="7.3.1" class="anchored" data-anchor-id="exceptional-quantum-walk-on-the-cycle">Exceptional Quantum Walk on the Cycle</h3>
 <p>For the non reset (<span class="math inline">\(\gamma = 0\)</span>) case, we see that the success rate does not increase with time. While this is initially surprising, this is a known result<span class="citation" data-cites="wong_exceptional_2017"><sup><a href="references.html#ref-wong_exceptional_2017" role="doc-biblioref">4</a></sup></span>, caused due to the fact that the initial state evolves by phase flips, and the amplitude does not increase.</p>
 <p>In the reset case, we see that the walk is no longer exceptional (at least, not in this sense), which allows for an amplitude amplification on the marked node.</p>
 </section>
 <section id="mean-hitting-time-vs-gamma" class="level3" data-number="7.3.2">
-<h3 data-number="7.3.2" class="anchored" data-anchor-id="mean-hitting-time-vs-gamma"><span class="header-section-number">7.3.2</span> Mean hitting time vs <span class="math inline">\(\gamma\)</span></h3>
+<h3 data-number="7.3.2" class="anchored" data-anchor-id="mean-hitting-time-vs-gamma">Mean hitting time vs <span class="math inline">\(\gamma\)</span></h3>
 <p>Plotting the mean hitting time (see <a href="#sec-umht">previous callout on the alternative definition</a>) versus <span class="math inline">\(\gamma\)</span> for <span class="math inline">\(500\)</span> nodes and <span class="math inline">\(500\)</span> steps, we get the curve in <a href="#fig-uqreset-full" class="quarto-xref">Figure&nbsp;<span>7.2</span></a>.</p>
 <div id="fig-uqreset-full" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="./images/uqreset-full.png" class="img-fluid figure-img" style="width:75.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;7.2: Mean hitting time vs <span class="math inline">\(\gamma\)</span> for the Unitary Quantum Reset. We observe a non-monotonic curve for the mean hitting time. This was run for <span class="math inline">\(n=500, \delta=50, T_{max}=1000\)</span></figcaption>
+<figcaption class="figure-caption">Figure&nbsp;7.2: Mean hitting time vs <span class="math inline">\(\gamma\)</span> for the Unitary Quantum Reset. We observe a non-monotonic curve for the mean hitting time, and a speed-up compared to the non-reset case. This was run for <span class="math inline">\(n=500, \delta=50, T_{max}=1000\)</span></figcaption>
 </figure>
 </div>
 <p>As we can see, there is a clear non-monotonous effect of <span class="math inline">\(\gamma\)</span> on the mean hitting time of the walk. For values a bit more than <span class="math inline">\(\gamma = 0.5\)</span>, we see that the mean hitting time is much lower than that for the no reset <span class="math inline">\(\gamma = 0\)</span> case. Also of note is that as <span class="math inline">\(\gamma \to 1\)</span> the mean hitting rate approaches that of the no reset case.</p>
 <p>Numerically, the exact time for mean hit changes according to the amount of time that we run the simulation for. This is obvious from the way that the mean hit time is calculated, where if the walk has not succeeded within the time of running the simulation, we assume that it succeeds in the next step. However, we recover the same qualitative curve for large number of steps.</p>
 </section>
 <section id="eigenvalue-analysis" class="level3" data-number="7.3.3">
-<h3 data-number="7.3.3" class="anchored" data-anchor-id="eigenvalue-analysis"><span class="header-section-number">7.3.3</span> Eigenvalue analysis</h3>
+<h3 data-number="7.3.3" class="anchored" data-anchor-id="eigenvalue-analysis">Eigenvalue analysis</h3>
 <p>In <a href="szegedy.html#sec-qht" class="quarto-xref"><span>Section&nbsp;6.3</span></a>, we saw how the quadratic increase in the eigen-gap (<span class="math inline">\(\Delta P\)</span>) leads to an associated speedup in the search problem. Thus, if we can show that the eigen-gap increases in for the reset case, we can show that the search protocol requires fewer steps to complete. Furthermore, the space cost of the circuit goes as <span class="math inline">\(\left\lceil \log_2 \left(\frac{2\pi}{\Delta P}\right)\right\rceil\)</span></p>
 <p>We see that the transition matrix is extremely sparse, especially for larger system sizes (goes as <span class="math inline">\(\mathcal{O}(3N)\)</span>, so the density goes as <span class="math inline">\(\mathcal{O}(1/N)\)</span>), and that we do not require the entire eigen spectrum to find the eigen-gap. Thus, we can use specialized methods such as the Arnoldi method provided in Julia by the <code>KrylovKit.jl</code><span class="citation" data-cites="jutho_juthokrylovkitjl_nodate"><sup><a href="references.html#ref-jutho_juthokrylovkitjl_nodate" role="doc-biblioref">5</a></sup></span> package.</p>
 <div class="cell" data-execution_count="9">
@@ -1084,8 +1084,8 @@ Alternative Definition of the Mean Hitting Time
 </section>
 </section>
 <section id="discussions" class="level2" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="discussions"><span class="header-section-number">7.4</span> Discussions</h2>
-<p>A particular advantage of the Unitary quantum reset is that we are not limited to only resets on 1D chains. We can define the unitary reset walk on any irreducible graph that one can come up with, even periodic graphs, since resetting a periodic graph leads to an aperiodic graph (<a href="appendix-reset-period.html" class="quarto-xref"><span>Appendix&nbsp;D</span></a>), and the corresponding walk can be quantized by the Szegedy formalism.</p>
+<h2 data-number="7.4" class="anchored" data-anchor-id="discussions">Discussions</h2>
+<p>A particular advantage of the Unitary quantum reset is that we are not limited to only resets on 1D chains. We can define the unitary reset walk on any irreducible graph that one can come up with, even periodic graphs, since resetting a periodic graph leads to an aperiodic graph (<a href="appendix-reset-period.html" class="quarto-xref"><span>Appendix&nbsp;D</span></a>), and the corresponding walk can be quantised by the Szegedy formalism.</p>
 <p>While it is clear that there is an obvious speedup compared to the walk without reset, we cannot directly compare these results with the stochastic reset quantum walk due to the different definitions of <span class="math inline">\(F_n\)</span>. The quantification of the quantum hitting time for Szegedy walks is an area of very active research<span class="citation" data-cites="boito_quantum_2023"><sup><a href="references.html#ref-boito_quantum_2023" role="doc-biblioref">6</a></sup></span>. Another possible approach would be via the semi-quantum Szegedy walk<span class="citation" data-cites="ortega_discrete-time_2023"><sup><a href="references.html#ref-ortega_discrete-time_2023" role="doc-biblioref">7</a></sup></span>. These methods have been left as a possible future work.</p>
 
 
@@ -1453,7 +1453,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb6" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Unitary Quantum Reset Quantum Walk {#sec-uqreset}</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>Armed with the Szegedy formalism from the previous chapter, we can define the unitary quantum reset quantum walk by quantizing the stochastic reset classical walk (@sec-reset-cw). It is obvious that the stochastic reset classical walk is not symmetric ($p_{i0} \ne p_{0i}\forall i\ne 0$), so we cannot use the original Szegedy walk, but we can use the generalized Szegedy formalism if we show that our process is ergodic.</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>Armed with the Szegedy formalism from the previous chapter, we can define the unitary quantum reset quantum walk by quantising the stochastic reset classical walk (@sec-reset-cw). It is obvious that the stochastic reset classical walk is not symmetric ($p_{i0} \ne p_{0i}\forall i\ne 0$), so we cannot use the original Szegedy walk, but we can use the generalized Szegedy formalism if we show that our process is ergodic.</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## Ergodicity of the Stochastic Reset Classical Walk</span></span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
@@ -1489,7 +1489,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>Recurrence is obvious from $p_{00}^{(n)} \ge \gamma \forall i$ and irreducibility. Positive recurrence is harder to show, but we can solve the recurrence relation (@sec-qreset).</span>
 <span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>Thus, the stochastic reset classical walk is ergodic and is a viable candidate for quantization via the Szegedy walk.</span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>Thus, the stochastic reset classical walk is ergodic and is a viable candidate for quantisation via the Szegedy walk.</span>
 <span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a><span class="fu">## Implementation and Results</span></span>
 <span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a></span>
@@ -1625,7 +1625,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb6-186"><a href="#cb6-186" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-187"><a href="#cb6-187" aria-hidden="true" tabindex="-1"></a>Plotting the mean hitting <span class="fu">time</span> (see [previous callout on the alternative definition](<span class="co">#sec-umht)) versus $\gamma$ for $500$ nodes and $500$ steps, we get the curve in @fig-uqreset-full.</span></span>
 <span id="cb6-188"><a href="#cb6-188" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-189"><a href="#cb6-189" aria-hidden="true" tabindex="-1"></a>![Mean hitting <span class="fu">time</span> vs <span class="wa">$\</span><span class="dt">gamma</span>$ <span class="kw">for</span> the Unitary Quantum Reset. We observe a non-monotonic curve <span class="kw">for</span> the mean hitting <span class="fu">time</span>. This was run <span class="kw">for</span> <span class="dt">$n</span>=<span class="dv">500</span>, \delta=<span class="dv">50</span>, T_{max}=<span class="dv">1000</span><span class="wa">$]</span>(.<span class="ot">/images/</span>uqreset<span class="ot">-f</span>ull.png){<span class="co">#fig-uqreset-full width=75%}</span></span>
+<span id="cb6-189"><a href="#cb6-189" aria-hidden="true" tabindex="-1"></a>![Mean hitting <span class="fu">time</span> vs <span class="wa">$\</span><span class="dt">gamma</span>$ <span class="kw">for</span> the Unitary Quantum Reset. We observe a non-monotonic curve <span class="kw">for</span> the mean hitting <span class="fu">time</span>, <span class="ot">and</span> a speed<span class="ot">-u</span>p compared to the non<span class="ot">-r</span>eset case. This was run <span class="kw">for</span> <span class="dt">$n</span>=<span class="dv">500</span>, \delta=<span class="dv">50</span>, T_{max}=<span class="dv">1000</span><span class="wa">$]</span>(.<span class="ot">/images/</span>uqreset<span class="ot">-f</span>ull.png){<span class="co">#fig-uqreset-full width=75%}</span></span>
 <span id="cb6-190"><a href="#cb6-190" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-191"><a href="#cb6-191" aria-hidden="true" tabindex="-1"></a>As we can see, there is a clear non-monotonous effect of <span class="wa">$\</span><span class="dt">gamma</span>$ on the mean hitting <span class="fu">time</span> of the walk. For <span class="fu">values</span> a bit more than <span class="wa">$\</span><span class="dt">gamma</span> = <span class="fl">0.5</span><span class="wa">$,</span> we see that the mean hitting <span class="fu">time</span> is much lower than that <span class="kw">for</span> the <span class="fu">no</span> <span class="fu">reset</span> <span class="wa">$\</span><span class="dt">gamma</span> = <span class="dv">0</span>$ case. Also of note is that as <span class="wa">$\</span><span class="dt">gamma</span> \to <span class="dv">1</span>$ the mean hitting rate approaches that of the <span class="fu">no</span> <span class="fu">reset</span> case.</span>
 <span id="cb6-192"><a href="#cb6-192" aria-hidden="true" tabindex="-1"></a></span>
@@ -1681,7 +1681,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb6-246"><a href="#cb6-246" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-247"><a href="#cb6-247" aria-hidden="true" tabindex="-1"></a><span class="co">## Discussions</span></span>
 <span id="cb6-248"><a href="#cb6-248" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-249"><a href="#cb6-249" aria-hidden="true" tabindex="-1"></a>A particular advantage of the Unitary quantum <span class="fu">reset</span> is that we are <span class="ot">not</span> limited to only resets on <span class="dv">1</span>D chains. We can define the unitary <span class="fu">reset</span> walk on any irreducible graph that one can come up with, even periodic graphs, since resetting a periodic graph leads to an aperiodic graph (<span class="dt">@sec</span><span class="ot">-r</span>eset<span class="ot">-p</span>eriodicity), <span class="ot">and</span> the corresponding walk can be quantized by the Szegedy formalism.</span>
+<span id="cb6-249"><a href="#cb6-249" aria-hidden="true" tabindex="-1"></a>A particular advantage of the Unitary quantum <span class="fu">reset</span> is that we are <span class="ot">not</span> limited to only resets on <span class="dv">1</span>D chains. We can define the unitary <span class="fu">reset</span> walk on any irreducible graph that one can come up with, even periodic graphs, since resetting a periodic graph leads to an aperiodic graph (<span class="dt">@sec</span><span class="ot">-r</span>eset<span class="ot">-p</span>eriodicity), <span class="ot">and</span> the corresponding walk can be quantised by the Szegedy formalism.</span>
 <span id="cb6-250"><a href="#cb6-250" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-251"><a href="#cb6-251" aria-hidden="true" tabindex="-1"></a>While it is clear that there is an obvious speedup compared to the walk without <span class="fu">reset</span>, we cannot directly compare these results with the stochastic <span class="fu">reset</span> quantum walk due to the different definitions of <span class="dt">$F_n</span><span class="wa">$.</span> The quantification of the quantum hitting <span class="fu">time</span> <span class="kw">for</span> Szegedy walks is an area of very active research <span class="dt">@boito_quantum_2023</span>. Another possible approach would be via the semi-quantum Szegedy walk <span class="dt">@ortega_discrete</span><span class="ot">-t</span>ime_2023. These methods have been left as a possible future work.</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

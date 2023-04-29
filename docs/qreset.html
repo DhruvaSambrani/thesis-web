@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.6">
+<meta name="generator" content="quarto-1.4.11">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -288,20 +288,20 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#sec-qreset-formalism" id="toc-sec-qreset-formalism" class="nav-link active" data-scroll-target="#sec-qreset-formalism"><span class="header-section-number">5.1</span> Formalism</a>
+  <li><a href="#sec-qreset-formalism" id="toc-sec-qreset-formalism" class="nav-link active" data-scroll-target="#sec-qreset-formalism">Formalism</a>
   <ul class="collapse">
-  <li><a href="#sec-interpretation" id="toc-sec-interpretation" class="nav-link" data-scroll-target="#sec-interpretation"><span class="header-section-number">5.1.1</span> Interpretation of <span class="math inline">\(\gamma\)</span> and dependence on initial condition of the coin</a></li>
-  <li><a href="#resetting-of-the-walker-coin" id="toc-resetting-of-the-walker-coin" class="nav-link" data-scroll-target="#resetting-of-the-walker-coin"><span class="header-section-number">5.1.2</span> Resetting of the walker coin</a></li>
+  <li><a href="#sec-interpretation" id="toc-sec-interpretation" class="nav-link" data-scroll-target="#sec-interpretation">Interpretation of <span class="math inline">\(\gamma\)</span> and dependence on initial condition of the coin</a></li>
+  <li><a href="#resetting-of-the-walker-coin" id="toc-resetting-of-the-walker-coin" class="nav-link" data-scroll-target="#resetting-of-the-walker-coin">Resetting of the walker coin</a></li>
   </ul></li>
-  <li><a href="#computational-implementation" id="toc-computational-implementation" class="nav-link" data-scroll-target="#computational-implementation"><span class="header-section-number">5.2</span> Computational Implementation</a></li>
-  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results"><span class="header-section-number">5.3</span> Results</a>
+  <li><a href="#computational-implementation" id="toc-computational-implementation" class="nav-link" data-scroll-target="#computational-implementation">Computational Implementation</a></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a>
   <ul class="collapse">
-  <li><a href="#what-the-walk-looks-like" id="toc-what-the-walk-looks-like" class="nav-link" data-scroll-target="#what-the-walk-looks-like"><span class="header-section-number">5.3.1</span> What the walk looks like</a></li>
+  <li><a href="#what-the-walk-looks-like" id="toc-what-the-walk-looks-like" class="nav-link" data-scroll-target="#what-the-walk-looks-like">What the walk looks like</a></li>
   </ul></li>
-  <li><a href="#results-and-discussion" id="toc-results-and-discussion" class="nav-link" data-scroll-target="#results-and-discussion"><span class="header-section-number">5.4</span> Results and Discussion</a>
+  <li><a href="#results-and-discussion" id="toc-results-and-discussion" class="nav-link" data-scroll-target="#results-and-discussion">Results and Discussion</a>
   <ul class="collapse">
-  <li><a href="#optimal-parameter-values" id="toc-optimal-parameter-values" class="nav-link" data-scroll-target="#optimal-parameter-values"><span class="header-section-number">5.4.1</span> Optimal Parameter Values</a></li>
-  <li><a href="#the-issue-of-non-unitarity" id="toc-the-issue-of-non-unitarity" class="nav-link" data-scroll-target="#the-issue-of-non-unitarity"><span class="header-section-number">5.4.2</span> The Issue of Non-Unitarity</a></li>
+  <li><a href="#optimal-parameter-values" id="toc-optimal-parameter-values" class="nav-link" data-scroll-target="#optimal-parameter-values">Optimal Parameter Values</a></li>
+  <li><a href="#the-issue-of-non-unitarity" id="toc-the-issue-of-non-unitarity" class="nav-link" data-scroll-target="#the-issue-of-non-unitarity">The Issue of Non-Unitarity</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -326,10 +326,10 @@ div.csl-indent {
 
 </header>
 
-<p>From the previous discussion, it seems fruitful to consider a quantum reset of quantum walks. Just as we harnessed the power of quantum superposition to speed-up the walk, can we similarly have a superposition between the reset and evolution to increase the efficiency of hitting a node? The concept is similar to that of the quantization of the classical walk: let the resetting occur on probability amplitudes rather than probabilities, allowing for interference in areas we do not want the walker to be on. In this case however, the superposition is on the level of operations, not the walker position directly.</p>
-<p>Our first protocol is motivated by the quantum resetting of quantum systems introduced in Anubhav Srivastava’s<span class="citation" data-cites="srivastava_resetting_2021"><sup><a href="references.html#ref-srivastava_resetting_2021" role="doc-biblioref">1</a></sup></span> master thesis, where a similar formalism was applied to a qubit system. The faster convergence of the quantum reset system acts as the primary indicator that such a speed up may also be visible in quantum walks.</p>
+<p>From the previous discussion, it seems fruitful to consider a quantum reset of quantum walks. Just as we harnessed the power of quantum superposition to speed up the walk, can we similarly have a superposition between the reset and evolution to increase the efficiency of hitting a node? The concept is similar to that of the quantisation of the classical walk: let the resetting occur on probability amplitudes rather than probabilities, allowing for interference in areas we do not want the walker to be on. In this case however, the superposition is on the level of operations, not the walker position directly.</p>
+<p>Our first protocol is motivated by the quantum resetting of quantum systems introduced in Anubhav Srivastava’s<span class="citation" data-cites="srivastava_resetting_2021"><sup><a href="references.html#ref-srivastava_resetting_2021" role="doc-biblioref">1</a></sup></span> master thesis, where a similar formalism was applied to a qubit system. The faster convergence of the quantum reset system acts as the primary indicator that such a speed-up may also be visible in quantum walks.</p>
 <section id="sec-qreset-formalism" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="sec-qreset-formalism"><span class="header-section-number">5.1</span> Formalism</h2>
+<h2 data-number="5.1" class="anchored" data-anchor-id="sec-qreset-formalism">Formalism</h2>
 <p>On a finite 1D chain of length <span class="math inline">\(2N + 1\)</span>, define the following -</p>
 <ul>
 <li>Reset operation - <span class="math inline">\(\mathcal{R}\)</span> by the Kraus operators <span class="math inline">\(\{\mathcal{R_i} = |r_0\rangle\langle i|\}_{i\in [-N, N]}\)</span> on <span class="math inline">\(\mathcal{H}_W\)</span></li>
@@ -337,23 +337,36 @@ div.csl-indent {
 <li>Attach another two level coin - states denoted by <span class="math inline">\(|0\rangle\)</span> and <span class="math inline">\(|1\rangle\)</span>. Resulting state lies in <span class="math inline">\(\mathcal{H}_R\otimes\mathcal{H}_C\otimes\mathcal{H}_W\)</span></li>
 <li>Controlled reset operation - <span class="math inline">\(\mathcal{E}\)</span> by the Kraus operators <span class="math inline">\(\{\mathcal{E}_i = |0\rangle\langle 0|\otimes I_2 \otimes \mathcal{R}_i + \frac{1}{\sqrt N} |1\rangle\langle 1|\otimes \mathcal{U}\}_{i\in [-N, N]}\)</span>. See <a href="appendix-qreset.html" class="quarto-xref"><span>Appendix&nbsp;C</span></a> for proof that this set of Kraus operators represents a CPTP map.</li>
 <li>A reset coin operator <span class="math inline">\(\Gamma(\gamma) = \begin{bmatrix}\sqrt{1-\gamma} &amp; \sqrt{\gamma} \\ \sqrt{\gamma} &amp; -\sqrt{1- \gamma}\end{bmatrix}\)</span> on <span class="math inline">\(\mathcal{H}_R\)</span></li>
-<li>One step of the resulting walk is defined as <span class="math inline">\(\mathcal{E} \circ \left(\Gamma \otimes I_2 \otimes I_{2N+1}\right)\)</span></li>
-<li>Once again, the hitting protocol is found by measuring the walker position after <span class="math inline">\(\tau\)</span> time steps.</li>
 </ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Quantum Reset
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>One step of the resulting walk is defined as</p>
+<p><span class="math display">\[\mathcal{E} \circ \left(\Gamma \otimes I_2 \otimes I_{2N+1}\right)\]</span></p>
+<p>Once again, the hitting protocol is found by measuring the walker position after <span class="math inline">\(\tau\)</span> time steps.</p>
+</div>
+</div>
 <p>Although the protocol is similar to the motivation, the current problem we are considering of the first hit time has drastically changed the methods of exploration and the property we want to optimize. Where previously we only probed the convergence time, here we also want to maximize the probability of hitting the target node.</p>
 <section id="sec-interpretation" class="level3" data-number="5.1.1">
-<h3 data-number="5.1.1" class="anchored" data-anchor-id="sec-interpretation"><span class="header-section-number">5.1.1</span> Interpretation of <span class="math inline">\(\gamma\)</span> and dependence on initial condition of the coin</h3>
-<p>In the stochastic resetting <span class="math inline">\(\gamma\)</span> is understood as the “rate” of resetting. However, this is no longer accurate for the quantum case. Consider the case for <span class="math inline">\(\gamma = 0\)</span>. Then, the Gammamard operator <span class="math inline">\(\Gamma = \begin{bmatrix}1 &amp; 0\\ 0 &amp; -1\end{bmatrix}\)</span>. This does not automatically imply that the reset never occurs; we also require that the initial state of the reset coin is <span class="math inline">\(|0\rangle\)</span>. If the initial state of the reset coin is <span class="math inline">\(|1\rangle\)</span>, this corresponds to the always reset case. Thus, <span class="math inline">\(\gamma\)</span> is better understood as the probability that given the last step was a reset, what is the probability this step is an evolve, and vice versa. Thus, it is not immediately obvious how we can compare the reset mechanisms for a given <span class="math inline">\(\gamma\)</span>. Nor is it obvious how the initial state of the reset coin finally affects the success probability and such, and needs to be numerically checked.</p>
+<h3 data-number="5.1.1" class="anchored" data-anchor-id="sec-interpretation">Interpretation of <span class="math inline">\(\gamma\)</span> and dependence on initial condition of the coin</h3>
+<p>In the stochastic resetting <span class="math inline">\(\gamma\)</span> is understood as the “rate” of resetting. However, this is no longer accurate for the quantum case. Consider the case for <span class="math inline">\(\gamma = 0\)</span>. Then, the Gammamard operator <span class="math inline">\(\Gamma = \begin{bmatrix}1 &amp; 0\\ 0 &amp; -1\end{bmatrix}\)</span>. This does not automatically imply that the reset never occurs; we also require that the initial state of the reset coin is <span class="math inline">\(|0\rangle\)</span>. If the initial state of the reset coin is <span class="math inline">\(|1\rangle\)</span>, this corresponds to the always reset case. Thus, <span class="math inline">\(\gamma\)</span> is better understood as the probability that given the last step was a Reset, what is the probability this step is an Evolve, and vice versa. Thus, it is not immediately obvious how we can compare the reset mechanisms for a given <span class="math inline">\(\gamma\)</span>. Nor is it obvious how the initial state of the reset coin finally affects the success probability and such, and needs to be numerically checked.</p>
 </section>
 <section id="resetting-of-the-walker-coin" class="level3" data-number="5.1.2">
-<h3 data-number="5.1.2" class="anchored" data-anchor-id="resetting-of-the-walker-coin"><span class="header-section-number">5.1.2</span> Resetting of the walker coin</h3>
+<h3 data-number="5.1.2" class="anchored" data-anchor-id="resetting-of-the-walker-coin">Resetting of the walker coin</h3>
 <p>In our specific formalism (<a href="#sec-qreset-formalism" class="quarto-xref"><span>Section&nbsp;5.1</span></a>), we have only applied the reset operation on the walker <span class="math inline">\(\mathcal{H}_W\)</span>. One could also reset the walker coin <span class="math inline">\(\mathcal{H}_C\)</span> and see what happens. In our current formalism, there is no entanglement broken between the two coins, but there is no a priori understanding of how this may (or may not) affect the walk.</p>
 </section>
 </section>
 <section id="computational-implementation" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="computational-implementation"><span class="header-section-number">5.2</span> Computational Implementation</h2>
+<h2 data-number="5.2" class="anchored" data-anchor-id="computational-implementation">Computational Implementation</h2>
 <p>Implementations of <span class="math inline">\(\mathcal{U}, U, H\)</span> follow as before. The <span class="math inline">\(\mathcal{E}\)</span> operation is implemented as</p>
-<div class="cell" data-execution_count="2">
+<div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">€</span>(n, r₀)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    ks <span class="op">=</span> <span class="fu">map</span>(<span class="fl">1</span><span class="op">:</span>n) <span class="cf">do</span> i</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        (<span class="fl">1</span><span class="op">/</span>√n <span class="op">*</span> [<span class="fl">1</span> <span class="fl">0</span>; <span class="fl">0</span> <span class="fl">0</span>] <span class="op">⊗</span> (<span class="fu">S</span>(n)<span class="fu">*H</span>(n))) <span class="op">+</span></span>
@@ -363,23 +376,23 @@ div.csl-indent {
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The gammamard operation <span class="math inline">\(\Gamma\)</span> is defined as</p>
-<div class="cell" data-execution_count="3">
+<div class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Γ</span>(γ) <span class="op">=</span> [</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">√</span>(<span class="fl">1</span><span class="op">-</span>γ)  √γ;</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    √γ      <span class="fu">-√</span>(<span class="fl">1</span><span class="op">-</span>γ)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>];</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We take the initial reset coin to be <span class="math inline">\((S(-\pi/2)\circ\Gamma(\gamma))|0\rangle\)</span> for the same reason as in the quantum walk</p>
-<div class="cell" data-execution_count="4">
+<div class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">reset_init</span>(γ) <span class="op">=</span> [<span class="fl">1</span> <span class="fl">0</span>; <span class="fl">0</span> <span class="op">-</span><span class="fl">1im</span>]<span class="fu">*gammamard</span>(γ)<span class="fu">*ket</span>(<span class="fl">1</span>, <span class="fl">2</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="results" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="results"><span class="header-section-number">5.3</span> Results</h2>
+<h2 data-number="5.3" class="anchored" data-anchor-id="results">Results</h2>
 <section id="what-the-walk-looks-like" class="level3" data-number="5.3.1">
-<h3 data-number="5.3.1" class="anchored" data-anchor-id="what-the-walk-looks-like"><span class="header-section-number">5.3.1</span> What the walk looks like</h3>
+<h3 data-number="5.3.1" class="anchored" data-anchor-id="what-the-walk-looks-like">What the walk looks like</h3>
 <p>For the specific choice of initial reset coin as <span class="math inline">\(1/\sqrt{2}\left(|0\rangle - i|1\rangle\right)\)</span> and <span class="math inline">\(\gamma=0.2\)</span>, the quantum reset walk looks like <a href="#fig-qrwalk" class="quarto-xref">Figure&nbsp;<span>5.1</span></a>.</p>
-<div class="cell" data-execution_count="5">
+<div class="cell" data-execution_count="6">
 <div id="fig-qrwalk" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <!--?xml version="1.0" encoding="utf-8"?-->
@@ -535,8 +548,8 @@ div.csl-indent {
 </section>
 </section>
 <section id="results-and-discussion" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="results-and-discussion"><span class="header-section-number">5.4</span> Results and Discussion</h2>
-<p>As discussed in <a href="#sec-interpretation" class="quarto-xref"><span>Section&nbsp;5.1.1</span></a>, we need to vary the three parameters, <span class="math inline">\((\alpha, \phi, \gamma)\)</span>, and see what happens. Thus we plot the success curves for a few sets of parameters (<a href="#fig-qreset" class="quarto-xref">Figure&nbsp;<span>5.2</span></a>), and find the minimum mean time of hit for each fixed parameter (<a href="#fig-qreset-optim" class="quarto-xref">Figure&nbsp;<span>5.3</span></a>).</p>
+<h2 data-number="5.4" class="anchored" data-anchor-id="results-and-discussion">Results and Discussion</h2>
+<p>As discussed in <a href="#sec-interpretation" class="quarto-xref"><span>Section&nbsp;5.1.1</span></a>, we need to vary the three parameters, <span class="math inline">\((\alpha, \phi, \gamma)\)</span>, and see what happens. Thus, we plot the success curves for a few sets of parameters (<a href="#fig-qreset" class="quarto-xref">Figure&nbsp;<span>5.2</span></a>), and find the minimum mean time of hit for each fixed parameter (<a href="#fig-qreset-optim" class="quarto-xref">Figure&nbsp;<span>5.3</span></a>).</p>
 <div id="fig-qreset" class="quarto-layout-panel">
 <figure class="figure">
 <div class="quarto-layout-row quarto-layout-valign-top">
@@ -617,7 +630,7 @@ div.csl-indent {
 </div>
 <p>As we can see, the mean time of hit even for the best set of parameters (within the ranges explored) is not better than the optimal time for the stochastic reset protocol. This result however may not hold true for other values of <span class="math inline">\(\tau\)</span>, and more work is necessary to conclusively state that there isn’t (or is) any speedup achieved here.</p>
 <section id="optimal-parameter-values" class="level3" data-number="5.4.1">
-<h3 data-number="5.4.1" class="anchored" data-anchor-id="optimal-parameter-values"><span class="header-section-number">5.4.1</span> Optimal Parameter Values</h3>
+<h3 data-number="5.4.1" class="anchored" data-anchor-id="optimal-parameter-values">Optimal Parameter Values</h3>
 <div id="tbl-qresetresults" class="anchored">
 <table class="table">
 <caption>Table&nbsp;5.1: Optimal Parameter Values</caption>
@@ -639,7 +652,7 @@ div.csl-indent {
 </div>
 </section>
 <section id="the-issue-of-non-unitarity" class="level3" data-number="5.4.2">
-<h3 data-number="5.4.2" class="anchored" data-anchor-id="the-issue-of-non-unitarity"><span class="header-section-number">5.4.2</span> The Issue of Non-Unitarity</h3>
+<h3 data-number="5.4.2" class="anchored" data-anchor-id="the-issue-of-non-unitarity">The Issue of Non-Unitarity</h3>
 <p>One drawback of this formalism is its complexity. Whereas the stochastic reset proceeded by a unitary evolution between measurement events, the quantum reset protocol is inherently a non-unitary operation. This makes analysis more complicated.</p>
 <p>The difficulty doesn’t only lie in analytical complexity, but also in simulations, where simulating the quantum reset quantum walk takes much longer. This can be attributed to the larger system size (size of <span class="math inline">\(\rho = 16N^2\)</span>), and due to the increased number of matrix multiplications and additions (<span class="math inline">\(2N\)</span> matrix multiplications of size <span class="math inline">\(4N\times 4N\)</span> (<span class="math inline">\(64N^3\)</span> multiplications and <span class="math inline">\(64N^3 - 16N^2\)</span> additions) followed by <span class="math inline">\(N\)</span> matrix additions ($16N^2 additions) which finally consists of <span class="math inline">\(128N^4\)</span> multiplications and <span class="math inline">\(128N^4\)</span> additions for one step of the quantum reset walk, as compared to <span class="math inline">\(2\cdot 8N^3\)</span> multiplications and <span class="math inline">\(2 \cdot 8N^3 - 4N^2\)</span> additions, even ignoring the additions, the quantum reset walk is <span class="math inline">\(\mathcal{O}(N^4)\)</span> whereas the stochastic reset walk is <span class="math inline">\(\mathcal{O}(N^3)\)</span> to simulate. For any reasonably sized cycle (to avoid finite size effects), this cost makes simulating the walk for different parameters extremely tedious.</p>
 <p>Therefore, although we have been able to introduce a superposition between the two operations, and we have decoupled the resetting from the measurement, we require a unitary protocol to efficiently perform the walk.</p>
@@ -1001,9 +1014,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>using SparseArrays</span>
 <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>From the previous discussion, it seems fruitful to consider a quantum reset of quantum walks. Just as we harnessed the power of quantum superposition to speed-up the walk, can we similarly have a superposition between the reset and evolution to increase the efficiency of hitting a node? The concept is similar to that of the quantization of the classical walk: let the resetting occur on probability amplitudes rather than probabilities, allowing for interference in areas we do not want the walker to be on. In this case however, the superposition is on the level of operations, not the walker position directly.</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>From the previous discussion, it seems fruitful to consider a quantum reset of quantum walks. Just as we harnessed the power of quantum superposition to speed up the walk, can we similarly have a superposition between the reset and evolution to increase the efficiency of hitting a node? The concept is similar to that of the quantisation of the classical walk: let the resetting occur on probability amplitudes rather than probabilities, allowing for interference in areas we do not want the walker to be on. In this case however, the superposition is on the level of operations, not the walker position directly.</span>
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>Our first protocol is motivated by the quantum resetting of quantum systems introduced in Anubhav Srivastava's @srivastava_resetting_2021 master thesis, where a similar formalism was applied to a qubit system. The faster convergence of the quantum reset system acts as the primary indicator that such a speed up may also be visible in quantum walks.</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>Our first protocol is motivated by the quantum resetting of quantum systems introduced in Anubhav Srivastava's @srivastava_resetting_2021 master thesis, where a similar formalism was applied to a qubit system. The faster convergence of the quantum reset system acts as the primary indicator that such a speed-up may also be visible in quantum walks.</span>
 <span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="fu">## Formalism {#sec-qreset-formalism}</span></span>
 <span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
@@ -1014,192 +1027,202 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Attach another two level coin - states denoted by $|0\rangle$ and $|1\rangle$. Resulting state lies in $\mathcal{H}_R\otimes\mathcal{H}_C\otimes\mathcal{H}_W$</span>
 <span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Controlled reset operation - $\mathcal{E}$ by the Kraus operators $<span class="sc">\{</span>\mathcal{E}_i = |0\rangle\langle 0|\otimes I_2 \otimes \mathcal{R}_i + \frac{1}{\sqrt N} |1\rangle\langle 1|\otimes \mathcal{U}\}_{i\in <span class="co">[</span><span class="ot">-N, N</span><span class="co">]</span>}$. See @sec-appqreset for proof that this set of Kraus operators represents a CPTP map.</span>
 <span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>A reset coin operator $\Gamma(\gamma) = \begin{bmatrix}\sqrt{1-\gamma} &amp; \sqrt{\gamma} <span class="sc">\\</span> \sqrt{\gamma} &amp; -\sqrt{1- \gamma}\end{bmatrix}$ on $\mathcal{H}_R$</span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>One step of the resulting walk is defined as $\mathcal{E} \circ \left(\Gamma \otimes I_2 \otimes I_{2N+1}\right)$</span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Once again, the hitting protocol is found by measuring the walker position after $\tau$ time steps.</span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>Although the protocol is similar to the motivation, the current problem we are considering of the first hit time has drastically changed the methods of exploration and the property we want to optimize. Where previously we only probed the convergence time, here we also want to maximize the probability of hitting the target node.</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="fu">## Quantum Reset</span></span>
 <span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a><span class="fu">### Interpretation of $\gamma$ and dependence on initial condition of the coin {#sec-interpretation}</span></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>One step of the resulting walk is defined as </span>
 <span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>In the stochastic resetting $\gamma$ is understood as the "rate" of resetting. However, this is no longer accurate for the quantum case. Consider the case for $\gamma = 0$. Then, the Gammamard operator $\Gamma = \begin{bmatrix}1 &amp; 0<span class="sc">\\</span> 0 &amp; -1\end{bmatrix}$. This does not automatically imply that the reset never occurs; we also require that the initial state of the reset coin is $|0\rangle$. If the initial state of the reset coin is $|1\rangle$, this corresponds to the always reset case. Thus, $\gamma$ is better understood as the probability that given the last step was a reset, what is the probability this step is an evolve, and vice versa. Thus, it is not immediately obvious how we can compare the reset mechanisms for a given $\gamma$. Nor is it obvious how the initial state of the reset coin finally affects the success probability and such, and needs to be numerically checked.</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>$$\mathcal{E} \circ \left(\Gamma \otimes I_2 \otimes I_{2N+1}\right)$$</span>
 <span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a><span class="fu">### Resetting of the walker coin</span></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>Once again, the hitting protocol is found by measuring the walker position after $\tau$ time steps.</span>
 <span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>In our specific formalism (@sec-qreset-formalism), we have only applied the reset operation on the walker $\mathcal{H}_W$. One could also reset the walker coin $\mathcal{H}_C$ and see what happens. In our current formalism, there is no entanglement broken between the two coins, but there is no a priori understanding of how this may (or may not) affect the walk.</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a><span class="fu">## Computational Implementation</span></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>Although the protocol is similar to the motivation, the current problem we are considering of the first hit time has drastically changed the methods of exploration and the property we want to optimize. Where previously we only probed the convergence time, here we also want to maximize the probability of hitting the target node.</span>
 <span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>Implementations of $\mathcal{U}, U, H$ follow as before. The $\mathcal{E}$ operation is implemented as</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a><span class="fu">### Interpretation of $\gamma$ and dependence on initial condition of the coin {#sec-interpretation}</span></span>
 <span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a><span class="in">```{julia}</span></span>
-<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>function €(n, r₀)</span>
-<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>    ks = <span class="fu">map</span>(<span class="dv">1</span>:n) <span class="kw">do</span> i</span>
-<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>        (<span class="dv">1</span>/√n <span class="ot">*</span> [<span class="dv">1</span> <span class="dv">0</span>; <span class="dv">0</span> <span class="dv">0</span>] ⊗ (S(n)<span class="dt">*H</span>(n))) +</span>
-<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>        [<span class="dv">0</span> <span class="dv">0</span>; <span class="dv">0</span> <span class="dv">1</span>] ⊗ I(<span class="dv">2</span>) ⊗ real(ket(r₀,n)<span class="dt">*bra</span>(i,n))</span>
-<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>    end</span>
-<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>    <span class="kw">return</span> KrausOperators(sparse.(ks))</span>
-<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>end;</span>
-<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a>The gammamard operation $\Gamma$ is defined as</span>
-<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a><span class="in">```{julia}</span></span>
-<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a>Γ(γ) = [</span>
-<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a>    √(<span class="dv">1</span>-γ)  √γ;</span>
-<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a>    √γ      -√(<span class="dv">1</span>-γ)</span>
-<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a>];</span>
-<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a>We take the initial reset coin to be $(S(-\pi/2)\circ\Gamma(\gamma))|0\rangle$ for the same reason as in the quantum walk</span>
-<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a><span class="in">```{julia}</span></span>
-<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a>reset_init(γ) = [<span class="dv">1</span> <span class="dv">0</span>; <span class="dv">0</span> -<span class="dv">1</span>im]<span class="dt">*gammamard</span>(γ)<span class="dt">*ket</span>(<span class="dv">1</span>, <span class="dv">2</span>);</span>
-<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a><span class="fu">## Results</span></span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>In the stochastic resetting $\gamma$ is understood as the "rate" of resetting. However, this is no longer accurate for the quantum case. Consider the case for $\gamma = 0$. Then, the Gammamard operator $\Gamma = \begin{bmatrix}1 &amp; 0<span class="sc">\\</span> 0 &amp; -1\end{bmatrix}$. This does not automatically imply that the reset never occurs; we also require that the initial state of the reset coin is $|0\rangle$. If the initial state of the reset coin is $|1\rangle$, this corresponds to the always reset case. Thus, $\gamma$ is better understood as the probability that given the last step was a Reset, what is the probability this step is an Evolve, and vice versa. Thus, it is not immediately obvious how we can compare the reset mechanisms for a given $\gamma$. Nor is it obvious how the initial state of the reset coin finally affects the success probability and such, and needs to be numerically checked.</span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a><span class="fu">### Resetting of the walker coin</span></span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>In our specific formalism (@sec-qreset-formalism), we have only applied the reset operation on the walker $\mathcal{H}_W$. One could also reset the walker coin $\mathcal{H}_C$ and see what happens. In our current formalism, there is no entanglement broken between the two coins, but there is no a priori understanding of how this may (or may not) affect the walk.</span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a><span class="fu">## Computational Implementation</span></span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>Implementations of $\mathcal{U}, U, H$ follow as before. The $\mathcal{E}$ operation is implemented as</span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a><span class="in">```{julia}</span></span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a>function €(n, r₀)</span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a>    ks = <span class="fu">map</span>(<span class="dv">1</span>:n) <span class="kw">do</span> i</span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a>        (<span class="dv">1</span>/√n <span class="ot">*</span> [<span class="dv">1</span> <span class="dv">0</span>; <span class="dv">0</span> <span class="dv">0</span>] ⊗ (S(n)<span class="dt">*H</span>(n))) +</span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a>        [<span class="dv">0</span> <span class="dv">0</span>; <span class="dv">0</span> <span class="dv">1</span>] ⊗ I(<span class="dv">2</span>) ⊗ real(ket(r₀,n)<span class="dt">*bra</span>(i,n))</span>
+<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a>    end</span>
+<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a>    <span class="kw">return</span> KrausOperators(sparse.(ks))</span>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a>end;</span>
+<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a>The gammamard operation $\Gamma$ is defined as</span>
+<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a><span class="in">```{julia}</span></span>
+<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a>Γ(γ) = [</span>
+<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a>    √(<span class="dv">1</span>-γ)  √γ;</span>
+<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a>    √γ      -√(<span class="dv">1</span>-γ)</span>
+<span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a>];</span>
+<span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a><span class="fu">### What the walk looks like</span></span>
+<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a>We take the initial reset coin to be $(S(-\pi/2)\circ\Gamma(\gamma))|0\rangle$ for the same reason as in the quantum walk</span>
 <span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-79"><a href="#cb4-79" aria-hidden="true" tabindex="-1"></a>For the specific choice of initial reset coin as $1/\sqrt{2}\left(|0\rangle - i|1\rangle\right)$ and $\gamma=0.2$, the quantum reset walk looks like @fig-qrwalk.</span>
-<span id="cb4-80"><a href="#cb4-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-83"><a href="#cb4-83" aria-hidden="true" tabindex="-1"></a><span class="in">```{julia}</span></span>
-<span id="cb4-84"><a href="#cb4-84" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb4-85"><a href="#cb4-85" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-qrwalk</span></span>
-<span id="cb4-86"><a href="#cb4-86" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Probability distribution of the walker in Quantum Reset Walk. We see a markedly different stable distribution as compared to the stochastic reset case @fig-qwsr, with a much sharper cusp, but also a much more spread out walker."</span></span>
-<span id="cb4-87"><a href="#cb4-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-88"><a href="#cb4-88" aria-hidden="true" tabindex="-1"></a>let</span>
-<span id="cb4-89"><a href="#cb4-89" aria-hidden="true" tabindex="-1"></a>    Sₗ(n) = sum(<span class="dv">1</span>:n) <span class="kw">do</span> i</span>
-<span id="cb4-90"><a href="#cb4-90" aria-hidden="true" tabindex="-1"></a>        ket(mod1(i<span class="dv">-1</span>, n), n) <span class="ot">*</span> bra(i, n)</span>
-<span id="cb4-91"><a href="#cb4-91" aria-hidden="true" tabindex="-1"></a>    end</span>
-<span id="cb4-92"><a href="#cb4-92" aria-hidden="true" tabindex="-1"></a>    Sᵣ(n) = sum(<span class="dv">1</span>:n) <span class="kw">do</span> i</span>
-<span id="cb4-93"><a href="#cb4-93" aria-hidden="true" tabindex="-1"></a>        ket(mod1(i+<span class="dv">1</span>, n), n) <span class="ot">*</span> bra(i, n)</span>
-<span id="cb4-94"><a href="#cb4-94" aria-hidden="true" tabindex="-1"></a>    end</span>
-<span id="cb4-95"><a href="#cb4-95" aria-hidden="true" tabindex="-1"></a>    S(n) = proj(ket(<span class="dv">1</span>, <span class="dv">2</span>)) ⊗ Sₗ(n) + proj(ket(<span class="dv">2</span>, <span class="dv">2</span>)) ⊗ Sᵣ(n)</span>
-<span id="cb4-96"><a href="#cb4-96" aria-hidden="true" tabindex="-1"></a>    H(n) = hadamard(<span class="dv">2</span>) ⊗ I(n)</span>
-<span id="cb4-97"><a href="#cb4-97" aria-hidden="true" tabindex="-1"></a>    gammamard(γ) = [</span>
-<span id="cb4-98"><a href="#cb4-98" aria-hidden="true" tabindex="-1"></a>        √(<span class="dv">1</span>-γ)  √γ;</span>
-<span id="cb4-99"><a href="#cb4-99" aria-hidden="true" tabindex="-1"></a>        √γ      -√(<span class="dv">1</span>-γ)</span>
-<span id="cb4-100"><a href="#cb4-100" aria-hidden="true" tabindex="-1"></a>    ]</span>
-<span id="cb4-101"><a href="#cb4-101" aria-hidden="true" tabindex="-1"></a>    function R(n, m)</span>
-<span id="cb4-102"><a href="#cb4-102" aria-hidden="true" tabindex="-1"></a>        ks = <span class="fu">map</span>(<span class="dv">1</span>:n) <span class="kw">do</span> i</span>
-<span id="cb4-103"><a href="#cb4-103" aria-hidden="true" tabindex="-1"></a>            (<span class="dv">1</span>/√n <span class="ot">*</span> [<span class="dv">1</span> <span class="dv">0</span>; <span class="dv">0</span> <span class="dv">0</span>] ⊗ (S(n)<span class="dt">*H</span>(n))) +</span>
-<span id="cb4-104"><a href="#cb4-104" aria-hidden="true" tabindex="-1"></a>            [<span class="dv">0</span> <span class="dv">0</span>; <span class="dv">0</span> <span class="dv">1</span>] ⊗ I(<span class="dv">2</span>) ⊗ real(ket(<span class="dv">6</span>,n)<span class="dt">*bra</span>(i,n))</span>
-<span id="cb4-105"><a href="#cb4-105" aria-hidden="true" tabindex="-1"></a>        end</span>
-<span id="cb4-106"><a href="#cb4-106" aria-hidden="true" tabindex="-1"></a>        <span class="kw">return</span> KrausOperators(sparse.(ks))</span>
-<span id="cb4-107"><a href="#cb4-107" aria-hidden="true" tabindex="-1"></a>    end</span>
-<span id="cb4-108"><a href="#cb4-108" aria-hidden="true" tabindex="-1"></a>    Γᵣ(γ, n) = KrausOperators([sparse(gammamard(γ) ⊗ I(<span class="dv">2</span>) ⊗ I(n))])</span>
-<span id="cb4-109"><a href="#cb4-109" aria-hidden="true" tabindex="-1"></a>    init_coin = (<span class="dv">1</span>/√<span class="dv">2</span>*(ket(<span class="dv">1</span>,<span class="dv">2</span>) - ket(<span class="dv">2</span>,<span class="dv">2</span>)*<span class="dv">1</span>im))</span>
-<span id="cb4-110"><a href="#cb4-110" aria-hidden="true" tabindex="-1"></a>    function RepR(n, <span class="ot">m, γ,</span> j, decohᵣ)</span>
-<span id="cb4-111"><a href="#cb4-111" aria-hidden="true" tabindex="-1"></a>        Rn = R(n, m)</span>
-<span id="cb4-112"><a href="#cb4-112" aria-hidden="true" tabindex="-1"></a>        Γ = Γᵣ(γ, n)</span>
-<span id="cb4-113"><a href="#cb4-113" aria-hidden="true" tabindex="-1"></a>        dyn = <span class="kw">if</span> decohᵣ</span>
-<span id="cb4-114"><a href="#cb4-114" aria-hidden="true" tabindex="-1"></a>            Dᵣ(n) ∘ Rn ∘ Γ</span>
-<span id="cb4-115"><a href="#cb4-115" aria-hidden="true" tabindex="-1"></a>        <span class="kw">else</span></span>
-<span id="cb4-116"><a href="#cb4-116" aria-hidden="true" tabindex="-1"></a>            Rn ∘ Γ</span>
-<span id="cb4-117"><a href="#cb4-117" aria-hidden="true" tabindex="-1"></a>        end</span>
-<span id="cb4-118"><a href="#cb4-118" aria-hidden="true" tabindex="-1"></a>        reset_init = [<span class="dv">1</span> <span class="dv">0</span>; <span class="dv">0</span> -<span class="dv">1</span>im]<span class="dt">*gammamard</span>(γ)<span class="dt">*ket</span>(<span class="dv">1</span>, <span class="dv">2</span>)</span>
-<span id="cb4-119"><a href="#cb4-119" aria-hidden="true" tabindex="-1"></a>        accumulate(<span class="dv">1</span>:j, init=(reset_init ⊗ init_coin ⊗ ket(<span class="dv">1</span>,n))) <span class="kw">do</span> old, _</span>
-<span id="cb4-120"><a href="#cb4-120" aria-hidden="true" tabindex="-1"></a>            dyn(old)</span>
-<span id="cb4-121"><a href="#cb4-121" aria-hidden="true" tabindex="-1"></a>        end</span>
-<span id="cb4-122"><a href="#cb4-122" aria-hidden="true" tabindex="-1"></a>    end</span>
-<span id="cb4-123"><a href="#cb4-123" aria-hidden="true" tabindex="-1"></a>    function simulate(num_nodes, <span class="ot">m, γ,</span> num_steps, decohᵣ)</span>
-<span id="cb4-124"><a href="#cb4-124" aria-hidden="true" tabindex="-1"></a>        raw_data = RepR(num_nodes, <span class="ot">m, γ,</span> num_steps, decohᵣ)</span>
-<span id="cb4-125"><a href="#cb4-125" aria-hidden="true" tabindex="-1"></a>        data = raw_data .|&gt;</span>
-<span id="cb4-126"><a href="#cb4-126" aria-hidden="true" tabindex="-1"></a>            Array .|&gt;</span>
-<span id="cb4-127"><a href="#cb4-127" aria-hidden="true" tabindex="-1"></a>            (x-&gt;ptrace(x, [<span class="dv">2</span>,<span class="dv">2</span>,num_nodes], [<span class="dv">1</span>,<span class="dv">2</span>])) .|&gt;</span>
-<span id="cb4-128"><a href="#cb4-128" aria-hidden="true" tabindex="-1"></a>            diag .|&gt;</span>
-<span id="cb4-129"><a href="#cb4-129" aria-hidden="true" tabindex="-1"></a>            x -&gt; real.(x)</span>
-<span id="cb4-130"><a href="#cb4-130" aria-hidden="true" tabindex="-1"></a>        data, raw_data</span>
-<span id="cb4-131"><a href="#cb4-131" aria-hidden="true" tabindex="-1"></a>    end</span>
-<span id="cb4-132"><a href="#cb4-132" aria-hidden="true" tabindex="-1"></a>    struct Simulation</span>
-<span id="cb4-133"><a href="#cb4-133" aria-hidden="true" tabindex="-1"></a>        <span class="fu">data::Vector</span>{Vector{Float64}}</span>
-<span id="cb4-134"><a href="#cb4-134" aria-hidden="true" tabindex="-1"></a>        <span class="fu">raw_data::Vector</span>{Matrix{ComplexF64}}</span>
-<span id="cb4-135"><a href="#cb4-135" aria-hidden="true" tabindex="-1"></a>        <span class="fu">num_nodes::Int64</span></span>
-<span id="cb4-136"><a href="#cb4-136" aria-hidden="true" tabindex="-1"></a>        <span class="fu">m::Float64</span></span>
-<span id="cb4-137"><a href="#cb4-137" aria-hidden="true" tabindex="-1"></a>        <span class="fu">γ::Float64</span></span>
-<span id="cb4-138"><a href="#cb4-138" aria-hidden="true" tabindex="-1"></a>        <span class="fu">num_steps::Int64</span></span>
-<span id="cb4-139"><a href="#cb4-139" aria-hidden="true" tabindex="-1"></a>        <span class="fu">decohᵣ::Bool</span></span>
-<span id="cb4-140"><a href="#cb4-140" aria-hidden="true" tabindex="-1"></a>        function Simulation(</span>
-<span id="cb4-141"><a href="#cb4-141" aria-hidden="true" tabindex="-1"></a>            <span class="fu">num_nodes::Int64</span>,</span>
-<span id="cb4-142"><a href="#cb4-142" aria-hidden="true" tabindex="-1"></a>            <span class="fu">m::Int64</span>,</span>
-<span id="cb4-143"><a href="#cb4-143" aria-hidden="true" tabindex="-1"></a>            <span class="fu">γ::Float64</span>,</span>
-<span id="cb4-144"><a href="#cb4-144" aria-hidden="true" tabindex="-1"></a>            <span class="fu">num_steps::Int64</span>,</span>
-<span id="cb4-145"><a href="#cb4-145" aria-hidden="true" tabindex="-1"></a>            <span class="fu">decohᵣ::Bool</span>=false</span>
-<span id="cb4-146"><a href="#cb4-146" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb4-147"><a href="#cb4-147" aria-hidden="true" tabindex="-1"></a>            new(</span>
-<span id="cb4-148"><a href="#cb4-148" aria-hidden="true" tabindex="-1"></a>                simulate(num_nodes, <span class="ot">m, γ,</span> num_steps, decohᵣ)...,</span>
-<span id="cb4-149"><a href="#cb4-149" aria-hidden="true" tabindex="-1"></a>                num_nodes,</span>
-<span id="cb4-150"><a href="#cb4-150" aria-hidden="true" tabindex="-1"></a>                <span class="ot">m,</span></span>
-<span id="cb4-151"><a href="#cb4-151" aria-hidden="true" tabindex="-1"></a><span class="ot">                γ,</span></span>
-<span id="cb4-152"><a href="#cb4-152" aria-hidden="true" tabindex="-1"></a>                num_steps,</span>
-<span id="cb4-153"><a href="#cb4-153" aria-hidden="true" tabindex="-1"></a>                decohᵣ</span>
-<span id="cb4-154"><a href="#cb4-154" aria-hidden="true" tabindex="-1"></a>            )</span>
-<span id="cb4-155"><a href="#cb4-155" aria-hidden="true" tabindex="-1"></a>        end</span>
-<span id="cb4-156"><a href="#cb4-156" aria-hidden="true" tabindex="-1"></a>    end</span>
-<span id="cb4-157"><a href="#cb4-157" aria-hidden="true" tabindex="-1"></a>    function rotate_center(arr)</span>
-<span id="cb4-158"><a href="#cb4-158" aria-hidden="true" tabindex="-1"></a>        n = <span class="fu">length</span>(arr)</span>
-<span id="cb4-159"><a href="#cb4-159" aria-hidden="true" tabindex="-1"></a>        arr[mod1.((<span class="dv">1</span>:n).+(n÷<span class="dv">2</span> + <span class="dv">1</span>), n)]</span>
-<span id="cb4-160"><a href="#cb4-160" aria-hidden="true" tabindex="-1"></a>    end</span>
-<span id="cb4-161"><a href="#cb4-161" aria-hidden="true" tabindex="-1"></a>    plot_walk(<span class="fu">s::Simulation</span>, time_step) = Plots.plot(</span>
-<span id="cb4-162"><a href="#cb4-162" aria-hidden="true" tabindex="-1"></a>        <span class="fu">length</span>(<span class="ot">s.data</span><span class="ch">[</span><span class="bn">1</span><span class="ch">])</span><span class="ot"> </span><span class="ch">|</span><span class="ot">&gt; d-&gt; -d÷2</span><span class="ch">+</span><span class="ot">1:d÷2,</span></span>
-<span id="cb4-163"><a href="#cb4-163" aria-hidden="true" tabindex="-1"></a><span class="ot">        rotate_center</span><span class="ch">(</span><span class="ot">s.</span><span class="st">data[time_step]),</span></span>
-<span id="cb4-164"><a href="#cb4-164" aria-hidden="true" tabindex="-1"></a><span class="st">        ylims=(0,1),</span></span>
-<span id="cb4-165"><a href="#cb4-165" aria-hidden="true" tabindex="-1"></a><span class="st">        xlabel="\$i\$", ylabel="\$\\langle i|\\psi\\rangle\$", title="\$t=</span><span class="wa">$(</span><span class="st">time_step), \\gamma=</span><span class="wa">$(</span><span class="st">s</span><span class="ot">.</span>γ), r_0 = |<span class="dv">5</span>\\rangle \<span class="wa">$"</span>, legend=false</span>
-<span id="cb4-166"><a href="#cb4-166" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb4-167"><a href="#cb4-167" aria-hidden="true" tabindex="-1"></a>    s1 = Simulation(<span class="dv">30</span>, <span class="dv">1</span>, <span class="fl">0.2</span>, <span class="dv">100</span>)</span>
-<span id="cb4-168"><a href="#cb4-168" aria-hidden="true" tabindex="-1"></a>    Plots.plot(</span>
-<span id="cb4-169"><a href="#cb4-169" aria-hidden="true" tabindex="-1"></a>        plot_walk(s1, <span class="dv">1</span>),</span>
-<span id="cb4-170"><a href="#cb4-170" aria-hidden="true" tabindex="-1"></a>        plot_walk(s1, <span class="dv">3</span>),</span>
-<span id="cb4-171"><a href="#cb4-171" aria-hidden="true" tabindex="-1"></a>        plot_walk(s1, <span class="dv">6</span>),</span>
-<span id="cb4-172"><a href="#cb4-172" aria-hidden="true" tabindex="-1"></a>        plot_walk(s1, <span class="dv">16</span>),</span>
-<span id="cb4-173"><a href="#cb4-173" aria-hidden="true" tabindex="-1"></a>        size=(<span class="dv">400</span>, <span class="dv">300</span>).*<span class="fl">1.25</span></span>
-<span id="cb4-174"><a href="#cb4-174" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb4-175"><a href="#cb4-175" aria-hidden="true" tabindex="-1"></a>end</span>
-<span id="cb4-176"><a href="#cb4-176" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb4-177"><a href="#cb4-177" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-178"><a href="#cb4-178" aria-hidden="true" tabindex="-1"></a><span class="fu">## Results and Discussion</span></span>
-<span id="cb4-179"><a href="#cb4-179" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-180"><a href="#cb4-180" aria-hidden="true" tabindex="-1"></a>As discussed in @sec-interpretation, we need to vary the three parameters, $(\alpha, \phi, \gamma)$, and see what happens. Thus we plot the success curves for a few sets of parameters (@fig-qreset), and find the minimum mean time of hit for each fixed parameter (@fig-qreset-optim).</span>
-<span id="cb4-181"><a href="#cb4-181" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-182"><a href="#cb4-182" aria-hidden="true" tabindex="-1"></a>::: {#fig-qreset layout="[<span class="co">[</span><span class="ot">50,50</span><span class="co">]</span>, <span class="co">[</span><span class="ot">-25,50,-25</span><span class="co">]</span>]"}</span>
-<span id="cb4-183"><a href="#cb4-183" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-184"><a href="#cb4-184" aria-hidden="true" tabindex="-1"></a><span class="al">![Parameter set 1](./images/qreset_1.png)</span>{#fig-qra}</span>
-<span id="cb4-185"><a href="#cb4-185" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-186"><a href="#cb4-186" aria-hidden="true" tabindex="-1"></a><span class="al">![Parameter set 2](./images/qreset_2.png)</span>{#fig-qrb}</span>
+<span id="cb4-81"><a href="#cb4-81" aria-hidden="true" tabindex="-1"></a><span class="in">```{julia}</span></span>
+<span id="cb4-82"><a href="#cb4-82" aria-hidden="true" tabindex="-1"></a>reset_init(γ) = [<span class="dv">1</span> <span class="dv">0</span>; <span class="dv">0</span> -<span class="dv">1</span>im]<span class="dt">*gammamard</span>(γ)<span class="dt">*ket</span>(<span class="dv">1</span>, <span class="dv">2</span>);</span>
+<span id="cb4-83"><a href="#cb4-83" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb4-84"><a href="#cb4-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-85"><a href="#cb4-85" aria-hidden="true" tabindex="-1"></a><span class="fu">## Results</span></span>
+<span id="cb4-86"><a href="#cb4-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-87"><a href="#cb4-87" aria-hidden="true" tabindex="-1"></a><span class="fu">### What the walk looks like</span></span>
+<span id="cb4-88"><a href="#cb4-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-89"><a href="#cb4-89" aria-hidden="true" tabindex="-1"></a>For the specific choice of initial reset coin as $1/\sqrt{2}\left(|0\rangle - i|1\rangle\right)$ and $\gamma=0.2$, the quantum reset walk looks like @fig-qrwalk.</span>
+<span id="cb4-90"><a href="#cb4-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-93"><a href="#cb4-93" aria-hidden="true" tabindex="-1"></a><span class="in">```{julia}</span></span>
+<span id="cb4-94"><a href="#cb4-94" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb4-95"><a href="#cb4-95" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-qrwalk</span></span>
+<span id="cb4-96"><a href="#cb4-96" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Probability distribution of the walker in Quantum Reset Walk. We see a markedly different stable distribution as compared to the stochastic reset case @fig-qwsr, with a much sharper cusp, but also a much more spread out walker."</span></span>
+<span id="cb4-97"><a href="#cb4-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-98"><a href="#cb4-98" aria-hidden="true" tabindex="-1"></a>let</span>
+<span id="cb4-99"><a href="#cb4-99" aria-hidden="true" tabindex="-1"></a>    Sₗ(n) = sum(<span class="dv">1</span>:n) <span class="kw">do</span> i</span>
+<span id="cb4-100"><a href="#cb4-100" aria-hidden="true" tabindex="-1"></a>        ket(mod1(i<span class="dv">-1</span>, n), n) <span class="ot">*</span> bra(i, n)</span>
+<span id="cb4-101"><a href="#cb4-101" aria-hidden="true" tabindex="-1"></a>    end</span>
+<span id="cb4-102"><a href="#cb4-102" aria-hidden="true" tabindex="-1"></a>    Sᵣ(n) = sum(<span class="dv">1</span>:n) <span class="kw">do</span> i</span>
+<span id="cb4-103"><a href="#cb4-103" aria-hidden="true" tabindex="-1"></a>        ket(mod1(i+<span class="dv">1</span>, n), n) <span class="ot">*</span> bra(i, n)</span>
+<span id="cb4-104"><a href="#cb4-104" aria-hidden="true" tabindex="-1"></a>    end</span>
+<span id="cb4-105"><a href="#cb4-105" aria-hidden="true" tabindex="-1"></a>    S(n) = proj(ket(<span class="dv">1</span>, <span class="dv">2</span>)) ⊗ Sₗ(n) + proj(ket(<span class="dv">2</span>, <span class="dv">2</span>)) ⊗ Sᵣ(n)</span>
+<span id="cb4-106"><a href="#cb4-106" aria-hidden="true" tabindex="-1"></a>    H(n) = hadamard(<span class="dv">2</span>) ⊗ I(n)</span>
+<span id="cb4-107"><a href="#cb4-107" aria-hidden="true" tabindex="-1"></a>    gammamard(γ) = [</span>
+<span id="cb4-108"><a href="#cb4-108" aria-hidden="true" tabindex="-1"></a>        √(<span class="dv">1</span>-γ)  √γ;</span>
+<span id="cb4-109"><a href="#cb4-109" aria-hidden="true" tabindex="-1"></a>        √γ      -√(<span class="dv">1</span>-γ)</span>
+<span id="cb4-110"><a href="#cb4-110" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb4-111"><a href="#cb4-111" aria-hidden="true" tabindex="-1"></a>    function R(n, m)</span>
+<span id="cb4-112"><a href="#cb4-112" aria-hidden="true" tabindex="-1"></a>        ks = <span class="fu">map</span>(<span class="dv">1</span>:n) <span class="kw">do</span> i</span>
+<span id="cb4-113"><a href="#cb4-113" aria-hidden="true" tabindex="-1"></a>            (<span class="dv">1</span>/√n <span class="ot">*</span> [<span class="dv">1</span> <span class="dv">0</span>; <span class="dv">0</span> <span class="dv">0</span>] ⊗ (S(n)<span class="dt">*H</span>(n))) +</span>
+<span id="cb4-114"><a href="#cb4-114" aria-hidden="true" tabindex="-1"></a>            [<span class="dv">0</span> <span class="dv">0</span>; <span class="dv">0</span> <span class="dv">1</span>] ⊗ I(<span class="dv">2</span>) ⊗ real(ket(<span class="dv">6</span>,n)<span class="dt">*bra</span>(i,n))</span>
+<span id="cb4-115"><a href="#cb4-115" aria-hidden="true" tabindex="-1"></a>        end</span>
+<span id="cb4-116"><a href="#cb4-116" aria-hidden="true" tabindex="-1"></a>        <span class="kw">return</span> KrausOperators(sparse.(ks))</span>
+<span id="cb4-117"><a href="#cb4-117" aria-hidden="true" tabindex="-1"></a>    end</span>
+<span id="cb4-118"><a href="#cb4-118" aria-hidden="true" tabindex="-1"></a>    Γᵣ(γ, n) = KrausOperators([sparse(gammamard(γ) ⊗ I(<span class="dv">2</span>) ⊗ I(n))])</span>
+<span id="cb4-119"><a href="#cb4-119" aria-hidden="true" tabindex="-1"></a>    init_coin = (<span class="dv">1</span>/√<span class="dv">2</span>*(ket(<span class="dv">1</span>,<span class="dv">2</span>) - ket(<span class="dv">2</span>,<span class="dv">2</span>)*<span class="dv">1</span>im))</span>
+<span id="cb4-120"><a href="#cb4-120" aria-hidden="true" tabindex="-1"></a>    function RepR(n, <span class="ot">m, γ,</span> j, decohᵣ)</span>
+<span id="cb4-121"><a href="#cb4-121" aria-hidden="true" tabindex="-1"></a>        Rn = R(n, m)</span>
+<span id="cb4-122"><a href="#cb4-122" aria-hidden="true" tabindex="-1"></a>        Γ = Γᵣ(γ, n)</span>
+<span id="cb4-123"><a href="#cb4-123" aria-hidden="true" tabindex="-1"></a>        dyn = <span class="kw">if</span> decohᵣ</span>
+<span id="cb4-124"><a href="#cb4-124" aria-hidden="true" tabindex="-1"></a>            Dᵣ(n) ∘ Rn ∘ Γ</span>
+<span id="cb4-125"><a href="#cb4-125" aria-hidden="true" tabindex="-1"></a>        <span class="kw">else</span></span>
+<span id="cb4-126"><a href="#cb4-126" aria-hidden="true" tabindex="-1"></a>            Rn ∘ Γ</span>
+<span id="cb4-127"><a href="#cb4-127" aria-hidden="true" tabindex="-1"></a>        end</span>
+<span id="cb4-128"><a href="#cb4-128" aria-hidden="true" tabindex="-1"></a>        reset_init = [<span class="dv">1</span> <span class="dv">0</span>; <span class="dv">0</span> -<span class="dv">1</span>im]<span class="dt">*gammamard</span>(γ)<span class="dt">*ket</span>(<span class="dv">1</span>, <span class="dv">2</span>)</span>
+<span id="cb4-129"><a href="#cb4-129" aria-hidden="true" tabindex="-1"></a>        accumulate(<span class="dv">1</span>:j, init=(reset_init ⊗ init_coin ⊗ ket(<span class="dv">1</span>,n))) <span class="kw">do</span> old, _</span>
+<span id="cb4-130"><a href="#cb4-130" aria-hidden="true" tabindex="-1"></a>            dyn(old)</span>
+<span id="cb4-131"><a href="#cb4-131" aria-hidden="true" tabindex="-1"></a>        end</span>
+<span id="cb4-132"><a href="#cb4-132" aria-hidden="true" tabindex="-1"></a>    end</span>
+<span id="cb4-133"><a href="#cb4-133" aria-hidden="true" tabindex="-1"></a>    function simulate(num_nodes, <span class="ot">m, γ,</span> num_steps, decohᵣ)</span>
+<span id="cb4-134"><a href="#cb4-134" aria-hidden="true" tabindex="-1"></a>        raw_data = RepR(num_nodes, <span class="ot">m, γ,</span> num_steps, decohᵣ)</span>
+<span id="cb4-135"><a href="#cb4-135" aria-hidden="true" tabindex="-1"></a>        data = raw_data .|&gt;</span>
+<span id="cb4-136"><a href="#cb4-136" aria-hidden="true" tabindex="-1"></a>            Array .|&gt;</span>
+<span id="cb4-137"><a href="#cb4-137" aria-hidden="true" tabindex="-1"></a>            (x-&gt;ptrace(x, [<span class="dv">2</span>,<span class="dv">2</span>,num_nodes], [<span class="dv">1</span>,<span class="dv">2</span>])) .|&gt;</span>
+<span id="cb4-138"><a href="#cb4-138" aria-hidden="true" tabindex="-1"></a>            diag .|&gt;</span>
+<span id="cb4-139"><a href="#cb4-139" aria-hidden="true" tabindex="-1"></a>            x -&gt; real.(x)</span>
+<span id="cb4-140"><a href="#cb4-140" aria-hidden="true" tabindex="-1"></a>        data, raw_data</span>
+<span id="cb4-141"><a href="#cb4-141" aria-hidden="true" tabindex="-1"></a>    end</span>
+<span id="cb4-142"><a href="#cb4-142" aria-hidden="true" tabindex="-1"></a>    struct Simulation</span>
+<span id="cb4-143"><a href="#cb4-143" aria-hidden="true" tabindex="-1"></a>        <span class="fu">data::Vector</span>{Vector{Float64}}</span>
+<span id="cb4-144"><a href="#cb4-144" aria-hidden="true" tabindex="-1"></a>        <span class="fu">raw_data::Vector</span>{Matrix{ComplexF64}}</span>
+<span id="cb4-145"><a href="#cb4-145" aria-hidden="true" tabindex="-1"></a>        <span class="fu">num_nodes::Int64</span></span>
+<span id="cb4-146"><a href="#cb4-146" aria-hidden="true" tabindex="-1"></a>        <span class="fu">m::Float64</span></span>
+<span id="cb4-147"><a href="#cb4-147" aria-hidden="true" tabindex="-1"></a>        <span class="fu">γ::Float64</span></span>
+<span id="cb4-148"><a href="#cb4-148" aria-hidden="true" tabindex="-1"></a>        <span class="fu">num_steps::Int64</span></span>
+<span id="cb4-149"><a href="#cb4-149" aria-hidden="true" tabindex="-1"></a>        <span class="fu">decohᵣ::Bool</span></span>
+<span id="cb4-150"><a href="#cb4-150" aria-hidden="true" tabindex="-1"></a>        function Simulation(</span>
+<span id="cb4-151"><a href="#cb4-151" aria-hidden="true" tabindex="-1"></a>            <span class="fu">num_nodes::Int64</span>,</span>
+<span id="cb4-152"><a href="#cb4-152" aria-hidden="true" tabindex="-1"></a>            <span class="fu">m::Int64</span>,</span>
+<span id="cb4-153"><a href="#cb4-153" aria-hidden="true" tabindex="-1"></a>            <span class="fu">γ::Float64</span>,</span>
+<span id="cb4-154"><a href="#cb4-154" aria-hidden="true" tabindex="-1"></a>            <span class="fu">num_steps::Int64</span>,</span>
+<span id="cb4-155"><a href="#cb4-155" aria-hidden="true" tabindex="-1"></a>            <span class="fu">decohᵣ::Bool</span>=false</span>
+<span id="cb4-156"><a href="#cb4-156" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb4-157"><a href="#cb4-157" aria-hidden="true" tabindex="-1"></a>            new(</span>
+<span id="cb4-158"><a href="#cb4-158" aria-hidden="true" tabindex="-1"></a>                simulate(num_nodes, <span class="ot">m, γ,</span> num_steps, decohᵣ)...,</span>
+<span id="cb4-159"><a href="#cb4-159" aria-hidden="true" tabindex="-1"></a>                num_nodes,</span>
+<span id="cb4-160"><a href="#cb4-160" aria-hidden="true" tabindex="-1"></a>                <span class="ot">m,</span></span>
+<span id="cb4-161"><a href="#cb4-161" aria-hidden="true" tabindex="-1"></a><span class="ot">                γ,</span></span>
+<span id="cb4-162"><a href="#cb4-162" aria-hidden="true" tabindex="-1"></a>                num_steps,</span>
+<span id="cb4-163"><a href="#cb4-163" aria-hidden="true" tabindex="-1"></a>                decohᵣ</span>
+<span id="cb4-164"><a href="#cb4-164" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb4-165"><a href="#cb4-165" aria-hidden="true" tabindex="-1"></a>        end</span>
+<span id="cb4-166"><a href="#cb4-166" aria-hidden="true" tabindex="-1"></a>    end</span>
+<span id="cb4-167"><a href="#cb4-167" aria-hidden="true" tabindex="-1"></a>    function rotate_center(arr)</span>
+<span id="cb4-168"><a href="#cb4-168" aria-hidden="true" tabindex="-1"></a>        n = <span class="fu">length</span>(arr)</span>
+<span id="cb4-169"><a href="#cb4-169" aria-hidden="true" tabindex="-1"></a>        arr[mod1.((<span class="dv">1</span>:n).+(n÷<span class="dv">2</span> + <span class="dv">1</span>), n)]</span>
+<span id="cb4-170"><a href="#cb4-170" aria-hidden="true" tabindex="-1"></a>    end</span>
+<span id="cb4-171"><a href="#cb4-171" aria-hidden="true" tabindex="-1"></a>    plot_walk(<span class="fu">s::Simulation</span>, time_step) = Plots.plot(</span>
+<span id="cb4-172"><a href="#cb4-172" aria-hidden="true" tabindex="-1"></a>        <span class="fu">length</span>(<span class="ot">s.data</span><span class="ch">[</span><span class="bn">1</span><span class="ch">])</span><span class="ot"> </span><span class="ch">|</span><span class="ot">&gt; d-&gt; -d÷2</span><span class="ch">+</span><span class="ot">1:d÷2,</span></span>
+<span id="cb4-173"><a href="#cb4-173" aria-hidden="true" tabindex="-1"></a><span class="ot">        rotate_center</span><span class="ch">(</span><span class="ot">s.</span><span class="st">data[time_step]),</span></span>
+<span id="cb4-174"><a href="#cb4-174" aria-hidden="true" tabindex="-1"></a><span class="st">        ylims=(0,1),</span></span>
+<span id="cb4-175"><a href="#cb4-175" aria-hidden="true" tabindex="-1"></a><span class="st">        xlabel="\$i\$", ylabel="\$\\langle i|\\psi\\rangle\$", title="\$t=</span><span class="wa">$(</span><span class="st">time_step), \\gamma=</span><span class="wa">$(</span><span class="st">s</span><span class="ot">.</span>γ), r_0 = |<span class="dv">5</span>\\rangle \<span class="wa">$"</span>, legend=false</span>
+<span id="cb4-176"><a href="#cb4-176" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-177"><a href="#cb4-177" aria-hidden="true" tabindex="-1"></a>    s1 = Simulation(<span class="dv">30</span>, <span class="dv">1</span>, <span class="fl">0.2</span>, <span class="dv">100</span>)</span>
+<span id="cb4-178"><a href="#cb4-178" aria-hidden="true" tabindex="-1"></a>    Plots.plot(</span>
+<span id="cb4-179"><a href="#cb4-179" aria-hidden="true" tabindex="-1"></a>        plot_walk(s1, <span class="dv">1</span>),</span>
+<span id="cb4-180"><a href="#cb4-180" aria-hidden="true" tabindex="-1"></a>        plot_walk(s1, <span class="dv">3</span>),</span>
+<span id="cb4-181"><a href="#cb4-181" aria-hidden="true" tabindex="-1"></a>        plot_walk(s1, <span class="dv">6</span>),</span>
+<span id="cb4-182"><a href="#cb4-182" aria-hidden="true" tabindex="-1"></a>        plot_walk(s1, <span class="dv">16</span>),</span>
+<span id="cb4-183"><a href="#cb4-183" aria-hidden="true" tabindex="-1"></a>        size=(<span class="dv">400</span>, <span class="dv">300</span>).*<span class="fl">1.25</span></span>
+<span id="cb4-184"><a href="#cb4-184" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-185"><a href="#cb4-185" aria-hidden="true" tabindex="-1"></a>end</span>
+<span id="cb4-186"><a href="#cb4-186" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb4-187"><a href="#cb4-187" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-188"><a href="#cb4-188" aria-hidden="true" tabindex="-1"></a><span class="al">![Parameter set 3](./images/qreset_3.png)</span>{#fig-qrc}</span>
+<span id="cb4-188"><a href="#cb4-188" aria-hidden="true" tabindex="-1"></a><span class="fu">## Results and Discussion</span></span>
 <span id="cb4-189"><a href="#cb4-189" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-190"><a href="#cb4-190" aria-hidden="true" tabindex="-1"></a>Mean hitting time for some parameter sets. We see a nontrivial dependence on the initial state of the coin.</span>
-<span id="cb4-191"><a href="#cb4-191" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb4-192"><a href="#cb4-192" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-193"><a href="#cb4-193" aria-hidden="true" tabindex="-1"></a>::: {#fig-qreset-optim layout="[<span class="co">[</span><span class="ot">50,50</span><span class="co">]</span>, <span class="co">[</span><span class="ot">-25,50,-25</span><span class="co">]</span>]"}</span>
-<span id="cb4-194"><a href="#cb4-194" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-195"><a href="#cb4-195" aria-hidden="true" tabindex="-1"></a><span class="al">![$\alpha$ vs $\phi$](./images/fix_alpha_phi.png)</span>{#fig-qroa}</span>
-<span id="cb4-196"><a href="#cb4-196" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-197"><a href="#cb4-197" aria-hidden="true" tabindex="-1"></a><span class="al">![$\alpha$ vs $\gamma$](./images/fix_alpha_gamma.png)</span>{#fig-qrob}</span>
-<span id="cb4-198"><a href="#cb4-198" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-199"><a href="#cb4-199" aria-hidden="true" tabindex="-1"></a><span class="al">![$\phi$ vs $\gamma$](./images/fix_phi_gamma.png)</span>{#fig-qroc}</span>
-<span id="cb4-200"><a href="#cb4-200" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-201"><a href="#cb4-201" aria-hidden="true" tabindex="-1"></a>Value of the third parameter for optimal mean hitting rate, found by fixing the other two parameters. We surprisingly see that $\gamma=0$ or $1$ is the optimal value for all initial conditions. Furthermore, the effect of $\phi$ is symmetric about $\pi$</span>
-<span id="cb4-202"><a href="#cb4-202" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb4-203"><a href="#cb4-203" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-204"><a href="#cb4-204" aria-hidden="true" tabindex="-1"></a>As we can see, the mean time of hit even for the best set of parameters (within the ranges explored) is not better than the optimal time for the stochastic reset protocol. This result however may not hold true for other values of $\tau$, and more work is necessary to conclusively state that there isn't (or is) any speedup achieved here.</span>
-<span id="cb4-205"><a href="#cb4-205" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-206"><a href="#cb4-206" aria-hidden="true" tabindex="-1"></a><span class="fu">### Optimal Parameter Values</span></span>
-<span id="cb4-207"><a href="#cb4-207" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-208"><a href="#cb4-208" aria-hidden="true" tabindex="-1"></a>| $\alpha$ | $\phi$ | $\gamma$  |</span>
-<span id="cb4-209"><a href="#cb4-209" aria-hidden="true" tabindex="-1"></a>| :------: | :----: | :-------: |</span>
-<span id="cb4-210"><a href="#cb4-210" aria-hidden="true" tabindex="-1"></a>|  $0.0$   | $0.0$  | $10^{-5}$ |</span>
-<span id="cb4-211"><a href="#cb4-211" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-212"><a href="#cb4-212" aria-hidden="true" tabindex="-1"></a>: Optimal Parameter Values {#tbl-qresetresults}</span>
+<span id="cb4-190"><a href="#cb4-190" aria-hidden="true" tabindex="-1"></a>As discussed in @sec-interpretation, we need to vary the three parameters, $(\alpha, \phi, \gamma)$, and see what happens. Thus, we plot the success curves for a few sets of parameters (@fig-qreset), and find the minimum mean time of hit for each fixed parameter (@fig-qreset-optim).</span>
+<span id="cb4-191"><a href="#cb4-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-192"><a href="#cb4-192" aria-hidden="true" tabindex="-1"></a>::: {#fig-qreset layout="[<span class="co">[</span><span class="ot">50,50</span><span class="co">]</span>, <span class="co">[</span><span class="ot">-25,50,-25</span><span class="co">]</span>]"}</span>
+<span id="cb4-193"><a href="#cb4-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-194"><a href="#cb4-194" aria-hidden="true" tabindex="-1"></a><span class="al">![Parameter set 1](./images/qreset_1.png)</span>{#fig-qra}</span>
+<span id="cb4-195"><a href="#cb4-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-196"><a href="#cb4-196" aria-hidden="true" tabindex="-1"></a><span class="al">![Parameter set 2](./images/qreset_2.png)</span>{#fig-qrb}</span>
+<span id="cb4-197"><a href="#cb4-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-198"><a href="#cb4-198" aria-hidden="true" tabindex="-1"></a><span class="al">![Parameter set 3](./images/qreset_3.png)</span>{#fig-qrc}</span>
+<span id="cb4-199"><a href="#cb4-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-200"><a href="#cb4-200" aria-hidden="true" tabindex="-1"></a>Mean hitting time for some parameter sets. We see a nontrivial dependence on the initial state of the coin.</span>
+<span id="cb4-201"><a href="#cb4-201" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-202"><a href="#cb4-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-203"><a href="#cb4-203" aria-hidden="true" tabindex="-1"></a>::: {#fig-qreset-optim layout="[<span class="co">[</span><span class="ot">50,50</span><span class="co">]</span>, <span class="co">[</span><span class="ot">-25,50,-25</span><span class="co">]</span>]"}</span>
+<span id="cb4-204"><a href="#cb4-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-205"><a href="#cb4-205" aria-hidden="true" tabindex="-1"></a><span class="al">![$\alpha$ vs $\phi$](./images/fix_alpha_phi.png)</span>{#fig-qroa}</span>
+<span id="cb4-206"><a href="#cb4-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-207"><a href="#cb4-207" aria-hidden="true" tabindex="-1"></a><span class="al">![$\alpha$ vs $\gamma$](./images/fix_alpha_gamma.png)</span>{#fig-qrob}</span>
+<span id="cb4-208"><a href="#cb4-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-209"><a href="#cb4-209" aria-hidden="true" tabindex="-1"></a><span class="al">![$\phi$ vs $\gamma$](./images/fix_phi_gamma.png)</span>{#fig-qroc}</span>
+<span id="cb4-210"><a href="#cb4-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-211"><a href="#cb4-211" aria-hidden="true" tabindex="-1"></a>Value of the third parameter for optimal mean hitting rate, found by fixing the other two parameters. We surprisingly see that $\gamma=0$ or $1$ is the optimal value for all initial conditions. Furthermore, the effect of $\phi$ is symmetric about $\pi$</span>
+<span id="cb4-212"><a href="#cb4-212" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb4-213"><a href="#cb4-213" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-214"><a href="#cb4-214" aria-hidden="true" tabindex="-1"></a><span class="fu">### The Issue of Non-Unitarity</span></span>
+<span id="cb4-214"><a href="#cb4-214" aria-hidden="true" tabindex="-1"></a>As we can see, the mean time of hit even for the best set of parameters (within the ranges explored) is not better than the optimal time for the stochastic reset protocol. This result however may not hold true for other values of $\tau$, and more work is necessary to conclusively state that there isn't (or is) any speedup achieved here.</span>
 <span id="cb4-215"><a href="#cb4-215" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-216"><a href="#cb4-216" aria-hidden="true" tabindex="-1"></a>One drawback of this formalism is its complexity. Whereas the stochastic reset proceeded by a unitary evolution between measurement events, the quantum reset protocol is inherently a non-unitary operation. This makes analysis more complicated.</span>
+<span id="cb4-216"><a href="#cb4-216" aria-hidden="true" tabindex="-1"></a><span class="fu">### Optimal Parameter Values</span></span>
 <span id="cb4-217"><a href="#cb4-217" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-218"><a href="#cb4-218" aria-hidden="true" tabindex="-1"></a>The difficulty doesn't only lie in analytical complexity, but also in simulations, where simulating the quantum reset quantum walk takes much longer. This can be attributed to the larger system size (size of $\rho = 16N^2$), and due to the increased number of matrix multiplications and additions ($2N$ matrix multiplications of size $4N\times 4N$ ($64N^3$ multiplications and $64N^3 - 16N^2$ additions) followed by $N$ matrix additions ($16N^2 additions) which finally consists of $128N^4$ multiplications and $128N^4$ additions for one step of the quantum reset walk, as compared to $2\cdot 8N^3$ multiplications and $2 \cdot 8N^3 - 4N^2$ additions, even ignoring the additions, the quantum reset walk is $\mathcal{O}(N^4)$ whereas the stochastic reset walk is $\mathcal{O}(N^3)$ to simulate. For any reasonably sized cycle (to avoid finite size effects), this cost makes simulating the walk for different parameters extremely tedious.</span>
-<span id="cb4-219"><a href="#cb4-219" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-220"><a href="#cb4-220" aria-hidden="true" tabindex="-1"></a>Therefore, although we have been able to introduce a superposition between the two operations, and we have decoupled the resetting from the measurement, we require a unitary protocol to efficiently perform the walk.</span>
+<span id="cb4-218"><a href="#cb4-218" aria-hidden="true" tabindex="-1"></a>| $\alpha$ | $\phi$ | $\gamma$  |</span>
+<span id="cb4-219"><a href="#cb4-219" aria-hidden="true" tabindex="-1"></a>| :------: | :----: | :-------: |</span>
+<span id="cb4-220"><a href="#cb4-220" aria-hidden="true" tabindex="-1"></a>|  $0.0$   | $0.0$  | $10^{-5}$ |</span>
+<span id="cb4-221"><a href="#cb4-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-222"><a href="#cb4-222" aria-hidden="true" tabindex="-1"></a>: Optimal Parameter Values {#tbl-qresetresults}</span>
+<span id="cb4-223"><a href="#cb4-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-224"><a href="#cb4-224" aria-hidden="true" tabindex="-1"></a><span class="fu">### The Issue of Non-Unitarity</span></span>
+<span id="cb4-225"><a href="#cb4-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-226"><a href="#cb4-226" aria-hidden="true" tabindex="-1"></a>One drawback of this formalism is its complexity. Whereas the stochastic reset proceeded by a unitary evolution between measurement events, the quantum reset protocol is inherently a non-unitary operation. This makes analysis more complicated.</span>
+<span id="cb4-227"><a href="#cb4-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-228"><a href="#cb4-228" aria-hidden="true" tabindex="-1"></a>The difficulty doesn't only lie in analytical complexity, but also in simulations, where simulating the quantum reset quantum walk takes much longer. This can be attributed to the larger system size (size of $\rho = 16N^2$), and due to the increased number of matrix multiplications and additions ($2N$ matrix multiplications of size $4N\times 4N$ ($64N^3$ multiplications and $64N^3 - 16N^2$ additions) followed by $N$ matrix additions ($16N^2 additions) which finally consists of $128N^4$ multiplications and $128N^4$ additions for one step of the quantum reset walk, as compared to $2\cdot 8N^3$ multiplications and $2 \cdot 8N^3 - 4N^2$ additions, even ignoring the additions, the quantum reset walk is $\mathcal{O}(N^4)$ whereas the stochastic reset walk is $\mathcal{O}(N^3)$ to simulate. For any reasonably sized cycle (to avoid finite size effects), this cost makes simulating the walk for different parameters extremely tedious.</span>
+<span id="cb4-229"><a href="#cb4-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-230"><a href="#cb4-230" aria-hidden="true" tabindex="-1"></a>Therefore, although we have been able to introduce a superposition between the two operations, and we have decoupled the resetting from the measurement, we require a unitary protocol to efficiently perform the walk.</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

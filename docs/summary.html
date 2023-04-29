@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.6">
+<meta name="generator" content="quarto-1.4.11">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -267,10 +267,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#future-directions" id="toc-future-directions" class="nav-link active" data-scroll-target="#future-directions"><span class="header-section-number">8.1</span> Future directions</a>
+  <li><a href="#future-directions" id="toc-future-directions" class="nav-link active" data-scroll-target="#future-directions">Future directions</a>
   <ul class="collapse">
-  <li><a href="#quantum-reset" id="toc-quantum-reset" class="nav-link" data-scroll-target="#quantum-reset"><span class="header-section-number">8.1.1</span> Quantum Reset</a></li>
-  <li><a href="#unitary-reset" id="toc-unitary-reset" class="nav-link" data-scroll-target="#unitary-reset"><span class="header-section-number">8.1.2</span> Unitary Reset</a></li>
+  <li><a href="#quantum-reset" id="toc-quantum-reset" class="nav-link" data-scroll-target="#quantum-reset">Quantum Reset</a></li>
+  <li><a href="#unitary-reset" id="toc-unitary-reset" class="nav-link" data-scroll-target="#unitary-reset">Unitary Reset</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -320,16 +320,16 @@ flowchart TD
 </div>
 <p>We have reviewed the definitions of classical and quantum walks, and a measurement based node hitting protocol. We further reviewed past work which fixed the transient nature of the semi-quantum walk by a classical (possibly stochastic) resetting protocol, leading to 0 asymptotic failure rates. Furthermore, we motivated the need for a true quantum resetting protocol.</p>
 <p>We first proposed a quantum resetting protocol motivated by the superposition of the shift operations in the coined quantum walk, and produced a preliminary computational analysis. While we were not able to show conclusively an advantage over the classical reset, there is still a possibility that a speedup can be achieved for other ranges of parameters. This protocol however became unwieldy to handle due to its complexity, and suggested a need for a unitary quantum reset.</p>
-<p>We then proposed a unitary quantum reset by directly quantizing the classical reset classical walk via the Szegedy walk formalism, which was also introduced. By running a Grover-like search protocol, we were able to show that the unitary reset quantum walk on the 1D chain does show a small decrease in the mean hitting time compared to the quantum walk for certain ranges of the reset parameter. Furthermore, we show that there is a definite speedup and a reduction in the computational space required in the search protocol via eigenvalue analysis, and propose that the reduction in the mean hitting time may be due to a corresponding reduction in the success of the protocol.</p>
+<p>We then proposed a unitary quantum reset by directly quantising the classical reset classical walk via the Szegedy walk formalism, which was also introduced. By running a Grover-like search protocol, we were able to show that the unitary reset quantum walk on the 1D chain does show a small decrease in the mean hitting time compared to the quantum walk for certain ranges of the reset parameter. Furthermore, we show that there is a definite speedup and a reduction in the computational space required in the search protocol via eigenvalue analysis, and propose that the reduction in the mean hitting time may be due to a corresponding reduction in the success of the protocol.</p>
 <section id="future-directions" class="level2" data-number="8.1">
-<h2 data-number="8.1" class="anchored" data-anchor-id="future-directions"><span class="header-section-number">8.1</span> Future directions</h2>
+<h2 data-number="8.1" class="anchored" data-anchor-id="future-directions">Future directions</h2>
 <p>We propose following questions for future work.</p>
 <section id="quantum-reset" class="level3" data-number="8.1.1">
-<h3 data-number="8.1.1" class="anchored" data-anchor-id="quantum-reset"><span class="header-section-number">8.1.1</span> Quantum Reset</h3>
+<h3 data-number="8.1.1" class="anchored" data-anchor-id="quantum-reset">Quantum Reset</h3>
 <p>Does the quantum reset protocol show speedup even for other parameter ranges? Is there a framework to analyse the convergence time of the quantum resetting protocol and the probability of success? Can we propose a Grover-like search algorithm? What effect does the quantum resetting have on such a protocol?</p>
 </section>
 <section id="unitary-reset" class="level3" data-number="8.1.2">
-<h3 data-number="8.1.2" class="anchored" data-anchor-id="unitary-reset"><span class="header-section-number">8.1.2</span> Unitary Reset</h3>
+<h3 data-number="8.1.2" class="anchored" data-anchor-id="unitary-reset">Unitary Reset</h3>
 <p>We have left the analysis of the probability of success for the unitary quantum reset Grover-like search protocol for future work. Since the unitary quantum reset is a quantum walk, how does the semi-quantum version of this walk behave like? The unitary quantum reset protocol is not limited to the 1D chain, or even lattice like structures. Do we still see speedups for other graph structures? Finally, can we apply the classical reset to the unitary quantum reset walk to gain a speedup from both kinds of resetting?</p>
 
 
@@ -696,7 +696,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>We first proposed a quantum resetting protocol motivated by the superposition of the shift operations in the coined quantum walk, and produced a preliminary computational analysis. While we were not able to show conclusively an advantage over the classical reset, there is still a possibility that a speedup can be achieved for other ranges of parameters. This protocol however became unwieldy to handle due to its complexity, and suggested a need for a unitary quantum reset.</span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>We then proposed a unitary quantum reset by directly quantizing the classical reset classical walk via the Szegedy walk formalism, which was also introduced. By running a Grover-like search protocol, we were able to show that the unitary reset quantum walk on the 1D chain does show a small decrease in the mean hitting time compared to the quantum walk for certain ranges of the reset parameter. Furthermore, we show that there is a definite speedup and a reduction in the computational space required in the search protocol via eigenvalue analysis, and propose that the reduction in the mean hitting time may be due to a corresponding reduction in the success of the protocol.</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>We then proposed a unitary quantum reset by directly quantising the classical reset classical walk via the Szegedy walk formalism, which was also introduced. By running a Grover-like search protocol, we were able to show that the unitary reset quantum walk on the 1D chain does show a small decrease in the mean hitting time compared to the quantum walk for certain ranges of the reset parameter. Furthermore, we show that there is a definite speedup and a reduction in the computational space required in the search protocol via eigenvalue analysis, and propose that the reduction in the mean hitting time may be due to a corresponding reduction in the success of the protocol.</span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="fu">## Future directions</span></span>
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
